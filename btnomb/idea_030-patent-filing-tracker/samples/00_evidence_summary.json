@@ -1,0 +1,28 @@
+{
+  "artifact_files": [
+    "01_health_response.json",
+    "02_company_watchlist_response.json",
+    "03_keyword_watchlist_response.json",
+    "04_poll_response.json",
+    "05_filings_search_response.json",
+    "06_alerts_response.json",
+    "07_trends_response.json",
+    "08_x402_payment_requirements.json",
+    "09_export_payment_required_response.json",
+    "10_export_paid_response.json",
+    "11_dashboard_snippet.html",
+    "test-output.txt"
+  ],
+  "checks": {
+    "company_watchlist_created": true,
+    "dashboard_live": true,
+    "email_alert_recorded": true,
+    "health_ok": true,
+    "keyword_watchlist_created": true,
+    "poll_created_filings": 2,
+    "webhook_alert_recorded": true,
+    "x402_paid_export_ok": true,
+    "x402_unpaid_returns_402": true
+  },
+  "generated_at": "2026-05-08T19:31:45+00:00"
+}

@@ -1,0 +1,5 @@
+{
+  "ok": true,
+  "patentsview_api": "https://search.patentsview.org/api/v1/patent/",
+  "service": "Patent Filing Tracker"
+}
