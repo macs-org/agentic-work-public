@@ -1,0 +1,130 @@
+{
+  "base_url": "http://127.0.0.1:8765",
+  "checks": [
+    {
+      "expected": 200,
+      "method": "GET",
+      "name": "health",
+      "ok": true,
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "checks": {
+        "api_key_configured": true,
+        "history_directory_writable": true,
+        "history_path": "/tmp/idea007-e2e-history.jsonl",
+        "pricing_configured": {
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "large_audit_cents": 500,
+          "network": "base",
+          "small_audit_cents": 200
+        },
+        "production_ready": true,
+        "report_formats": [
+          "json",
+          "markdown",
+          "html",
+          "pdf-ish"
+        ],
+        "serving": true,
+        "started_at": "2026-05-08T23:32:56.986635+00:00",
+        "warnings": [],
+        "x402_pay_to_configured": true
+      },
+      "expected": 200,
+      "method": "GET",
+      "name": "readiness",
+      "ok": true,
+      "path": "/ready",
+      "production_ready": true,
+      "status": 200
+    },
+    {
+      "expected": 200,
+      "method": "POST",
+      "name": "preview",
+      "ok": true,
+      "path": "/audit",
+      "preview": true,
+      "severity_summary": {
+        "Critical": 1,
+        "High": 4,
+        "Informational": 0,
+        "Low": 0,
+        "Medium": 1
+      },
+      "status": 200
+    },
+    {
+      "amount": "2000000",
+      "expected": 402,
+      "method": "POST",
+      "name": "payment_required",
+      "network": "base",
+      "ok": true,
+      "path": "/audit",
+      "status": 402,
+      "x402Version": 1
+    },
+    {
+      "audit_id": "aud_615a1b606364",
+      "expected": 200,
+      "finding_count": 6,
+      "method": "POST",
+      "name": "paid_audit",
+      "ok": true,
+      "path": "/audit",
+      "status": 200,
+      "top_severity": "Critical"
+    },
+    {
+      "body_present": true,
+      "expected": 200,
+      "method": "GET",
+      "name": "report.json",
+      "ok": true,
+      "path": "/reports/aud_615a1b606364",
+      "status": 200
+    },
+    {
+      "body_present": true,
+      "expected": 200,
+      "method": "GET",
+      "name": "report.md",
+      "ok": true,
+      "path": "/reports/aud_615a1b606364.md",
+      "status": 200
+    },
+    {
+      "body_present": true,
+      "expected": 200,
+      "method": "GET",
+      "name": "report.html",
+      "ok": true,
+      "path": "/reports/aud_615a1b606364.html",
+      "status": 200
+    },
+    {
+      "body_present": true,
+      "expected": 200,
+      "method": "GET",
+      "name": "report.pdf",
+      "ok": true,
+      "path": "/reports/aud_615a1b606364.pdf",
+      "status": 200
+    },
+    {
+      "audit_seen": true,
+      "expected": 200,
+      "method": "GET",
+      "name": "history",
+      "ok": true,
+      "path": "/history",
+      "status": 200
+    }
+  ],
+  "elapsed_seconds": 0.047,
+  "passed": true,
+  "under_90_seconds": true
+}

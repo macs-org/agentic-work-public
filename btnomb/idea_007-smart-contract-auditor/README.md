@@ -126,6 +126,7 @@ curl -sS -X POST http://127.0.0.1:8000/audit \
 ## Endpoints
 
 - `GET /health` — health check.
+- `GET /ready` — production-readiness check for deployment probes.
 - `POST /audit` — run preview or paid audit.
 - `GET /reports/{audit_id}` — JSON report.
 - `GET /reports/{audit_id}.md` — Markdown report.
@@ -162,8 +163,14 @@ PYTHONPATH=. python -m pytest tests -q
 
 ```bash
 docker build -t smart-contract-auditor-mvp .
-docker run --rm -p 8000:8000 -e AUDITOR_API_KEY=dev-audit-key smart-contract-auditor-mvp
+docker run --rm -p 8000:8000 \
+  -e AUDITOR_API_KEY=replace-with-a-real-secret \
+  -e X402_PAY_TO=0x23bB05603A980C2915FC3B9D5D4a475993b666DE \
+  -v auditor-data:/data \
+  smart-contract-auditor-mvp
 ```
+
+`GET /ready` is designed for live deployment probes and reports whether persistent history storage, non-demo API key, and x402 payout configuration are production-ready. See `DEPLOYMENT.md` for the full deployment runbook and E2E smoke command.
 
 ## Acceptance mapping
 

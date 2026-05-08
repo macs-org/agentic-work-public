@@ -77,4 +77,12 @@ This demonstrates the end-to-end flow requested in the bounty: Solidity input â†
 PYTHONPATH=. python -m pytest tests -q
 ```
 
+The test suite includes unit/API tests plus `tests/test_e2e_http.py`, which starts a real Uvicorn server on an ephemeral local port and verifies the live HTTP flow: `/ready`, preview audit, x402 `402 Payment Required`, paid audit, report downloads, history, and the under-90-second target.
+
+For deployment smoke checks against a local container or public URL:
+
+```bash
+python3 scripts/e2e_smoke.py --base-url http://127.0.0.1:8000 --api-key dev-audit-key --out evidence/e2e-smoke.json
+```
+
 Expected result: all tests pass.
