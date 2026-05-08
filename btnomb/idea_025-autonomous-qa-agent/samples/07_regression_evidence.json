@@ -1,0 +1,53 @@
+{
+  "alerts": {
+    "alerts": [
+      {
+        "alert_id": "alt_0583a738e2b6a043",
+        "alert_type": "regression",
+        "case_id": "stable_answer",
+        "channel": "email",
+        "created_at": "2026-05-08T16:28:11.376297",
+        "message": "Previously passing case 'stable_answer' failed in run run_4a20306e0543e841.",
+        "recipient": "qa-owner@example.com",
+        "run_id": "run_4a20306e0543e841",
+        "status": "captured:no_smtp_configured",
+        "suite_id": "sui_0a0fd5f4321d595c"
+      }
+    ]
+  },
+  "first_run_status": "passed",
+  "second_run": {
+    "agent_id": "agt_d96436027a70a2d8",
+    "drift_count": 0,
+    "failed": 1,
+    "finished_at": "2026-05-08T16:28:11.376489",
+    "pass_rate": 0.0,
+    "passed": 0,
+    "regression_count": 1,
+    "results": [
+      {
+        "actual_text": "broken",
+        "assertions": [
+          {
+            "passed": false,
+            "type": "exact",
+            "value": "ok"
+          }
+        ],
+        "case_id": "stable_answer",
+        "diff": "--- expected\n+++ actual\n@@ -1 +1 @@\n-ok\n+broken",
+        "expected_text": "ok",
+        "passed": false,
+        "prompt": "What is the deployment status?",
+        "similarity_score": null
+      }
+    ],
+    "run_id": "run_4a20306e0543e841",
+    "started_at": "2026-05-08T16:28:11.375257",
+    "status": "failed",
+    "suite_id": "sui_0a0fd5f4321d595c",
+    "total": 1,
+    "trigger": "manual"
+  },
+  "second_run_status_code": 201
+}

@@ -1,0 +1,15 @@
+{
+  "body": {
+    "schedules": [
+      {
+        "due": false,
+        "interval": "hourly",
+        "last_run_at": "2026-05-08T16:28:11.339306",
+        "name": "Demo Agent Release QA",
+        "next_run_at": "2026-05-08T17:28:11.339306",
+        "suite_id": "sui_ce694cb75fc731e3"
+      }
+    ]
+  },
+  "status_code": 200
+}

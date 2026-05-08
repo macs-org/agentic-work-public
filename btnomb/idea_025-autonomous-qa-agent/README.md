@@ -186,8 +186,20 @@ PYTHONPATH=. python3 -m pytest tests -q
 Expected current result:
 
 ```text
-6 passed
+......                                                                   [100%]
+6 passed in 1.02s
 ```
+
+Captured reviewer verification from 2026-05-08 is in `samples/test-output.txt`.
+
+## Reviewer evidence pack
+
+- `DEMO.md` — step-by-step install, test, local API, scheduler, dashboard, regression, and x402 checkout walkthrough.
+- `ACCEPTANCE_CHECKLIST.md` — bounty requirement mapping to endpoints, code, tests, and evidence files.
+- `LIMITATIONS.md` — MVP scope and production-hardening notes.
+- `samples/demo_suite.yaml` — reviewer-friendly YAML suite definition.
+- `samples/01_create_agent_response.json` through `samples/07_regression_evidence.json` — sanitized request/response artifacts generated with FastAPI TestClient and in-memory SQLite.
+- `samples/test-output.txt` — current pytest output.
 
 ## Acceptance mapping
 
