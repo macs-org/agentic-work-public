@@ -1,5 +1,11 @@
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 from fastapi.testclient import TestClient
 import app.main as main
+from sdk.python.audit_trail import ActionLog, hash_action as sdk_hash_action
 
 def fresh_client(tmp_path):
     main.store = main.Store(str(tmp_path / 'audit.db'))
@@ -11,6 +17,12 @@ def action(i=1):
 def test_hash_is_canonical_and_merkle_proof_verifies():
     a = action(1); h1 = main.hash_action(a); h2 = main.hash_action(dict(reversed(list(a.items())))); assert h1 == h2
     leaves = [main.hash_action(action(i)) for i in range(4)]; root = main.merkle_root(leaves); proof = main.merkle_proof(leaves, 2); assert main.verify_proof(leaves[2], proof, root, 2)
+
+def test_python_sdk_hash_matches_service_schema():
+    payload = action(42)
+    sdk_action = ActionLog(**payload)
+    assert sdk_hash_action(sdk_action) == main.hash_action(payload)
+    assert sdk_hash_action(payload) == main.hash_action(payload)
 
 def test_log_commit_verify_api(tmp_path):
     client = fresh_client(tmp_path)

@@ -22,6 +22,12 @@ Audit trail system for autonomous agents: every significant action is hashed, ba
 - **REST API:** accepts raw action fields and returns whether they match a committed proof.
 - **Explorer:** `GET /` shows batches and recent agent actions with verification status.
 
+Reviewer evidence:
+
+- `DEMO.md` walks through log → commit → verify with sample outputs.
+- `ACCEPTANCE_CHECKLIST.md` maps each requested deliverable to files, tests, and limitations.
+- `evidence/` contains sample request/response artifacts and the verification/test log.
+
 ## Run locally
 
 ```bash
