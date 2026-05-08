@@ -1,0 +1,385 @@
+{
+  "create_subscriber": {
+    "body": {
+      "active": 1,
+      "agencies": "[\"SEC\", \"FDA\", \"FCC\", \"CFTC\"]",
+      "created_at": "2026-05-08T15:28:55+00:00",
+      "email": "compliance@example.test",
+      "id": 1,
+      "industries": "[\"fintech\", \"healthcare\", \"telecom\"]",
+      "topics": "[\"crypto\", \"healthcare\", \"telecom\", \"markets\"]",
+      "webhook_url": null
+    },
+    "request": {
+      "json": {
+        "agencies": [
+          "SEC",
+          "FDA",
+          "FCC",
+          "CFTC"
+        ],
+        "email": "compliance@example.test",
+        "industries": [
+          "fintech",
+          "healthcare",
+          "telecom"
+        ],
+        "topics": [
+          "crypto",
+          "healthcare",
+          "telecom",
+          "markets"
+        ]
+      },
+      "method": "POST",
+      "url": "/api/subscribers"
+    },
+    "status_code": 200
+  },
+  "dashboard_excerpt": {
+    "contains": [
+      "Regulatory Change Monitor",
+      "SEC final rule",
+      "Trend counts",
+      "Payment"
+    ],
+    "html_excerpt": "\n    <!doctype html><html><head><title>Regulatory Change Monitor</title>\n    <style>body{font-family:Inter,system-ui,sans-serif;margin:32px;background:#10131f;color:#eef} .card{background:#181d2e;padding:18px;border-radius:14px;margin:16px 0} input,select,button{padding:9px;border-radius:8px;border:1px solid #334;background:#0f1322;color:#eef} table{width:100%;border-collapse:collapse} td,th{border-bottom:1px solid #334;padding:10px;text-align:left;vertical-align:top} small{color:#aeb6d8}</style></head>\n    <body><h1>Regulatory Change Monitor</h1><p>SEC, FDA, FCC, and CFTC monitoring with summaries, impact scores, alerts, and x402 export.</p>\n    <div class='card'><h2>Filters</h2><form><input name='q' value='crypto' placeholder='search'><input name='agency' value='SEC' placeholder='SEC/FDA/FCC/CFTC'><input name='topic' value='' placeholder='topic'><input name='industry' value='' placeholder='industry'><button>Filter</button></form></div>\n    <div class='card'><h2>Subscribers</h2><ul><li>#1 compliance@example.test \u2014 SEC,FDA,FCC,CFTC</li></ul></div>\n    <div class='card'><h2>Recent alerts</h2><table><tr><th>Date</th><th>Agency</th><th>Document</th><th>Impact</th><th>Industries</th></",
+    "request": {
+      "method": "GET",
+      "url": "/?agency=SEC&q=crypto"
+    },
+    "status_code": 200
+  },
+  "deliveries": {
+    "body": [
+      {
+        "channel": "email",
+        "created_at": "2026-05-08T15:28:55+00:00",
+        "destination": "compliance@example.test",
+        "detail": "SMTP_HOST not set; alert stored in development outbox",
+        "id": 4,
+        "source_id": "CFTC:DEMO-2026-001",
+        "status": "stored",
+        "subscriber_id": 1
+      },
+      {
+        "channel": "email",
+        "created_at": "2026-05-08T15:28:55+00:00",
+        "destination": "compliance@example.test",
+        "detail": "SMTP_HOST not set; alert stored in development outbox",
+        "id": 3,
+        "source_id": "FCC:DEMO-2026-001",
+        "status": "stored",
+        "subscriber_id": 1
+      },
+      {
+        "channel": "email",
+        "created_at": "2026-05-08T15:28:55+00:00",
+        "destination": "compliance@example.test",
+        "detail": "SMTP_HOST not set; alert stored in development outbox",
+        "id": 2,
+        "source_id": "FDA:DEMO-2026-001",
+        "status": "stored",
+        "subscriber_id": 1
+      },
+      {
+        "channel": "email",
+        "created_at": "2026-05-08T15:28:55+00:00",
+        "destination": "compliance@example.test",
+        "detail": "SMTP_HOST not set; alert stored in development outbox",
+        "id": 1,
+        "source_id": "SEC:DEMO-2026-001",
+        "status": "stored",
+        "subscriber_id": 1
+      }
+    ],
+    "request": {
+      "method": "GET",
+      "url": "/api/deliveries"
+    },
+    "status_code": 200
+  },
+  "export_with_payment": {
+    "body": {
+      "alerts": [
+        {
+          "action_required": "Assess obligations before effective date 2026-06-01; assign legal/compliance owner.",
+          "affected_industries": [
+            "fintech",
+            "AI/software"
+          ],
+          "agency": "SEC",
+          "document_type": "final rule",
+          "effective_date": "2026-06-01",
+          "first_seen_at": "2026-05-08T15:28:55+00:00",
+          "impact_level": "major rule change",
+          "impact_score": 65,
+          "publication_date": "2026-05-08",
+          "source_id": "SEC:DEMO-2026-001",
+          "summary": "SEC final rule on automated digital asset compliance. Final rule requiring crypto securities platforms to maintain automated compliance controls, cybersecurity reporting, and board oversight.",
+          "title": "SEC final rule on automated digital asset compliance",
+          "topics": [
+            "AI",
+            "crypto",
+            "privacy",
+            "markets"
+          ],
+          "url": "https://example.test/sec/demo-2026-001"
+        },
+        {
+          "action_required": "Assess obligations before effective date 2026-06-01; assign legal/compliance owner.",
+          "affected_industries": [
+            "healthcare",
+            "AI/software",
+            "consumer products"
+          ],
+          "agency": "FDA",
+          "document_type": "final rule",
+          "effective_date": "2026-06-01",
+          "first_seen_at": "2026-05-08T15:28:55+00:00",
+          "impact_level": "minor update",
+          "impact_score": 35,
+          "publication_date": "2026-05-08",
+          "source_id": "FDA:DEMO-2026-001",
+          "summary": "FDA guidance on AI-enabled medical device change protocols. Guidance for clinical software, patient safety monitoring, and machine learning model updates in medical devices.",
+          "title": "FDA guidance on AI-enabled medical device change protocols",
+          "topics": [
+            "AI",
+            "healthcare"
+          ],
+          "url": "https://example.test/fda/demo-2026-001"
+        },
+        {
+          "action_required": "Assess obligations before effective date 2026-06-01; assign legal/compliance owner.",
+          "affected_industries": [
+            "telecom",
+            "AI/software"
+          ],
+          "agency": "FCC",
+          "document_type": "final rule",
+          "effective_date": "2026-06-01",
+          "first_seen_at": "2026-05-08T15:28:55+00:00",
+          "impact_level": "moderate update",
+          "impact_score": 50,
+          "publication_date": "2026-05-08",
+          "source_id": "FCC:DEMO-2026-001",
+          "summary": "FCC order expanding broadband cybersecurity reporting. Order requiring wireless and broadband providers to report cyber incidents and maintain network resilience programs.",
+          "title": "FCC order expanding broadband cybersecurity reporting",
+          "topics": [
+            "privacy",
+            "telecom"
+          ],
+          "url": "https://example.test/fcc/demo-2026-001"
+        },
+        {
+          "action_required": "Assess obligations before effective date 2026-06-01; assign legal/compliance owner.",
+          "affected_industries": [
+            "fintech",
+            "AI/software"
+          ],
+          "agency": "CFTC",
+          "document_type": "final rule",
+          "effective_date": "2026-06-01",
+          "first_seen_at": "2026-05-08T15:28:55+00:00",
+          "impact_level": "major rule change",
+          "impact_score": 65,
+          "publication_date": "2026-05-08",
+          "source_id": "CFTC:DEMO-2026-001",
+          "summary": "CFTC final rule on swap data reporting controls. Final rule requiring futures commission merchants and swap dealers to improve compliance, automated reporting, and clearing controls.",
+          "title": "CFTC final rule on swap data reporting controls",
+          "topics": [
+            "AI",
+            "privacy",
+            "markets"
+          ],
+          "url": "https://example.test/cftc/demo-2026-001"
+        }
+      ],
+      "exported_at": "2026-05-08T15:28:55+00:00",
+      "trends": [
+        {
+          "agency": "CFTC",
+          "alerts": 1,
+          "impact_level": "major rule change",
+          "month": "2026-05"
+        },
+        {
+          "agency": "FCC",
+          "alerts": 1,
+          "impact_level": "moderate update",
+          "month": "2026-05"
+        },
+        {
+          "agency": "FDA",
+          "alerts": 1,
+          "impact_level": "minor update",
+          "month": "2026-05"
+        },
+        {
+          "agency": "SEC",
+          "alerts": 1,
+          "impact_level": "major rule change",
+          "month": "2026-05"
+        }
+      ]
+    },
+    "request": {
+      "headers": {
+        "X-PAYMENT": "demo-receipt"
+      },
+      "method": "GET",
+      "url": "/api/export"
+    },
+    "status_code": 200
+  },
+  "export_without_payment": {
+    "body": {
+      "detail": {
+        "error": "payment_required",
+        "payment": {
+          "amount": "99.00",
+          "asset": "USDC",
+          "header": "X-PAYMENT",
+          "network": "base",
+          "pay_to": "0x23bB05603A980C2915FC3B9D5D4a475993b666DE",
+          "product": "Regulatory Change Monitor Starter monthly access"
+        }
+      }
+    },
+    "request": {
+      "method": "GET",
+      "url": "/api/export"
+    },
+    "status_code": 402
+  },
+  "health": {
+    "body": {
+      "ok": true,
+      "poll_interval_seconds": 900,
+      "service": "Regulatory Change Monitor",
+      "sources": [
+        "SEC",
+        "FDA",
+        "FCC",
+        "CFTC"
+      ]
+    },
+    "request": {
+      "method": "GET",
+      "url": "/health"
+    },
+    "status_code": 200
+  },
+  "payment_requirements": {
+    "body": {
+      "amount": "99.00",
+      "asset": "USDC",
+      "header": "X-PAYMENT",
+      "network": "base",
+      "pay_to": "0x23bB05603A980C2915FC3B9D5D4a475993b666DE",
+      "product": "Regulatory Change Monitor Starter monthly access"
+    },
+    "request": {
+      "method": "GET",
+      "url": "/api/payments/x402/requirements"
+    },
+    "status_code": 200
+  },
+  "poll_sources": {
+    "body": {
+      "documents_seen": 4,
+      "errors": [],
+      "new_alerts": 4,
+      "sources": [
+        "SEC",
+        "FDA",
+        "FCC",
+        "CFTC"
+      ],
+      "summaries_generated_immediately": true
+    },
+    "request": {
+      "method": "POST",
+      "url": "/api/poll?limit_per_source=1"
+    },
+    "status_code": 200
+  },
+  "scheduler_status": {
+    "body": {
+      "cron_command": "POST /api/poll",
+      "meets_five_minute_sla": false,
+      "poll_interval_seconds": 900
+    },
+    "request": {
+      "method": "GET",
+      "url": "/api/scheduler/status"
+    },
+    "status_code": 200
+  },
+  "search_sec_crypto": {
+    "body": [
+      {
+        "action_required": "Assess obligations before effective date 2026-06-01; assign legal/compliance owner.",
+        "affected_industries": [
+          "fintech",
+          "AI/software"
+        ],
+        "agency": "SEC",
+        "document_type": "final rule",
+        "effective_date": "2026-06-01",
+        "first_seen_at": "2026-05-08T15:28:55+00:00",
+        "impact_level": "major rule change",
+        "impact_score": 65,
+        "publication_date": "2026-05-08",
+        "source_id": "SEC:DEMO-2026-001",
+        "summary": "SEC final rule on automated digital asset compliance. Final rule requiring crypto securities platforms to maintain automated compliance controls, cybersecurity reporting, and board oversight.",
+        "title": "SEC final rule on automated digital asset compliance",
+        "topics": [
+          "AI",
+          "crypto",
+          "privacy",
+          "markets"
+        ],
+        "url": "https://example.test/sec/demo-2026-001"
+      }
+    ],
+    "request": {
+      "method": "GET",
+      "url": "/api/alerts?q=crypto&agency=SEC"
+    },
+    "status_code": 200
+  },
+  "trends": {
+    "body": [
+      {
+        "agency": "CFTC",
+        "alerts": 1,
+        "impact_level": "major rule change",
+        "month": "2026-05"
+      },
+      {
+        "agency": "FCC",
+        "alerts": 1,
+        "impact_level": "moderate update",
+        "month": "2026-05"
+      },
+      {
+        "agency": "FDA",
+        "alerts": 1,
+        "impact_level": "minor update",
+        "month": "2026-05"
+      },
+      {
+        "agency": "SEC",
+        "alerts": 1,
+        "impact_level": "major rule change",
+        "month": "2026-05"
+      }
+    ],
+    "request": {
+      "method": "GET",
+      "url": "/api/trends"
+    },
+    "status_code": 200
+  }
+}
