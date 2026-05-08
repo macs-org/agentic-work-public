@@ -1,0 +1,68 @@
+{
+  "snapshots": [
+    {
+      "body": {
+        "created_at": "2026-04-08T17:29:04.480603",
+        "momentum_score": 0.0,
+        "repo_full_name": "acme/hot-ai-agents"
+      },
+      "status_code": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-05-01T17:29:04.486262",
+        "momentum_score": 0.0,
+        "repo_full_name": "acme/hot-ai-agents"
+      },
+      "status_code": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-05-08T17:29:04.497504",
+        "momentum_score": 280.61,
+        "repo_full_name": "acme/hot-ai-agents"
+      },
+      "status_code": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-04-08T17:29:04.506742",
+        "momentum_score": 0.0,
+        "repo_full_name": "nous/rising-devtool"
+      },
+      "status_code": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-05-01T17:29:04.513092",
+        "momentum_score": 0.0,
+        "repo_full_name": "nous/rising-devtool"
+      },
+      "status_code": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-05-08T17:29:04.520235",
+        "momentum_score": 214.52,
+        "repo_full_name": "nous/rising-devtool"
+      },
+      "status_code": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-04-08T17:29:04.525733",
+        "momentum_score": 14.21,
+        "repo_full_name": "acme/steady-ui"
+      },
+      "status_code": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-05-08T17:29:04.531301",
+        "momentum_score": 14.21,
+        "repo_full_name": "acme/steady-ui"
+      },
+      "status_code": 201
+    }
+  ]
+}

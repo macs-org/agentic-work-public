@@ -1,0 +1,23 @@
+{
+  "body": {
+    "count": 1,
+    "repos": [
+      {
+        "category": "AI/ML",
+        "commits": 180,
+        "contributors": 22,
+        "description": "LLM agent inference toolkit with API orchestration and observability",
+        "forks": 38,
+        "full_name": "acme/hot-ai-agents",
+        "html_url": "https://github.com/acme/hot-ai-agents",
+        "language": "Python",
+        "last_polled_at": "2026-05-08T17:29:04.449409",
+        "momentum_score": 280.61,
+        "open_issues": 9,
+        "stars": 260,
+        "watchers": 100
+      }
+    ]
+  },
+  "status_code": 200
+}

@@ -1,0 +1,53 @@
+{
+  "body": {
+    "count": 3,
+    "repos": [
+      {
+        "category": "AI/ML",
+        "commits": 180,
+        "contributors": 22,
+        "description": "LLM agent inference toolkit with API orchestration and observability",
+        "forks": 38,
+        "full_name": "acme/hot-ai-agents",
+        "html_url": "https://github.com/acme/hot-ai-agents",
+        "language": "Python",
+        "last_polled_at": "2026-05-08T17:29:04.449409",
+        "momentum_score": 280.61,
+        "open_issues": 9,
+        "stars": 260,
+        "watchers": 100
+      },
+      {
+        "category": "DevTools",
+        "commits": 105,
+        "contributors": 12,
+        "description": "CLI automation and developer observability SDK",
+        "forks": 23,
+        "full_name": "nous/rising-devtool",
+        "html_url": "https://github.com/nous/rising-devtool",
+        "language": "Go",
+        "last_polled_at": "2026-05-08T17:29:04.470102",
+        "momentum_score": 214.52,
+        "open_issues": 10,
+        "stars": 160,
+        "watchers": 50
+      },
+      {
+        "category": "Frontend",
+        "commits": 520,
+        "contributors": 45,
+        "description": "React component library and CSS design system",
+        "forks": 210,
+        "full_name": "acme/steady-ui",
+        "html_url": "https://github.com/acme/steady-ui",
+        "language": "TypeScript",
+        "last_polled_at": "2026-05-08T17:29:04.476949",
+        "momentum_score": 14.21,
+        "open_issues": 44,
+        "stars": 1200,
+        "watchers": 1200
+      }
+    ]
+  },
+  "status_code": 200
+}

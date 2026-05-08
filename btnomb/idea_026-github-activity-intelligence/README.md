@@ -35,6 +35,30 @@ Open:
 PYTHONPATH=. python -m pytest tests -q
 ```
 
+Current reviewer verification (2026-05-08):
+
+```text
+...                                                                      [100%]
+3 passed, 26 warnings in 1.71s
+```
+
+Captured output is in `samples/test-output.txt`. The warnings are Python 3.14 `datetime.utcnow()` deprecations and do not affect the MVP behavior.
+
+## Reviewer evidence package
+
+Start with:
+
+- `DEMO.md` — reviewer walkthrough from install/test through scoring, search, watchlists, digest, dashboard, live polling, and x402 checkout.
+- `ACCEPTANCE_CHECKLIST.md` — bounty requirement mapping to code, tests, and sample files.
+- `LIMITATIONS.md` — MVP boundaries and production-hardening notes.
+- `samples/00_evidence_summary.json` — generated evidence summary.
+- `samples/03_ranked_repos_response.json` — momentum ranking evidence.
+- `samples/04_search_filter_response.json` — category/text/min-score filter evidence.
+- `samples/06_watchlist_alerts_response.json` — watchlist alert evidence.
+- `samples/07_weekly_digest_response.json` — weekly digest evidence.
+- `samples/08_x402_checkout_response.json` — x402-style 402 checkout evidence.
+- `samples/09_dashboard_snippet.html` — dashboard HTML snippet.
+
 ## Configuration
 
 Copy `.env.example` to `.env` if you use a process manager that loads env files.

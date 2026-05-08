@@ -1,0 +1,11 @@
+{
+  "alerts_created": 1,
+  "auth": "write/admin routes require X-API-Key; sample uses dev-api-key only",
+  "database": "sqlite:///:memory:",
+  "digest_categories": 3,
+  "generated_at": "2026-05-08T17:29:04.637801+00:00",
+  "repos_ranked": 3,
+  "top_repo": "acme/hot-ai-agents",
+  "top_score": 280.61,
+  "x402_checkout_status": 402
+}
