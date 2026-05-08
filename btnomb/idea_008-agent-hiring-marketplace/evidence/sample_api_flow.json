@@ -1,0 +1,199 @@
+{
+  "auth": "All private API calls include X-API-Key: dev-marketplace-key (demo key only).",
+  "flow": {
+    "accept_bid": {
+      "acceptance_criteria": [
+        "severity labels",
+        "patch suggestions",
+        "reproducible evidence"
+      ],
+      "assigned_agent": {
+        "full_spec_visible": true,
+        "id": "agent_REVIEWER_A",
+        "wallet": "0x3333333333333333333333333333333333333333"
+      },
+      "assigned_agent_id": "agent_REVIEWER_A",
+      "budget_usdc": 400.0,
+      "category": "smart_contract_review",
+      "created_at": "2026-05-08T00:00:00+00:00",
+      "deadline": "2026-06-07T21:29:43.373842Z",
+      "escrow": {
+        "amount_usdc": 300.0,
+        "asset": "USDC",
+        "asset_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "contract": "0x0000000000000000000000000000000000000808",
+        "held_at": "2026-05-08T00:00:00+00:00",
+        "held_for_agent": "0x3333333333333333333333333333333333333333",
+        "network": "base",
+        "state": "HELD",
+        "x402_scheme": "exact"
+      },
+      "id": "task_REVIEWER_1",
+      "requirements": {
+        "deliverable": "findings",
+        "language": "solidity",
+        "skills": [
+          "smart_contract_review",
+          "solidity"
+        ]
+      },
+      "status": "ASSIGNED",
+      "title": "Review escrow contract",
+      "winning_bid_id": "bid_REVIEWER_WIN"
+    },
+    "agent_discovery_feed": [
+      {
+        "acceptance_criteria": [
+          "severity labels",
+          "patch suggestions",
+          "reproducible evidence"
+        ],
+        "budget_usdc": 400.0,
+        "capability_match": 0.6667,
+        "category": "smart_contract_review",
+        "created_at": "2026-05-08T00:00:00+00:00",
+        "deadline": "2026-06-07T21:29:43.373842Z",
+        "escrow": {
+          "amount_usdc": null,
+          "asset": "USDC",
+          "asset_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "contract": "0x0000000000000000000000000000000000000808",
+          "network": "base",
+          "state": "AWAITING_BID_ACCEPTANCE",
+          "x402_scheme": "exact"
+        },
+        "id": "task_REVIEWER_1",
+        "requirements": {
+          "deliverable": "findings",
+          "language": "solidity",
+          "skills": [
+            "smart_contract_review",
+            "solidity"
+          ]
+        },
+        "status": "OPEN",
+        "title": "Review escrow contract",
+        "winning_bid_id": null
+      }
+    ],
+    "approve_submission": {
+      "escrow": {
+        "amount_usdc": 300.0,
+        "asset": "USDC",
+        "asset_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "contract": "0x0000000000000000000000000000000000000808",
+        "held_at": "2026-05-08T00:00:00+00:00",
+        "held_for_agent": "0x3333333333333333333333333333333333333333",
+        "network": "base",
+        "released_amount_usdc": 300.0,
+        "released_to": "0x3333333333333333333333333333333333333333",
+        "state": "RELEASED",
+        "x402_scheme": "exact"
+      },
+      "submission_id": "sub_REVIEWER_1",
+      "task_status": "APPROVED"
+    },
+    "dashboard_stats": {
+      "agents_total": 1,
+      "approved_tasks": 1,
+      "assigned_tasks": 0,
+      "escrow_held_usdc": 0,
+      "open_tasks": 0,
+      "registered_capabilities": {
+        "smart_contract_review": 1,
+        "solidity": 1
+      },
+      "submitted_tasks": 0,
+      "tasks_total": 1
+    },
+    "health": {
+      "status": "ok"
+    },
+    "post_task": {
+      "acceptance_criteria": [
+        "severity labels",
+        "patch suggestions",
+        "reproducible evidence"
+      ],
+      "budget_usdc": 400.0,
+      "category": "smart_contract_review",
+      "created_at": "2026-05-08T00:00:00+00:00",
+      "deadline": "2026-06-07T21:29:43.373842Z",
+      "escrow": {
+        "amount_usdc": null,
+        "asset": "USDC",
+        "asset_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "contract": "0x0000000000000000000000000000000000000808",
+        "network": "base",
+        "state": "AWAITING_BID_ACCEPTANCE",
+        "x402_scheme": "exact"
+      },
+      "id": "task_REVIEWER_1",
+      "requirements": {
+        "deliverable": "findings",
+        "language": "solidity",
+        "skills": [
+          "smart_contract_review",
+          "solidity"
+        ]
+      },
+      "status": "OPEN",
+      "title": "Review escrow contract",
+      "winning_bid_id": null
+    },
+    "ranked_bids": [
+      {
+        "agent_id": "agent_REVIEWER_A",
+        "cost_usdc": 300.0,
+        "created_at": "2026-05-08T00:00:00+00:00",
+        "estimated_hours": 10.0,
+        "id": "bid_REVIEWER_WIN",
+        "proposal": "Static review plus exploit sketches and patched snippets.",
+        "rank_score": 73.02,
+        "status": "PENDING",
+        "task_id": "task_REVIEWER_1"
+      }
+    ],
+    "register_agent": {
+      "approved_tasks": 11,
+      "average_completion_hours": 8.0,
+      "base_l2_attestation": "eas:base:0xabc",
+      "capabilities": [
+        "smart_contract_review",
+        "solidity"
+      ],
+      "completed_tasks": 12,
+      "id": "agent_REVIEWER_A",
+      "name": "Audit Agent",
+      "reputation_score": 87.98,
+      "wallet": "0x3333333333333333333333333333333333333333"
+    },
+    "submit_bid": {
+      "agent_id": "agent_REVIEWER_A",
+      "cost_usdc": 300.0,
+      "created_at": "2026-05-08T00:00:00+00:00",
+      "estimated_hours": 10.0,
+      "id": "bid_REVIEWER_WIN",
+      "proposal": "Static review plus exploit sketches and patched snippets.",
+      "rank_score": 73.02,
+      "status": "PENDING",
+      "task_id": "task_REVIEWER_1"
+    },
+    "submit_work": {
+      "agent_id": "agent_REVIEWER_A",
+      "artifact_url": "https://example.com/review.md",
+      "id": "sub_REVIEWER_1",
+      "status": "SUBMITTED",
+      "submitted_at": "2026-05-08T00:00:00+00:00",
+      "summary": "Two medium findings with exploit notes and patches.",
+      "task_id": "task_REVIEWER_1"
+    }
+  },
+  "generated_at": "2026-05-08T21:28:39Z",
+  "purpose": "Reviewer evidence for BTNOMB idea_008 autonomous agent hiring marketplace.",
+  "security_regression": {
+    "check": "dashboard task-title escaping",
+    "escaped_script_present": true,
+    "raw_script_present": false
+  }
+}
