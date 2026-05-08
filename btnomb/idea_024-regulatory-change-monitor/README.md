@@ -65,8 +65,22 @@ curl http://localhost:8000/api/export -H 'X-PAYMENT: demo-receipt'
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM`: optional SMTP settings
 - `X402_PAY_TO`: wallet receiving x402 payments
 
+## Reviewer evidence
+
+- `DEMO.md` gives a quick verification path and manual API walkthrough.
+- `ACCEPTANCE_CHECKLIST.md` maps the implementation to every BTNOMB acceptance criterion.
+- `LIMITATIONS.md` documents MVP constraints and production hardening steps.
+- `demo/test-output.txt` captures the latest pytest run.
+- `demo/sample-responses.json` contains end-to-end sample request/response evidence.
+- `demo/dashboard-excerpt.html` contains a rendered dashboard sample.
+
 ## Tests
 
 ```bash
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt pytest
 pytest tests -q
 ```
+
+Latest acceptance-upgrade run: `4 passed in 0.60s`.
