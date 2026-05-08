@@ -1,0 +1,15 @@
+{
+  "method": "POST",
+  "path": "/memory",
+  "headers": {
+    "X-API-Key": "ak_demo_redacted_not_a_live_secret"
+  },
+  "body": {
+    "namespace": "due-diligence",
+    "content": "BTNOMB idea_029 needs managed vector memory, API auth, usage metering, and x402 plan upgrades",
+    "metadata": {
+      "source": "review-demo",
+      "priority": "high"
+    }
+  }
+}

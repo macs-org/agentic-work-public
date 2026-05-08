@@ -1,0 +1,10 @@
+{
+  "method": "POST",
+  "path": "/plans/checkout",
+  "headers": {
+    "X-API-Key": "ak_demo_redacted_not_a_live_secret"
+  },
+  "body": {
+    "plan": "starter"
+  }
+}

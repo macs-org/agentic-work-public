@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "path": "/memory/search?namespace=due-diligence&q=vector%20memory%20x402&top_k=3",
+  "headers": {
+    "X-API-Key": "ak_demo_redacted_not_a_live_secret"
+  }
+}

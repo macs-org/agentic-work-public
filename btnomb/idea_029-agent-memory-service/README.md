@@ -110,8 +110,16 @@ postgresql+psycopg://user:pass@host:5432/agent_memory
 Current result:
 
 ```text
-5 passed
+......                                                                   [100%]
+6 passed in 0.90s
 ```
+
+## Reviewer evidence
+
+- `DEMO.md` provides an end-to-end reviewer walkthrough.
+- `demo/` contains representative request/response artifacts for create-agent, store, search, usage, delete, and x402 plan checkout.
+- `ACCEPTANCE_CHECKLIST.md` maps bounty requirements to files, endpoints, and tests.
+- `LIMITATIONS.md` distinguishes implemented MVP functionality from production hardening work.
 
 ## Acceptance mapping from public preview
 

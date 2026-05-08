@@ -1,0 +1,5 @@
+{
+  "agent_id": "agt_demo_review",
+  "name": "reviewer-agent",
+  "api_key": "ak_demo_redacted_not_a_live_secret"
+}

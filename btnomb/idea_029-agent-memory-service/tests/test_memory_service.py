@@ -67,6 +67,30 @@ def test_delete_removes_memory_from_search_and_usage_is_metered():
     assert usage.json()["deletes"] == 1
 
 
+def test_agent_api_keys_isolate_memory_between_agents():
+    client = TestClient(create_app(database_url="sqlite:///:memory:"))
+    alpha = create_agent(client, name="alpha-agent")
+    beta = create_agent(client, name="beta-agent")
+
+    stored = client.post(
+        "/memory",
+        headers={"X-API-Key": alpha["api_key"]},
+        json={"namespace": "shared", "content": "alpha private roadmap pricing strategy"},
+    )
+    assert stored.status_code == 201
+
+    beta_search = client.get(
+        "/memory/search",
+        headers={"X-API-Key": beta["api_key"]},
+        params={"namespace": "shared", "q": "pricing roadmap"},
+    )
+    assert beta_search.status_code == 200
+    assert beta_search.json()["results"] == []
+
+    forbidden_delete = client.delete(stored.json()["memory_id"].join(["/memory/", ""]), headers={"X-API-Key": beta["api_key"]})
+    assert forbidden_delete.status_code == 404
+
+
 def test_dashboard_and_openapi_are_available_and_data_persists(tmp_path):
     db_path = tmp_path / "memory.db"
     database_url = f"sqlite:///{db_path}"
