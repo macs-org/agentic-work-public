@@ -11,6 +11,10 @@ class FakeRpc:
         ]}
 
 def fresh_client(tmp_path, monkeypatch):
+    # Keep review/CI tests deterministic even if the runner has real delivery
+    # credentials configured in the environment.
+    monkeypatch.delenv("SMTP_HOST", raising=False)
+    monkeypatch.delenv("TELEGRAM_BOT_TOKEN", raising=False)
     main.store = main.Store(str(tmp_path / "wallet.db"))
     monkeypatch.setattr(main, "RpcClient", FakeRpc)
     return TestClient(main.app)
