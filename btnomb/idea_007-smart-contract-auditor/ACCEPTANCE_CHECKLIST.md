@@ -32,6 +32,10 @@ Submission path: `btnomb/idea_007-smart-contract-auditor`
   - `/history`, `/dashboard`, `/reports/{audit_id}`, `.md`, `.html`, and `.pdf` are implemented.
 - [x] Dockerfile and tests.
   - `Dockerfile`, `requirements.txt`, and pytest suite included.
+- [x] Production readiness and deployment probe.
+  - `GET /ready`, Docker `HEALTHCHECK`, unprivileged container user, persistent history path, and `DEPLOYMENT.md` are included.
+- [x] End-to-end integration test.
+  - `tests/test_e2e_http.py` starts a real Uvicorn process and verifies preview, x402 payment gate, paid audit, report retrieval, history, readiness, and <90s completion.
 
 ## Evidence added in acceptance upgrade
 
@@ -41,3 +45,7 @@ Submission path: `btnomb/idea_007-smart-contract-auditor`
 - `demo/preview-request.json` and `demo/preview-response.json`.
 - `demo/full-audit-request.json` and `demo/full-audit-response.json`.
 - `demo/full-audit-report.md` and `demo/full-audit-report.txt`.
+- `tests/test_e2e_http.py` — process-level HTTP E2E test for readiness, preview, x402 gate, paid audit, reports, and history.
+- `scripts/e2e_smoke.py` — smoke runner for local containers or public deployments.
+- `DEPLOYMENT.md` — production deployment/runbook and readiness evidence checklist.
+- `evidence/e2e-smoke.json` and `evidence/pytest-2026-05-08.txt` — generated verification artifacts.

@@ -1,0 +1,8 @@
+Command: python3 scripts/btnomb.py validate /Users/macsclawd/Projects/agentic-work/platforms/agent-native/btnomb/jobs/2026-05-06_btnomb-smart-contract-auditor/work/smart_contract_auditor --tests
+Working directory: /Users/macsclawd/Projects/agentic-work
+
+source=/Users/macsclawd/Projects/agentic-work/platforms/agent-native/btnomb/jobs/2026-05-06_btnomb-smart-contract-auditor/work/smart_contract_auditor
+structure_ok=True
+tests_ok=True
+.......                                                                  [100%]
+7 passed in 1.68s

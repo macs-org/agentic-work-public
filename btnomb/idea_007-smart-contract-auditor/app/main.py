@@ -82,6 +82,7 @@ def create_app(history_path: Path | str | None = None) -> FastAPI:
         version="0.1.0",
     )
     app.state.history_path = Path(history_path) if history_path is not None else HISTORY_PATH
+    app.state.started_at = datetime.now(UTC)
 
     def require_api_key(x_api_key: str | None = Header(default=None, alias="X-API-Key")) -> str:
         if not x_api_key or not secrets.compare_digest(x_api_key, DEFAULT_API_KEY):
@@ -91,6 +92,27 @@ def create_app(history_path: Path | str | None = None) -> FastAPI:
     @app.get("/health")
     def health() -> dict[str, str]:
         return {"status": "ok"}
+
+    @app.get("/ready")
+    def readiness() -> dict[str, Any]:
+        history_path = Path(app.state.history_path)
+        history_dir = history_path.parent if str(history_path.parent) else Path(".")
+        checks: dict[str, Any] = {
+            "history_path": str(history_path),
+            "history_directory_writable": os.access(history_dir if history_dir.exists() else Path("."), os.W_OK),
+            "api_key_configured": bool(DEFAULT_API_KEY) and DEFAULT_API_KEY != "dev-audit-key" and DEFAULT_API_KEY != "change-me",
+            "x402_pay_to_configured": DEFAULT_PAY_TO != "0x0000000000000000000000000000000000000000",
+            "pricing_configured": {"small_audit_cents": PRICE_SMALL_CENTS, "large_audit_cents": PRICE_LARGE_CENTS, "asset": BASE_USDC, "network": "base"},
+            "report_formats": ["json", "markdown", "html", "pdf-ish"],
+            "started_at": app.state.started_at.isoformat(),
+        }
+        checks["serving"] = True
+        production_ready = bool(checks["history_directory_writable"] and checks["api_key_configured"] and checks["x402_pay_to_configured"])
+        checks["production_ready"] = production_ready
+        checks["warnings"] = [] if production_ready else [
+            "Set AUDITOR_API_KEY to a non-demo secret and X402_PAY_TO to the payout wallet for production deployment."
+        ]
+        return {"status": "ready", "checks": checks}
 
     @app.post("/audit", response_model=None)
     def audit_contract(
