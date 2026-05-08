@@ -1,0 +1,32 @@
+{
+  "alerts": {
+    "body": {
+      "alerts": [
+        {
+          "created_at": "2026-05-08T17:29:04.576063",
+          "delivered": true,
+          "email": "reviewer@example.com",
+          "momentum_score": 280.61,
+          "repo_full_name": "acme/hot-ai-agents",
+          "threshold": 25.0
+        }
+      ],
+      "count": 1
+    },
+    "status_code": 200
+  },
+  "evaluate": {
+    "body": {
+      "alerts_created": 1
+    },
+    "status_code": 200
+  },
+  "watchlist": {
+    "body": {
+      "email": "reviewer@example.com",
+      "repo_full_name": "acme/hot-ai-agents",
+      "threshold": 25.0
+    },
+    "status_code": 201
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "body": {
+    "categories": 3,
+    "digests": {
+      "AI/ML": "Weekly Rising Stars \u2014 AI/ML\n\nTop repositories by composite momentum score:\n1. acme/hot-ai-agents \u2014 score 280.61, \u2b50 260, forks 38, Python",
+      "DevTools": "Weekly Rising Stars \u2014 DevTools\n\nTop repositories by composite momentum score:\n1. nous/rising-devtool \u2014 score 214.52, \u2b50 160, forks 23, Go",
+      "Frontend": "Weekly Rising Stars \u2014 Frontend\n\nTop repositories by composite momentum score:\n1. acme/steady-ui \u2014 score 14.21, \u2b50 1200, forks 210, TypeScript"
+    }
+  },
+  "status_code": 200
+}
