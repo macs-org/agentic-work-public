@@ -1,0 +1,8 @@
+tree_api_status=200
+top_level=ACCEPTANCE_CHECKLIST.md,DEMO.md,Dockerfile,LIMITATIONS.md,README.md,app,contracts,evidence,requirements.txt,sdk,tests
+raw_status README.md=200 bytes_prefix=2000
+raw_status DEMO.md=200 bytes_prefix=2000
+raw_status ACCEPTANCE_CHECKLIST.md=200 bytes_prefix=2000
+raw_status LIMITATIONS.md=200 bytes_prefix=1613
+raw_status evidence/sample_api_flow.json=200 bytes_prefix=2000
+raw_status evidence/pytest-2026-05-08.txt=200 bytes_prefix=98
