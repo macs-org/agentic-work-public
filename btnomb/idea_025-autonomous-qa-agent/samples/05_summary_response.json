@@ -1,0 +1,18 @@
+{
+  "body": {
+    "suites": [
+      {
+        "drift_alerts": 0,
+        "latest_pass_rate": 1.0,
+        "name": "Demo Agent Release QA",
+        "regressions": 0,
+        "runs": 1,
+        "suite_id": "sui_ce694cb75fc731e3",
+        "trend": [
+          1.0
+        ]
+      }
+    ]
+  },
+  "status_code": 200
+}

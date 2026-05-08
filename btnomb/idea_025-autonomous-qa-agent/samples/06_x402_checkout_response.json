@@ -1,0 +1,32 @@
+{
+  "body": {
+    "accepts": [
+      {
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "description": "Upgrade Autonomous QA Agent to pro plan",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        },
+        "maxAmountRequired": "149000000",
+        "maxTimeoutSeconds": 60,
+        "mimeType": "application/json",
+        "network": "base",
+        "outputSchema": {
+          "input": {
+            "discoverable": true,
+            "method": "POST",
+            "type": "http"
+          }
+        },
+        "payTo": "0x9c768177521C9A832B0f8567265ef02E89D0282e",
+        "resource": "/plans/pro",
+        "scheme": "exact"
+      }
+    ],
+    "description": "Upgrade Autonomous QA Agent to pro plan",
+    "error": "X-PAYMENT header is required",
+    "x402Version": 1
+  },
+  "status_code": 402
+}

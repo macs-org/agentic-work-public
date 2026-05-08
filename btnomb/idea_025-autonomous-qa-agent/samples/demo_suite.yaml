@@ -1,0 +1,34 @@
+name: Demo Agent Release QA
+endpoint: https://agent.example.com/respond
+method: POST
+schedule:
+  interval: hourly
+alerts:
+  emails:
+    - qa-owner@example.com
+  webhooks:
+    - capture-only
+drift_threshold: 0.2
+cases:
+  - id: greeting_contract
+    input: Say hello to a new user
+    expected: hello world
+    mock_response: hello world
+    assertions:
+      - type: exact
+        value: hello world
+  - id: support_ticket_format
+    input: Create a support ticket for a failed payment
+    expected: TICKET-123
+    mock_response: Created support ticket TICKET-123 for failed payment.
+    assertions:
+      - type: regex
+        pattern: 'TICKET-[0-9]+'
+  - id: refund_semantics
+    input: Explain refund policy
+    expected: Refunds are processed within five business days
+    mock_response: Refunds are usually handled in five business days.
+    assertions:
+      - type: similarity
+        value: Refunds are processed within five business days
+        threshold: 0.25

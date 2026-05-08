@@ -1,0 +1,71 @@
+{
+  "body": {
+    "agent_id": "agt_d96436027a70a2d8",
+    "drift_count": 0,
+    "failed": 0,
+    "finished_at": "2026-05-08T16:28:11.339306",
+    "pass_rate": 1.0,
+    "passed": 3,
+    "regression_count": 0,
+    "results": [
+      {
+        "actual_text": "hello world",
+        "assertions": [
+          {
+            "passed": true,
+            "type": "exact",
+            "value": "hello world"
+          }
+        ],
+        "case_id": "greeting_contract",
+        "diff": "",
+        "expected_text": "hello world",
+        "passed": true,
+        "prompt": "Say hello to a new user",
+        "similarity_score": null
+      },
+      {
+        "actual_text": "Created support ticket TICKET-123 for failed payment.",
+        "assertions": [
+          {
+            "passed": true,
+            "pattern": "TICKET-[0-9]+",
+            "type": "regex",
+            "value": "TICKET-123"
+          }
+        ],
+        "case_id": "support_ticket_format",
+        "diff": "--- expected\n+++ actual\n@@ -1 +1 @@\n-TICKET-123\n+Created support ticket TICKET-123 for failed payment.",
+        "expected_text": "TICKET-123",
+        "passed": true,
+        "prompt": "Create a support ticket for a failed payment",
+        "similarity_score": null
+      },
+      {
+        "actual_text": "Refunds are usually handled in five business days.",
+        "assertions": [
+          {
+            "passed": true,
+            "score": 0.6682,
+            "threshold": 0.25,
+            "type": "similarity",
+            "value": "Refunds are processed within five business days"
+          }
+        ],
+        "case_id": "refund_semantics",
+        "diff": "--- expected\n+++ actual\n@@ -1 +1 @@\n-Refunds are processed within five business days\n+Refunds are usually handled in five business days.",
+        "expected_text": "Refunds are processed within five business days",
+        "passed": true,
+        "prompt": "Explain refund policy",
+        "similarity_score": 0.6682
+      }
+    ],
+    "run_id": "run_4621c07447aab6e6",
+    "started_at": "2026-05-08T16:28:11.331303",
+    "status": "passed",
+    "suite_id": "sui_ce694cb75fc731e3",
+    "total": 3,
+    "trigger": "manual"
+  },
+  "status_code": 201
+}

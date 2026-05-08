@@ -1,0 +1,9 @@
+{
+  "body": {
+    "agent_id": "agt_d96436027a70a2d8",
+    "api_key": "<redacted: returned once on creation>",
+    "name": "demo-reviewer",
+    "plan": "starter"
+  },
+  "status_code": 201
+}
