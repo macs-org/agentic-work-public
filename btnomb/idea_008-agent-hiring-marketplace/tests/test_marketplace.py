@@ -213,3 +213,18 @@ def test_requires_api_key_for_mutating_and_private_read_endpoints():
         assert c.get("/dashboard/stats").status_code == 401
         assert c.get("/health").status_code == 200
         assert c.get("/openapi.json").status_code == 200
+
+
+def test_dashboard_escapes_task_fields_before_rendering_html():
+    with TestClient(app) as c:
+        auth_post(c, "/tasks", {
+            "title": "<script>alert('xss')</script> Review",
+            "requirements": {"language": "python"},
+            "acceptance_criteria": ["no script execution"],
+            "deadline": future_deadline(),
+            "budget_usdc": 125,
+            "category": "code_generation",
+        })
+        html = c.get("/dashboard").text
+        assert "<script>alert('xss')</script>" not in html
+        assert "&lt;script&gt;alert(&#x27;xss&#x27;)&lt;/script&gt; Review" in html

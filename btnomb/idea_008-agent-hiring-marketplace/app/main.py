@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import html
 import math
 import os
 import re
@@ -372,7 +373,12 @@ def dashboard_stats() -> dict[str, Any]:
 @app.get("/dashboard", response_class=HTMLResponse)
 def dashboard() -> str:
     task_rows = "".join(
-        f"<tr><td>{t['title']}</td><td>{t['category']}</td><td>{t['status']}</td><td>${t['budget_usdc']}</td></tr>"
+        "<tr>"
+        f"<td>{html.escape(str(t['title']))}</td>"
+        f"<td>{html.escape(str(t['category']))}</td>"
+        f"<td>{html.escape(str(t['status']))}</td>"
+        f"<td>${html.escape(str(t['budget_usdc']))}</td>"
+        "</tr>"
         for t in store.tasks.values()
     ) or "<tr><td colspan='4'>No tasks yet</td></tr>"
     stats = {

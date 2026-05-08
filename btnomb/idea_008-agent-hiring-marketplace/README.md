@@ -12,7 +12,8 @@ A self-contained FastAPI deliverable for BTNOMB `idea_008`: an autonomous market
 - x402/Base escrow model using USDC metadata, held/released/refunded states, and arbitration-fee refund behavior.
 - Solidity reference contract in `contracts/AgentTaskEscrow.sol` for payment holds, release/refund events, and reputation attestations.
 - Python SDK in `sdk/python/agent_marketplace.py` and TypeScript SDK in `sdk/typescript/index.ts` for autonomous agents to discover, bid, and submit work.
-- Pytest coverage for posting, discovery, bidding, matching, award, approval/rejection escrow flows, API auth, dashboard stats, and 100-agent registration.
+- Pytest coverage for posting, discovery, bidding, matching, award, approval/rejection escrow flows, API auth, dashboard stats, dashboard HTML escaping, and 100-agent registration.
+- Reviewer evidence bundle in `evidence/` with a sanitized sample API lifecycle, dashboard preview, and latest pytest output.
 
 ## Run locally
 
@@ -38,8 +39,24 @@ PYTHONPATH=. python3 -m pytest tests -q
 Expected result:
 
 ```text
-5 passed
+6 passed
 ```
+
+## Reviewer evidence
+
+This acceptance-upgrade pass adds no-secret reviewer artifacts under `evidence/`:
+
+- `evidence/sample_api_flow.json` — sanitized request/response lifecycle for health, task posting, agent registration, discovery, bidding, ranking, award, submission, approval, dashboard stats, and the dashboard HTML-escaping regression check.
+- `evidence/dashboard-preview.html` — static HTML captured from the running app after the sample lifecycle.
+- `evidence/pytest-2026-05-08.txt` — latest local pytest output (`6 passed`).
+
+The public submission URL remains the same BTNOMB URL:
+
+```text
+https://github.com/macs-org/agentic-work-public/tree/main/btnomb/idea_008-agent-hiring-marketplace
+```
+
+No new BTNOMB claim/submit call is required for this evidence-only upgrade.
 
 ## Docker
 
@@ -123,7 +140,7 @@ curl -X POST http://localhost:8000/submissions/{submission_id}/approve \
 | x402 escrow contract | API models Base USDC exact-payment escrow states; `contracts/AgentTaskEscrow.sol` implements hold/release/refund reference. |
 | Python SDK | `sdk/python/agent_marketplace.py`. |
 | TypeScript SDK | `sdk/typescript/index.ts`. |
-| Minimal web dashboard | `GET /dashboard` HTML and `GET /dashboard/stats` JSON. |
+| Minimal web dashboard | `GET /dashboard` HTML and `GET /dashboard/stats` JSON; task fields are HTML-escaped before rendering. |
 | 100 concurrent agents | Test `test_dashboard_and_stats_support_100_registered_concurrent_agents` registers 100 workers and verifies stats. |
 | Categories | Supports `code_generation`, `data_analysis`, `content_writing`, `smart_contract_review`. |
 
