@@ -1,0 +1,11 @@
+{
+  "body": {
+    "amount": "99.00",
+    "asset": "USDC",
+    "header": "X-PAYMENT",
+    "network": "base",
+    "pay_to": "0x23bB05603A980C2915FC3B9D5D4a475993b666DE",
+    "product": "Job Board Intelligence Starter monthly access"
+  },
+  "status_code": 200
+}

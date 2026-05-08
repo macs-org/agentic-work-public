@@ -1,0 +1,30 @@
+{
+  "bounty_id": "idea_027",
+  "checks": {
+    "dashboard_status": 200,
+    "deliveries_recorded": 4,
+    "health_ok": true,
+    "poll_created_signals": 5,
+    "python_engineering_jobs": 2,
+    "seeded_companies": 50,
+    "seeded_companies_at_least_50": true,
+    "x402_paid_export_status": 200,
+    "x402_unpaid_export_status": 402
+  },
+  "product": "Job Board Intelligence",
+  "sample_files": [
+    "01_health_response.json",
+    "02_companies_sample_response.json",
+    "03_subscriber_response.json",
+    "04_poll_response.json",
+    "05_jobs_filter_response.json",
+    "06_signals_response.json",
+    "07_deliveries_response.json",
+    "08_weekly_digest_response.json",
+    "09_x402_payment_requirements.json",
+    "10_export_payment_required_response.json",
+    "11_export_paid_summary.json",
+    "12_dashboard_snippet.html",
+    "test-output.txt"
+  ]
+}

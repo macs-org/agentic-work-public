@@ -1,0 +1,50 @@
+{
+  "body": [
+    {
+      "company": "Stripe",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "Captured 3 active roles for future trend comparison.",
+      "id": 5,
+      "kind": "baseline",
+      "severity": 25,
+      "title": "Stripe baseline captured"
+    },
+    {
+      "company": "Stripe",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "New postings indicate active team expansion. Top departments: {'engineering': 2, 'product': 1}.",
+      "id": 4,
+      "kind": "new_roles",
+      "severity": 60,
+      "title": "Stripe added 3 new roles"
+    },
+    {
+      "company": "OpenAI",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "Captured 6 active roles for future trend comparison.",
+      "id": 3,
+      "kind": "baseline",
+      "severity": 25,
+      "title": "OpenAI baseline captured"
+    },
+    {
+      "company": "OpenAI",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "New postings indicate active team expansion. Top departments: {'engineering': 4, 'sales': 1, 'data': 1}.",
+      "id": 2,
+      "kind": "new_roles",
+      "severity": 60,
+      "title": "OpenAI added 6 new roles"
+    },
+    {
+      "company": "Anthropic",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "Captured 1 active roles for future trend comparison.",
+      "id": 1,
+      "kind": "baseline",
+      "severity": 25,
+      "title": "Anthropic baseline captured"
+    }
+  ],
+  "status_code": 200
+}

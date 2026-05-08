@@ -1,0 +1,13 @@
+{
+  "body": {
+    "companies": "[\"OpenAI\", \"Stripe\"]",
+    "created_at": "2026-05-08T18:32:24+00:00",
+    "departments": "[]",
+    "email": "reviewer@example.com",
+    "id": 1,
+    "real_time": 1,
+    "tech_stacks": "[]",
+    "webhook_url": null
+  },
+  "status_code": 200
+}
