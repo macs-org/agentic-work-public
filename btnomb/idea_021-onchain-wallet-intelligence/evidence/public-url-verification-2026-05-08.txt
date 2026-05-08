@@ -1,3 +1,8 @@
 200 https://github.com/macs-org/agentic-work-public/tree/main/btnomb/idea_021-onchain-wallet-intelligence text/html
 200 https://raw.githubusercontent.com/macs-org/agentic-work-public/main/btnomb/idea_021-onchain-wallet-intelligence/README.md text/plain
+200 https://raw.githubusercontent.com/macs-org/agentic-work-public/main/btnomb/idea_021-onchain-wallet-intelligence/DEMO.md text/plain
+200 https://raw.githubusercontent.com/macs-org/agentic-work-public/main/btnomb/idea_021-onchain-wallet-intelligence/ACCEPTANCE_CHECKLIST.md text/plain
 200 https://raw.githubusercontent.com/macs-org/agentic-work-public/main/btnomb/idea_021-onchain-wallet-intelligence/app/main.py text/plain
+200 https://raw.githubusercontent.com/macs-org/agentic-work-public/main/btnomb/idea_021-onchain-wallet-intelligence/tests/test_wallet_intelligence.py text/plain
+200 https://raw.githubusercontent.com/macs-org/agentic-work-public/main/btnomb/idea_021-onchain-wallet-intelligence/evidence/sample_api_flow.json text/plain
+200 https://raw.githubusercontent.com/macs-org/agentic-work-public/main/btnomb/idea_021-onchain-wallet-intelligence/evidence/pytest-2026-05-08.txt text/plain
