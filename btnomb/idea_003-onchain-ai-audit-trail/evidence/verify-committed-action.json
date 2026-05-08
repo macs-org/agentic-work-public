@@ -1,0 +1,13 @@
+{
+  "action_hash": "aa1ae0a10559537e2e4406bf4a19985457349d5df15b1e021edb2088248fbd53",
+  "batch_id": 1,
+  "contract_address": null,
+  "index": 1,
+  "merkle_root": "656de8125e189e2187696afe7d30f83babc607cc1581a73bfe8620e85d5dd353",
+  "proof": [
+    "b4857f664baf634e11a73ddef2215b0b5e00fe43f4ba71b54b10e71f3c4627ab",
+    "fa39386b6d4403b1418097f161ff6fcd180cceba9bb2b0120f25d96671930065"
+  ],
+  "tx_hash": null,
+  "verified": true
+}

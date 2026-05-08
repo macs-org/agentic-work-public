@@ -1,0 +1,13 @@
+{
+  "actions": 3,
+  "base_ready": true,
+  "batch": {
+    "action_count": 3,
+    "committed_at": "2026-05-08T13:09:26+00:00",
+    "contract_address": null,
+    "id": 1,
+    "merkle_root": "656de8125e189e2187696afe7d30f83babc607cc1581a73bfe8620e85d5dd353",
+    "tx_hash": null
+  },
+  "merkle_root": "656de8125e189e2187696afe7d30f83babc607cc1581a73bfe8620e85d5dd353"
+}
