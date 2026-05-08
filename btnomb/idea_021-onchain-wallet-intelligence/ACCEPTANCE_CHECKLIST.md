@@ -53,7 +53,7 @@ Output:
 
 ```text
 ....                                                                     [100%]
-4 passed in 0.59s
+4 passed
 ```
 
 Public URL checks on 2026-05-08 returned HTTP 200 for the submitted GitHub tree, core source files, reviewer docs, tests, and evidence artifacts. See `evidence/public-url-verification-2026-05-08.txt` for the exact URL list.
