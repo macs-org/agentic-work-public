@@ -53,7 +53,7 @@ Output:
 
 ```text
 ....                                                                     [100%]
-4 passed in 0.54s
+4 passed in 0.59s
 ```
 
 Public URL checks on 2026-05-08 returned HTTP 200 for:
