@@ -1,0 +1,45 @@
+{
+  "exported_at": "2026-05-08T19:31:45+00:00",
+  "filings": [
+    {
+      "abstract": "A machine learning platform monitors patent publications, summarizes filings, and routes competitive intelligence alerts.",
+      "assignee": "Example Labs",
+      "cpc_category": "G06N",
+      "filing_date": "2025-11-01",
+      "first_seen_at": "2026-05-08T19:31:45+00:00",
+      "patent_id": "KEYWORD-AGENTICAI-001",
+      "publication_date": "2026-05-01",
+      "source_url": "https://patents.google.com/patent/USKEYWORDAGENTICAI001",
+      "strategic_implication": "Example Labs may be investing in AI / automation; monitor follow-on filings and competitor overlap.",
+      "summary": "Autonomous patent intelligence system for agentic AI. A machine learning platform monitors patent publications, summarizes filings, and routes competitive intelligence alerts.",
+      "title": "Autonomous patent intelligence system for agentic AI"
+    },
+    {
+      "abstract": "A machine learning platform monitors patent publications, summarizes filings, and routes competitive intelligence alerts.",
+      "assignee": "OpenAI",
+      "cpc_category": "G06N",
+      "filing_date": "2025-11-01",
+      "first_seen_at": "2026-05-08T19:31:45+00:00",
+      "patent_id": "COMPANY-OPENAI-001",
+      "publication_date": "2026-05-01",
+      "source_url": "https://patents.google.com/patent/USCOMPANYOPENAI001",
+      "strategic_implication": "OpenAI may be investing in AI / automation; monitor follow-on filings and competitor overlap.",
+      "summary": "Autonomous patent intelligence system for OpenAI. A machine learning platform monitors patent publications, summarizes filings, and routes competitive intelligence alerts.",
+      "title": "Autonomous patent intelligence system for OpenAI"
+    }
+  ],
+  "trends": [
+    {
+      "assignee": "Example Labs",
+      "category": "G06N",
+      "filings": 1,
+      "month": "2026-05"
+    },
+    {
+      "assignee": "OpenAI",
+      "category": "G06N",
+      "filings": 1,
+      "month": "2026-05"
+    }
+  ]
+}

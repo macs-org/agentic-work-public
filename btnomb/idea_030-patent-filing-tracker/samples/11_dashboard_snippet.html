@@ -1,0 +1,11 @@
+
+    <!doctype html><html><head><title>Patent Filing Tracker</title>
+    <style>body{font-family:Inter,system-ui,sans-serif;margin:32px;background:#0b1020;color:#eef} .card{background:#151b31;padding:20px;border-radius:14px;margin:16px 0} input,button{padding:10px;border-radius:8px;border:1px solid #334} table{width:100%;border-collapse:collapse} td,th{border-bottom:1px solid #334;padding:10px;text-align:left;vertical-align:top} small{color:#aab}</style></head>
+    <body><h1>Patent Filing Tracker</h1><p>USPTO PatentsView watchlists, AI summaries, alerts, and trend intelligence.</p>
+    <div class='card'><h2>Search recent filings</h2><form><input name='q' value='' placeholder='company, keyword, CPC'><button>Filter</button></form></div>
+    <div class='card'><h2>Active watchlists</h2><ul><li>keyword: agentic AI</li><li>company: OpenAI</li></ul><p>Create via <code>POST /api/watchlists</code>, poll via <code>POST /api/poll</code>.</p></div>
+    <div class='card'><h2>Recent filings</h2><table><tr><th>Date</th><th>Assignee</th><th>Filing</th><th>Strategic implication</th></tr><tr><td>2026-05-01</td><td>Example Labs</td><td><strong>Autonomous patent intelligence system for agentic AI</strong><br><small>Autonomous patent intelligence system for agentic AI. A machine learning platform monitors patent publications, summarizes filings, and routes competitive intelligence alerts.</small></td><td>Example Labs may be investing in AI / automation; monitor follow-on filings and competitor overlap.</td></tr><tr><td>2026-05-01</td><td>OpenAI</td><td><strong>Autonomous patent intelligence system for OpenAI</strong><br><small>Autonomous patent intelligence system for OpenAI. A machine learning platform monitors patent publications, summarizes filings, and routes competitive intelligence alerts.</small></td><td>OpenAI may be investing in AI / automation; monitor follow-on filings and competitor overlap.</td></tr></table></div>
+    <div class='card'><h2>Trend chart data</h2><ul><li>Example Labs / G06N / 2026-05: 1</li><li>OpenAI / G06N / 2026-05: 1</li></ul></div>
+    <div class='card'><h2>Payment</h2><p>Starter $79/mo, Pro $249/mo, Enterprise $799/mo. Export endpoint is x402-gated; see <code>/api/payments/x402/requirements</code>.</p></div>
+    </body></html>
+    

@@ -1,0 +1,8 @@
+{
+  "amount": "79.00",
+  "asset": "USDC",
+  "header": "X-PAYMENT",
+  "network": "base",
+  "pay_to": "0x23bB05603A980C2915FC3B9D5D4a475993b666DE",
+  "product": "Patent Filing Tracker Starter monthly access"
+}

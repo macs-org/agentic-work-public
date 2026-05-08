@@ -70,8 +70,18 @@ curl http://localhost:8000/api/export -H 'X-PAYMENT: demo-paid-receipt'
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM`: optional SMTP settings
 - `X402_PAY_TO`: wallet receiving x402 payments, default Agentic Work wallet
 
+## Reviewer evidence
+
+- `DEMO.md` — step-by-step reviewer runbook with curl commands and sample flow.
+- `ACCEPTANCE_CHECKLIST.md` — requirement-by-requirement mapping to code, tests, and sample artifacts.
+- `LIMITATIONS.md` — current MVP boundaries and production hardening notes.
+- `samples/` — deterministic request/response artifacts generated without private credentials or network access.
+- `scripts/generate_samples.py` — regenerates the sample evidence with FastAPI `TestClient` fixtures.
+
 ## Tests
 
 ```bash
-pytest tests -q
+PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 python3 -m pytest tests -q -p no:cacheprovider
 ```
+
+Latest captured output is in `samples/test-output.txt`.

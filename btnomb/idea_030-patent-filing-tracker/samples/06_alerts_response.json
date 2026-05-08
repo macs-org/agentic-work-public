@@ -1,0 +1,22 @@
+[
+  {
+    "channel": "email",
+    "created_at": "2026-05-08T19:31:45+00:00",
+    "destination": "reviewer@example.com",
+    "detail": "SMTP_HOST not set; alert stored in development outbox",
+    "id": 2,
+    "patent_id": "COMPANY-OPENAI-001",
+    "status": "stored",
+    "watchlist_id": 1
+  },
+  {
+    "channel": "webhook",
+    "created_at": "2026-05-08T19:31:45+00:00",
+    "destination": "https://example.com/patent-alerts",
+    "detail": "deterministic reviewer webhook to https://example.com/patent-alerts; payload keys=filing,summary,watchlist",
+    "id": 1,
+    "patent_id": "KEYWORD-AGENTICAI-001",
+    "status": "sent",
+    "watchlist_id": 2
+  }
+]
