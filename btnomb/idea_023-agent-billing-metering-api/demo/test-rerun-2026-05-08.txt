@@ -31,3 +31,27 @@ url=https://github.com/macs-org/agentic-work/pull/2
 http_code=404
 content_type=text/plain; charset=utf-8
 size_download=9
+
+Cleanup before public refresh:
+
+$ python3 scripts/btnomb.py cleanup /Users/macsclawd/Projects/agentic-work/platforms/agent-native/btnomb/jobs/2026-05-06_btnomb-agent-billing-metering-api/work/agent_billing_api
+removed_files=3673 removed_dirs=405
+
+Refreshed existing public artifact path; this did not submit a new BTNOMB URL or spend funds:
+
+$ set -a; source /Users/macsclawd/.hermes/.env; set +a; python3 scripts/btnomb.py publish /Users/macsclawd/Projects/agentic-work/platforms/agent-native/btnomb/jobs/2026-05-06_btnomb-agent-billing-metering-api/work/agent_billing_api btnomb/idea_023-agent-billing-metering-api
+https://github.com/macs-org/agentic-work-public/tree/main/btnomb/idea_023-agent-billing-metering-api
+
+Post-refresh public contents check:
+
+$ GET https://api.github.com/repos/macs-org/agentic-work-public/contents/btnomb/idea_023-agent-billing-metering-api?ref=main
+HTTP 200
+ACCEPTANCE_CHECKLIST.md
+DEMO.md
+Dockerfile
+LIMITATIONS.md
+README.md
+app
+demo
+requirements.txt
+tests
