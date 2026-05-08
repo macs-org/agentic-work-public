@@ -1,0 +1,330 @@
+{
+  "audit_id": "aud_e2f3606db76b",
+  "contract_name": "VulnerableVault",
+  "created_at": "2026-05-08T03:34:47.274932+00:00",
+  "pricing": {
+    "mode": "paid",
+    "line_count": 27,
+    "amount_cents": 200,
+    "display": "$2 under 500 lines"
+  },
+  "preview": false,
+  "severity_summary": {
+    "Critical": 1,
+    "High": 4,
+    "Medium": 1,
+    "Low": 0,
+    "Informational": 0
+  },
+  "findings": [
+    {
+      "id": "reentrancy-8997f30b",
+      "title": "External call before state update",
+      "severity": "Critical",
+      "swc_id": "SWC-107",
+      "file": "Contract.sol",
+      "line": 15,
+      "code": "(bool ok, ) = msg.sender.call{value: amount}(\"\");",
+      "description": "State appears to be updated after an external call, which is a classic reentrancy pattern.",
+      "attack_vector": "A malicious receiver contract can recursively call back before its balance is reduced and drain funds.",
+      "remediation": "Follow checks-effects-interactions and add a ReentrancyGuard modifier on value-moving entrypoints.",
+      "fixed_snippet": "uint256 amount = balances[msg.sender];\nbalances[msg.sender] = 0;\n(bool ok, ) = msg.sender.call{value: amount}(\"\");\nrequire(ok, \"transfer failed\");",
+      "source": "synthesizer:confirmed_by_multiple_models"
+    },
+    {
+      "id": "access-control-7b4b02a7",
+      "title": "Sensitive function may be missing access control",
+      "severity": "High",
+      "swc_id": "SWC-105",
+      "file": "Contract.sol",
+      "line": 9,
+      "code": "function deposit() external payable {",
+      "description": "A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.",
+      "attack_vector": "Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.",
+      "remediation": "Add role-based access control and tests proving unauthorized callers revert.",
+      "fixed_snippet": "function withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}",
+      "source": "synthesizer:confirmed_by_multiple_models"
+    },
+    {
+      "id": "access-control-71be042b",
+      "title": "Sensitive function may be missing access control",
+      "severity": "High",
+      "swc_id": "SWC-105",
+      "file": "Contract.sol",
+      "line": 13,
+      "code": "function withdraw() external {",
+      "description": "A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.",
+      "attack_vector": "Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.",
+      "remediation": "Add role-based access control and tests proving unauthorized callers revert.",
+      "fixed_snippet": "function withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}",
+      "source": "synthesizer:confirmed_by_multiple_models"
+    },
+    {
+      "id": "unchecked-call-eb970cca",
+      "title": "Unchecked low-level external call",
+      "severity": "High",
+      "swc_id": "SWC-104",
+      "file": "Contract.sol",
+      "line": 15,
+      "code": "(bool ok, ) = msg.sender.call{value: amount}(\"\");",
+      "description": "Low-level calls return false on failure and can hide failed transfers or arbitrary external execution.",
+      "attack_vector": "An attacker can force the callee to revert or consume gas while the parent contract continues as if payment or execution succeeded.",
+      "remediation": "Capture the success flag, require it, and emit an event for failed downstream integrations.",
+      "fixed_snippet": "(bool ok, ) = recipient.call{value: amount}(\"\");\nrequire(ok, \"ETH transfer failed\");",
+      "source": "synthesizer:confirmed_by_multiple_models"
+    },
+    {
+      "id": "tx-origin-71efba2e",
+      "title": "Authorization uses tx.origin",
+      "severity": "High",
+      "swc_id": "SWC-115",
+      "file": "Contract.sol",
+      "line": 20,
+      "code": "require(tx.origin == owner, \"not owner\");",
+      "description": "tx.origin is unsafe for authorization because phishing contracts can preserve the victim origin.",
+      "attack_vector": "A malicious contract can trick an owner into calling it, then call this contract with tx.origin still equal to the owner.",
+      "remediation": "Use msg.sender for direct caller authorization and explicit role checks.",
+      "fixed_snippet": "require(msg.sender == owner, \"not owner\");",
+      "source": "synthesizer:confirmed_by_multiple_models"
+    },
+    {
+      "id": "timestamp-dependence-3827b820",
+      "title": "Miner/validator-influenced time dependency",
+      "severity": "Medium",
+      "swc_id": "SWC-116",
+      "file": "Contract.sol",
+      "line": 25,
+      "code": "return users[block.timestamp % users.length];",
+      "description": "Block timestamp/number can be manipulated within consensus tolerance and is unsafe for randomness or tight deadlines.",
+      "attack_vector": "A validator can slightly shift timestamps to win lotteries or bypass exact time gates.",
+      "remediation": "Avoid timestamp randomness; use commit-reveal or a VRF. For deadlines, allow broad windows.",
+      "fixed_snippet": "require(block.timestamp >= unlockTime + 5 minutes, \"too early\");",
+      "source": "synthesizer"
+    }
+  ],
+  "gas_optimizations": [],
+  "compliance": {
+    "ERC-20": {
+      "status": "not_detected",
+      "missing_functions": [
+        "totalsupply",
+        "balanceof",
+        "allowance",
+        "approve",
+        "transferfrom"
+      ],
+      "missing_events": [
+        "Transfer",
+        "Approval"
+      ]
+    },
+    "ERC-721": {
+      "status": "not_detected",
+      "missing_functions": [
+        "ownerof",
+        "balanceof",
+        "safetransferfrom",
+        "transferfrom",
+        "approve",
+        "setapprovalforall"
+      ],
+      "missing_events": [
+        "Transfer",
+        "Approval",
+        "ApprovalForAll"
+      ]
+    },
+    "ERC-1155": {
+      "status": "not_detected",
+      "missing_functions": [
+        "balanceof",
+        "balanceofbatch",
+        "safetransferfrom",
+        "safebatchtransferfrom",
+        "setapprovalforall"
+      ],
+      "missing_events": [
+        "TransferSingle",
+        "TransferBatch",
+        "ApprovalForAll",
+        "URI"
+      ]
+    },
+    "summary": {
+      "ERC-20": "not_detected",
+      "ERC-721": "not_detected",
+      "ERC-1155": "not_detected"
+    }
+  },
+  "model_reports": [
+    {
+      "provider": "heuristic-model-a",
+      "summary": "heuristic-model-a reviewed 1 file(s) for exploitability and produced 6 finding(s).",
+      "findings": [
+        {
+          "id": "reentrancy-8997f30b",
+          "title": "External call before state update",
+          "severity": "Critical",
+          "swc_id": "SWC-107",
+          "file": "Contract.sol",
+          "line": 15,
+          "code": "(bool ok, ) = msg.sender.call{value: amount}(\"\");",
+          "description": "State appears to be updated after an external call, which is a classic reentrancy pattern.",
+          "attack_vector": "A malicious receiver contract can recursively call back before its balance is reduced and drain funds.",
+          "remediation": "Follow checks-effects-interactions and add a ReentrancyGuard modifier on value-moving entrypoints.",
+          "fixed_snippet": "uint256 amount = balances[msg.sender];\nbalances[msg.sender] = 0;\n(bool ok, ) = msg.sender.call{value: amount}(\"\");\nrequire(ok, \"transfer failed\");",
+          "source": "heuristic-model-a"
+        },
+        {
+          "id": "access-control-7b4b02a7",
+          "title": "Sensitive function may be missing access control",
+          "severity": "High",
+          "swc_id": "SWC-105",
+          "file": "Contract.sol",
+          "line": 9,
+          "code": "function deposit() external payable {",
+          "description": "A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.",
+          "attack_vector": "Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.",
+          "remediation": "Add role-based access control and tests proving unauthorized callers revert.",
+          "fixed_snippet": "function withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}",
+          "source": "heuristic-model-a"
+        },
+        {
+          "id": "access-control-71be042b",
+          "title": "Sensitive function may be missing access control",
+          "severity": "High",
+          "swc_id": "SWC-105",
+          "file": "Contract.sol",
+          "line": 13,
+          "code": "function withdraw() external {",
+          "description": "A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.",
+          "attack_vector": "Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.",
+          "remediation": "Add role-based access control and tests proving unauthorized callers revert.",
+          "fixed_snippet": "function withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}",
+          "source": "heuristic-model-a"
+        },
+        {
+          "id": "unchecked-call-eb970cca",
+          "title": "Unchecked low-level external call",
+          "severity": "High",
+          "swc_id": "SWC-104",
+          "file": "Contract.sol",
+          "line": 15,
+          "code": "(bool ok, ) = msg.sender.call{value: amount}(\"\");",
+          "description": "Low-level calls return false on failure and can hide failed transfers or arbitrary external execution.",
+          "attack_vector": "An attacker can force the callee to revert or consume gas while the parent contract continues as if payment or execution succeeded.",
+          "remediation": "Capture the success flag, require it, and emit an event for failed downstream integrations.",
+          "fixed_snippet": "(bool ok, ) = recipient.call{value: amount}(\"\");\nrequire(ok, \"ETH transfer failed\");",
+          "source": "heuristic-model-a"
+        },
+        {
+          "id": "tx-origin-71efba2e",
+          "title": "Authorization uses tx.origin",
+          "severity": "High",
+          "swc_id": "SWC-115",
+          "file": "Contract.sol",
+          "line": 20,
+          "code": "require(tx.origin == owner, \"not owner\");",
+          "description": "tx.origin is unsafe for authorization because phishing contracts can preserve the victim origin.",
+          "attack_vector": "A malicious contract can trick an owner into calling it, then call this contract with tx.origin still equal to the owner.",
+          "remediation": "Use msg.sender for direct caller authorization and explicit role checks.",
+          "fixed_snippet": "require(msg.sender == owner, \"not owner\");",
+          "source": "heuristic-model-a"
+        },
+        {
+          "id": "timestamp-dependence-3827b820",
+          "title": "Miner/validator-influenced time dependency",
+          "severity": "Medium",
+          "swc_id": "SWC-116",
+          "file": "Contract.sol",
+          "line": 25,
+          "code": "return users[block.timestamp % users.length];",
+          "description": "Block timestamp/number can be manipulated within consensus tolerance and is unsafe for randomness or tight deadlines.",
+          "attack_vector": "A validator can slightly shift timestamps to win lotteries or bypass exact time gates.",
+          "remediation": "Avoid timestamp randomness; use commit-reveal or a VRF. For deadlines, allow broad windows.",
+          "fixed_snippet": "require(block.timestamp >= unlockTime + 5 minutes, \"too early\");",
+          "source": "heuristic-model-a"
+        }
+      ]
+    },
+    {
+      "provider": "heuristic-model-b",
+      "summary": "heuristic-model-b reviewed 1 file(s) for remediation and produced 5 finding(s).",
+      "findings": [
+        {
+          "id": "reentrancy-8997f30b",
+          "title": "External call before state update",
+          "severity": "Critical",
+          "swc_id": "SWC-107",
+          "file": "Contract.sol",
+          "line": 15,
+          "code": "(bool ok, ) = msg.sender.call{value: amount}(\"\");",
+          "description": "State appears to be updated after an external call, which is a classic reentrancy pattern.",
+          "attack_vector": "A malicious receiver contract can recursively call back before its balance is reduced and drain funds.",
+          "remediation": "Follow checks-effects-interactions and add a ReentrancyGuard modifier on value-moving entrypoints.",
+          "fixed_snippet": "uint256 amount = balances[msg.sender];\nbalances[msg.sender] = 0;\n(bool ok, ) = msg.sender.call{value: amount}(\"\");\nrequire(ok, \"transfer failed\");",
+          "source": "heuristic-model-b"
+        },
+        {
+          "id": "access-control-7b4b02a7",
+          "title": "Sensitive function may be missing access control",
+          "severity": "High",
+          "swc_id": "SWC-105",
+          "file": "Contract.sol",
+          "line": 9,
+          "code": "function deposit() external payable {",
+          "description": "A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.",
+          "attack_vector": "Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.",
+          "remediation": "Add role-based access control and tests proving unauthorized callers revert.",
+          "fixed_snippet": "function withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}",
+          "source": "heuristic-model-b"
+        },
+        {
+          "id": "access-control-71be042b",
+          "title": "Sensitive function may be missing access control",
+          "severity": "High",
+          "swc_id": "SWC-105",
+          "file": "Contract.sol",
+          "line": 13,
+          "code": "function withdraw() external {",
+          "description": "A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.",
+          "attack_vector": "Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.",
+          "remediation": "Add role-based access control and tests proving unauthorized callers revert.",
+          "fixed_snippet": "function withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}",
+          "source": "heuristic-model-b"
+        },
+        {
+          "id": "unchecked-call-eb970cca",
+          "title": "Unchecked low-level external call",
+          "severity": "High",
+          "swc_id": "SWC-104",
+          "file": "Contract.sol",
+          "line": 15,
+          "code": "(bool ok, ) = msg.sender.call{value: amount}(\"\");",
+          "description": "Low-level calls return false on failure and can hide failed transfers or arbitrary external execution.",
+          "attack_vector": "An attacker can force the callee to revert or consume gas while the parent contract continues as if payment or execution succeeded.",
+          "remediation": "Capture the success flag, require it, and emit an event for failed downstream integrations.",
+          "fixed_snippet": "(bool ok, ) = recipient.call{value: amount}(\"\");\nrequire(ok, \"ETH transfer failed\");",
+          "source": "heuristic-model-b"
+        },
+        {
+          "id": "tx-origin-71efba2e",
+          "title": "Authorization uses tx.origin",
+          "severity": "High",
+          "swc_id": "SWC-115",
+          "file": "Contract.sol",
+          "line": 20,
+          "code": "require(tx.origin == owner, \"not owner\");",
+          "description": "tx.origin is unsafe for authorization because phishing contracts can preserve the victim origin.",
+          "attack_vector": "A malicious contract can trick an owner into calling it, then call this contract with tx.origin still equal to the owner.",
+          "remediation": "Use msg.sender for direct caller authorization and explicit role checks.",
+          "fixed_snippet": "require(msg.sender == owner, \"not owner\");",
+          "source": "heuristic-model-b"
+        }
+      ]
+    }
+  ],
+  "synthesized_summary": "VulnerableVault audit completed: review required. Severity counts: {'Critical': 1, 'High': 4, 'Medium': 1, 'Low': 0, 'Informational': 0}. Compliance: {'ERC-20': 'not_detected', 'ERC-721': 'not_detected', 'ERC-1155': 'not_detected'}. Top issue: External call before state update. Gas recommendations: 0.",
+  "markdown_report": "# Smart Contract Audit: VulnerableVault\n\nAudit ID: `aud_e2f3606db76b`\nCreated: 2026-05-08T03:34:47.274932+00:00\n\n## Severity Summary\n\n- **Critical:** 1\n- **High:** 4\n- **Medium:** 1\n- **Low:** 0\n- **Informational:** 0\n\n## Synthesized Summary\n\nVulnerableVault audit completed: review required. Severity counts: {'Critical': 1, 'High': 4, 'Medium': 1, 'Low': 0, 'Informational': 0}. Compliance: {'ERC-20': 'not_detected', 'ERC-721': 'not_detected', 'ERC-1155': 'not_detected'}. Top issue: External call before state update. Gas recommendations: 0.\n\n## Findings\n\n### Critical: External call before state update (SWC-107)\n- Location: `Contract.sol:15`\n- Code: `(bool ok, ) = msg.sender.call{value: amount}(\"\");`\n- Description: State appears to be updated after an external call, which is a classic reentrancy pattern.\n- Attack vector: A malicious receiver contract can recursively call back before its balance is reduced and drain funds.\n- Remediation: Follow checks-effects-interactions and add a ReentrancyGuard modifier on value-moving entrypoints.\n\n```solidity\nuint256 amount = balances[msg.sender];\nbalances[msg.sender] = 0;\n(bool ok, ) = msg.sender.call{value: amount}(\"\");\nrequire(ok, \"transfer failed\");\n```\n\n### High: Sensitive function may be missing access control (SWC-105)\n- Location: `Contract.sol:9`\n- Code: `function deposit() external payable {`\n- Description: A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.\n- Attack vector: Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.\n- Remediation: Add role-based access control and tests proving unauthorized callers revert.\n\n```solidity\nfunction withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}\n```\n\n### High: Sensitive function may be missing access control (SWC-105)\n- Location: `Contract.sol:13`\n- Code: `function withdraw() external {`\n- Description: A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.\n- Attack vector: Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.\n- Remediation: Add role-based access control and tests proving unauthorized callers revert.\n\n```solidity\nfunction withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}\n```\n\n### High: Unchecked low-level external call (SWC-104)\n- Location: `Contract.sol:15`\n- Code: `(bool ok, ) = msg.sender.call{value: amount}(\"\");`\n- Description: Low-level calls return false on failure and can hide failed transfers or arbitrary external execution.\n- Attack vector: An attacker can force the callee to revert or consume gas while the parent contract continues as if payment or execution succeeded.\n- Remediation: Capture the success flag, require it, and emit an event for failed downstream integrations.\n\n```solidity\n(bool ok, ) = recipient.call{value: amount}(\"\");\nrequire(ok, \"ETH transfer failed\");\n```\n\n### High: Authorization uses tx.origin (SWC-115)\n- Location: `Contract.sol:20`\n- Code: `require(tx.origin == owner, \"not owner\");`\n- Description: tx.origin is unsafe for authorization because phishing contracts can preserve the victim origin.\n- Attack vector: A malicious contract can trick an owner into calling it, then call this contract with tx.origin still equal to the owner.\n- Remediation: Use msg.sender for direct caller authorization and explicit role checks.\n\n```solidity\nrequire(msg.sender == owner, \"not owner\");\n```\n\n### Medium: Miner/validator-influenced time dependency (SWC-116)\n- Location: `Contract.sol:25`\n- Code: `return users[block.timestamp % users.length];`\n- Description: Block timestamp/number can be manipulated within consensus tolerance and is unsafe for randomness or tight deadlines.\n- Attack vector: A validator can slightly shift timestamps to win lotteries or bypass exact time gates.\n- Remediation: Avoid timestamp randomness; use commit-reveal or a VRF. For deadlines, allow broad windows.\n\n```solidity\nrequire(block.timestamp >= unlockTime + 5 minutes, \"too early\");\n```\n\n## Gas Optimizations\n\n- No gas-specific recommendations detected.\n\n## Compliance\n\n```json\n{\n  \"ERC-20\": {\n    \"status\": \"not_detected\",\n    \"missing_functions\": [\n      \"totalsupply\",\n      \"balanceof\",\n      \"allowance\",\n      \"approve\",\n      \"transferfrom\"\n    ],\n    \"missing_events\": [\n      \"Transfer\",\n      \"Approval\"\n    ]\n  },\n  \"ERC-721\": {\n    \"status\": \"not_detected\",\n    \"missing_functions\": [\n      \"ownerof\",\n      \"balanceof\",\n      \"safetransferfrom\",\n      \"transferfrom\",\n      \"approve\",\n      \"setapprovalforall\"\n    ],\n    \"missing_events\": [\n      \"Transfer\",\n      \"Approval\",\n      \"ApprovalForAll\"\n    ]\n  },\n  \"ERC-1155\": {\n    \"status\": \"not_detected\",\n    \"missing_functions\": [\n      \"balanceof\",\n      \"balanceofbatch\",\n      \"safetransferfrom\",\n      \"safebatchtransferfrom\",\n      \"setapprovalforall\"\n    ],\n    \"missing_events\": [\n      \"TransferSingle\",\n      \"TransferBatch\",\n      \"ApprovalForAll\",\n      \"URI\"\n    ]\n  },\n  \"summary\": {\n    \"ERC-20\": \"not_detected\",\n    \"ERC-721\": \"not_detected\",\n    \"ERC-1155\": \"not_detected\"\n  }\n}\n```\n\n## Model Pipeline\n\n- **heuristic-model-a:** heuristic-model-a reviewed 1 file(s) for exploitability and produced 6 finding(s).\n- **heuristic-model-b:** heuristic-model-b reviewed 1 file(s) for remediation and produced 5 finding(s).\n",
+  "pdf_report": "PDF-ish Smart Contract Audit Report\n========================================\n\n# Smart Contract Audit: VulnerableVault\n\nAudit ID: `aud_e2f3606db76b`\nCreated: 2026-05-08T03:34:47.274932+00:00\n\n## Severity Summary\n\n- **Critical:** 1\n- **High:** 4\n- **Medium:** 1\n- **Low:** 0\n- **Informational:** 0\n\n## Synthesized Summary\n\nVulnerableVault audit completed: review required. Severity counts: {'Critical': 1, 'High': 4, 'Medium': 1, 'Low': 0, 'Informational': 0}. Compliance: {'ERC-20': 'not_detected', 'ERC-721': 'not_detected', 'ERC-1155': 'not_detected'}. Top issue: External call before state update. Gas recommendations: 0.\n\n## Findings\n\n### Critical: External call before state update (SWC-107)\n- Location: `Contract.sol:15`\n- Code: `(bool ok, ) = msg.sender.call{value: amount}(\"\");`\n- Description: State appears to be updated after an external call, which is a classic reentrancy pattern.\n- Attack vector: A malicious receiver contract can recursively call back before its balance is reduced and drain funds.\n- Remediation: Follow checks-effects-interactions and add a ReentrancyGuard modifier on value-moving entrypoints.\n\n```solidity\nuint256 amount = balances[msg.sender];\nbalances[msg.sender] = 0;\n(bool ok, ) = msg.sender.call{value: amount}(\"\");\nrequire(ok, \"transfer failed\");\n```\n\n### High: Sensitive function may be missing access control (SWC-105)\n- Location: `Contract.sol:9`\n- Code: `function deposit() external payable {`\n- Description: A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.\n- Attack vector: Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.\n- Remediation: Add role-based access control and tests proving unauthorized callers revert.\n\n```solidity\nfunction withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}\n```\n\n### High: Sensitive function may be missing access control (SWC-105)\n- Location: `Contract.sol:13`\n- Code: `function withdraw() external {`\n- Description: A sensitive function name/body was found without an obvious onlyOwner/onlyRole guard nearby.\n- Attack vector: Anyone may call the function to mint/burn, withdraw assets, pause operations, or change privileged configuration.\n- Remediation: Add role-based access control and tests proving unauthorized callers revert.\n\n```solidity\nfunction withdraw(uint256 amount) external onlyOwner {\n    _withdraw(amount);\n}\n```\n\n### High: Unchecked low-level external call (SWC-104)\n- Location: `Contract.sol:15`\n- Code: `(bool ok, ) = msg.sender.call{value: amount}(\"\");`\n- Description: Low-level calls return false on failure and can hide failed transfers or arbitrary external execution.\n- Attack vector: An attacker can force the callee to revert or consume gas while the parent contract continues as if payment or execution succeeded.\n- Remediation: Capture the success flag, require it, and emit an event for failed downstream integrations.\n\n```solidity\n(bool ok, ) = recipient.call{value: amount}(\"\");\nrequire(ok, \"ETH transfer failed\");\n```\n\n### High: Authorization uses tx.origin (SWC-115)\n- Location: `Contract.sol:20`\n- Code: `require(tx.origin == owner, \"not owner\");`\n- Description: tx.origin is unsafe for authorization because phishing contracts can preserve the victim origin.\n- Attack vector: A malicious contract can trick an owner into calling it, then call this contract with tx.origin still equal to the owner.\n- Remediation: Use msg.sender for direct caller authorization and explicit role checks.\n\n```solidity\nrequire(msg.sender == owner, \"not owner\");\n```\n\n### Medium: Miner/validator-influenced time dependency (SWC-116)\n- Location: `Contract.sol:25`\n- Code: `return users[block.timestamp % users.length];`\n- Description: Block timestamp/number can be manipulated within consensus tolerance and is unsafe for randomness or tight deadlines.\n- Attack vector: A validator can slightly shift timestamps to win lotteries or bypass exact time gates.\n- Remediation: Avoid timestamp randomness; use commit-reveal or a VRF. For deadlines, allow broad windows.\n\n```solidity\nrequire(block.timestamp >= unlockTime + 5 minutes, \"too early\");\n```\n\n## Gas Optimizations\n\n- No gas-specific recommendations detected.\n\n## Compliance\n\n```json\n{\n  \"ERC-20\": {\n    \"status\": \"not_detected\",\n    \"missing_functions\": [\n      \"totalsupply\",\n      \"balanceof\",\n      \"allowance\",\n      \"approve\",\n      \"transferfrom\"\n    ],\n    \"missing_events\": [\n      \"Transfer\",\n      \"Approval\"\n    ]\n  },\n  \"ERC-721\": {\n    \"status\": \"not_detected\",\n    \"missing_functions\": [\n      \"ownerof\",\n      \"balanceof\",\n      \"safetransferfrom\",\n      \"transferfrom\",\n      \"approve\",\n      \"setapprovalforall\"\n    ],\n    \"missing_events\": [\n      \"Transfer\",\n      \"Approval\",\n      \"ApprovalForAll\"\n    ]\n  },\n  \"ERC-1155\": {\n    \"status\": \"not_detected\",\n    \"missing_functions\": [\n      \"balanceof\",\n      \"balanceofbatch\",\n      \"safetransferfrom\",\n      \"safebatchtransferfrom\",\n      \"setapprovalforall\"\n    ],\n    \"missing_events\": [\n      \"TransferSingle\",\n      \"TransferBatch\",\n      \"ApprovalForAll\",\n      \"URI\"\n    ]\n  },\n  \"summary\": {\n    \"ERC-20\": \"not_detected\",\n    \"ERC-721\": \"not_detected\",\n    \"ERC-1155\": \"not_detected\"\n  }\n}\n```\n\n## Model Pipeline\n\n- **heuristic-model-a:** heuristic-model-a reviewed 1 file(s) for exploitability and produced 6 finding(s).\n- **heuristic-model-b:** heuristic-model-b reviewed 1 file(s) for remediation and produced 5 finding(s).\n"
+}

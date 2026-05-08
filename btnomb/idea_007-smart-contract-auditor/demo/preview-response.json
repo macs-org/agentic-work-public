@@ -1,0 +1,44 @@
+{
+  "audit_id": "aud_84c3e20a0d33",
+  "contract_name": "VulnerableVault",
+  "created_at": "2026-05-08T03:34:47.270697+00:00",
+  "pricing": {
+    "mode": "preview",
+    "line_count": 27,
+    "amount_cents": 0,
+    "display": "free preview"
+  },
+  "preview": true,
+  "severity_summary": {
+    "Critical": 1,
+    "High": 4,
+    "Medium": 1,
+    "Low": 0,
+    "Informational": 0
+  },
+  "findings": [],
+  "gas_optimizations": [],
+  "compliance": {
+    "summary": {
+      "ERC-20": "not_detected",
+      "ERC-721": "not_detected",
+      "ERC-1155": "not_detected"
+    },
+    "details_hidden": true
+  },
+  "model_reports": [
+    {
+      "provider": "heuristic-model-a",
+      "summary": "heuristic-model-a reviewed 1 file(s) for exploitability and produced 6 finding(s).",
+      "findings": []
+    },
+    {
+      "provider": "heuristic-model-b",
+      "summary": "heuristic-model-b reviewed 1 file(s) for remediation and produced 5 finding(s).",
+      "findings": []
+    }
+  ],
+  "synthesized_summary": "VulnerableVault audit completed: review required. Severity counts: {'Critical': 1, 'High': 4, 'Medium': 1, 'Low': 0, 'Informational': 0}. Compliance: {'ERC-20': 'not_detected', 'ERC-721': 'not_detected', 'ERC-1155': 'not_detected'}. Preview mode hides detailed findings.",
+  "markdown_report": null,
+  "pdf_report": null
+}

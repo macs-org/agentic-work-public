@@ -1,0 +1,5 @@
+{
+  "contract_name": "VulnerableVault",
+  "preview": true,
+  "source": "pragma solidity ^0.8.20;\n\ncontract VulnerableVault {\n    mapping(address => uint256) public balances;\n    address public owner;\n\n    constructor() { owner = msg.sender; }\n\n    function deposit() external payable {\n        balances[msg.sender] += msg.value;\n    }\n\n    function withdraw() external {\n        uint256 amount = balances[msg.sender];\n        (bool ok, ) = msg.sender.call{value: amount}(\"\");\n        balances[msg.sender] = 0;\n    }\n\n    function adminSweep(address payable to) external {\n        require(tx.origin == owner, \"not owner\");\n        to.transfer(address(this).balance);\n    }\n\n    function drawWinner(address[] memory users) external view returns (address) {\n        return users[block.timestamp % users.length];\n    }\n}\n"
+}
