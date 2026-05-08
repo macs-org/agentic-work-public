@@ -54,6 +54,15 @@ curl http://localhost:8000/api/export -H 'X-PAYMENT: demo-receipt'
 - `TELEGRAM_BOT_TOKEN`: optional Telegram bot token
 - `X402_PAY_TO`: wallet receiving x402 payments
 
+## Reviewer evidence
+
+- `DEMO.md` gives a no-secret quickstart and end-to-end API demo flow.
+- `ACCEPTANCE_CHECKLIST.md` maps every BTNOMB acceptance criterion to code paths, tests, and sample artifacts.
+- `evidence/sample_api_flow.json` captures a deterministic subscriber/watchlist/poll/alert/export run.
+- `evidence/dashboard-preview.html` is a dashboard snapshot after the sample flow.
+- `evidence/pytest-2026-05-08.txt` contains the latest local pytest output.
+- `evidence/public-url-verification-2026-05-08.txt` records no-auth checks for the submitted GitHub URL.
+
 ## Tests
 
 ```bash

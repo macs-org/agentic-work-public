@@ -1,0 +1,169 @@
+{
+  "health": {
+    "ok": true,
+    "service": "On-Chain Wallet Intelligence",
+    "wallets": 50,
+    "chains": [
+      "ethereum",
+      "base"
+    ],
+    "poll_interval_seconds": 45
+  },
+  "wallets_sample": [
+    {
+      "address": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+      "label": "vitalik.eth",
+      "tier": "founder",
+      "tier_score": 95,
+      "chain": "all",
+      "source": "curated",
+      "created_at": "2026-05-08T13:28:03+00:00"
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000001",
+      "label": "curated alpha wallet 01",
+      "tier": "top_trader",
+      "tier_score": 90,
+      "chain": "all",
+      "source": "curated",
+      "created_at": "2026-05-08T13:28:03+00:00"
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000002",
+      "label": "curated alpha wallet 02",
+      "tier": "top_trader",
+      "tier_score": 90,
+      "chain": "all",
+      "source": "curated",
+      "created_at": "2026-05-08T13:28:03+00:00"
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000003",
+      "label": "curated alpha wallet 03",
+      "tier": "top_trader",
+      "tier_score": 90,
+      "chain": "all",
+      "source": "curated",
+      "created_at": "2026-05-08T13:28:03+00:00"
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000004",
+      "label": "curated alpha wallet 04",
+      "tier": "top_trader",
+      "tier_score": 90,
+      "chain": "all",
+      "source": "curated",
+      "created_at": "2026-05-08T13:28:03+00:00"
+    }
+  ],
+  "subscriber_create": {
+    "id": 1,
+    "email": "alerts@example.com",
+    "telegram_chat_id": "123456789",
+    "webhook_url": null,
+    "min_score": 50,
+    "created_at": "2026-05-08T13:28:03+00:00"
+  },
+  "custom_watchlist_create": {
+    "address": "0x0000000000000000000000000000000000000003",
+    "label": "custom whale",
+    "tier": "custom",
+    "tier_score": 55,
+    "chain": "base",
+    "source": "subscriber:1",
+    "created_at": "2026-05-08T13:28:03+00:00"
+  },
+  "poll_base_one_block": {
+    "wallets_tracked": 50,
+    "matched_transactions": 2,
+    "new_alerts": 2,
+    "errors": [],
+    "under_60_second_polling_configured": true
+  },
+  "alerts_min_score_50": [
+    {
+      "tx_hash": "0xaaa021base000000000000000000000000000000000000000000000000000001",
+      "chain": "base",
+      "block_number": 24200000,
+      "wallet_address": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+      "wallet_label": "vitalik.eth",
+      "event_type": "transfer",
+      "summary": "vitalik.eth transferred 2.0000 native ETH on base in tx 0xaaa021ba\u2026",
+      "context": "vitalik.eth is a founder wallet; this transfer matters because tier, value and method imply treasury transfer, payment, wallet rotation, or exchange movement.",
+      "likely_intent": "treasury transfer, payment, wallet rotation, or exchange movement",
+      "conviction_score": 100,
+      "value_eth": 2.0,
+      "created_at": "2026-05-08T13:28:03+00:00"
+    },
+    {
+      "tx_hash": "0xbbb021base000000000000000000000000000000000000000000000000000002",
+      "chain": "base",
+      "block_number": 24200000,
+      "wallet_address": "0x0000000000000000000000000000000000000002",
+      "wallet_label": "curated alpha wallet 02",
+      "event_type": "swap",
+      "summary": "curated alpha wallet 02 executed a DEX swap or routed swap on base in tx 0xbbb021ba\u2026",
+      "context": "curated alpha wallet 02 is a top_trader wallet; this swap matters because tier, value and method imply accumulation, de-risking, arbitrage, or position rotation.",
+      "likely_intent": "accumulation, de-risking, arbitrage, or position rotation",
+      "conviction_score": 100,
+      "value_eth": 0.0,
+      "created_at": "2026-05-08T13:28:03+00:00"
+    }
+  ],
+  "deliveries": [
+    {
+      "id": 4,
+      "subscriber_id": 1,
+      "tx_hash": "0xbbb021base000000000000000000000000000000000000000000000000000002",
+      "channel": "telegram",
+      "destination": "123456789",
+      "status": "stored",
+      "detail": "TELEGRAM_BOT_TOKEN not set; alert stored in development outbox",
+      "created_at": "2026-05-08T13:28:03+00:00"
+    },
+    {
+      "id": 3,
+      "subscriber_id": 1,
+      "tx_hash": "0xbbb021base000000000000000000000000000000000000000000000000000002",
+      "channel": "email",
+      "destination": "alerts@example.com",
+      "status": "stored",
+      "detail": "SMTP_HOST not set; alert stored in development outbox",
+      "created_at": "2026-05-08T13:28:03+00:00"
+    },
+    {
+      "id": 2,
+      "subscriber_id": 1,
+      "tx_hash": "0xaaa021base000000000000000000000000000000000000000000000000000001",
+      "channel": "telegram",
+      "destination": "123456789",
+      "status": "stored",
+      "detail": "TELEGRAM_BOT_TOKEN not set; alert stored in development outbox",
+      "created_at": "2026-05-08T13:28:03+00:00"
+    },
+    {
+      "id": 1,
+      "subscriber_id": 1,
+      "tx_hash": "0xaaa021base000000000000000000000000000000000000000000000000000001",
+      "channel": "email",
+      "destination": "alerts@example.com",
+      "status": "stored",
+      "detail": "SMTP_HOST not set; alert stored in development outbox",
+      "created_at": "2026-05-08T13:28:03+00:00"
+    }
+  ],
+  "x402_requirements": {
+    "network": "base",
+    "asset": "USDC",
+    "amount": "99.00",
+    "pay_to": "0x23bB05603A980C2915FC3B9D5D4a475993b666DE",
+    "product": "On-Chain Wallet Intelligence Starter monthly access",
+    "header": "X-PAYMENT"
+  },
+  "export_without_payment_status": 402,
+  "export_with_payment_summary": {
+    "wallets": 50,
+    "alerts": 2,
+    "exported_at_present": true
+  }
+}
