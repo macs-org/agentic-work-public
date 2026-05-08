@@ -1,0 +1,281 @@
+{
+  "generated_at": "2026-05-08T14:28:49Z",
+  "note": "Generated with FastAPI TestClient against sqlite:///:memory:. Demo API keys are redacted; no real secrets or payments are included.",
+  "steps": [
+    {
+      "request": {
+        "method": "POST",
+        "path": "/agents",
+        "headers": {},
+        "json": {
+          "name": "reviewer-demo-agent",
+          "plan": "starter"
+        }
+      },
+      "response": {
+        "status_code": 201,
+        "json": {
+          "agent_id": "agt_fb3a7f725ca17154",
+          "name": "reviewer-demo-agent",
+          "plan": "starter",
+          "api_key": "<redacted demo api key>"
+        },
+        "text_preview": null
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/customers",
+        "headers": {
+          "X-API-Key": "<redacted demo api key>"
+        },
+        "json": {
+          "customer_id": "cust_demo",
+          "spend_limit_cents": 5000
+        }
+      },
+      "response": {
+        "status_code": 201,
+        "json": {
+          "agent_id": "agt_fb3a7f725ca17154",
+          "customer_id": "cust_demo",
+          "spend_limit_cents": 5000
+        },
+        "text_preview": null
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/meter/event",
+        "headers": {
+          "X-API-Key": "<redacted demo api key>"
+        },
+        "json": {
+          "customer_id": "cust_demo",
+          "event_type": "tokens",
+          "quantity": 1250,
+          "unit_price_cents": 2
+        }
+      },
+      "response": {
+        "status_code": 201,
+        "json": {
+          "event_id": "evt_fe08ed782bbb01d6",
+          "agent_id": "agt_fb3a7f725ca17154",
+          "customer_id": "cust_demo",
+          "event_type": "tokens",
+          "quantity": 1250,
+          "unit_price_cents": 2,
+          "cost_cents": 2500,
+          "created_at": "2026-05-08T14:29:17.946763"
+        },
+        "text_preview": null
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/meter/usage?customer_id=cust_demo",
+        "headers": {
+          "X-API-Key": "<redacted demo api key>"
+        },
+        "json": null
+      },
+      "response": {
+        "status_code": 200,
+        "json": {
+          "agent_id": "agt_fb3a7f725ca17154",
+          "customer_id": "cust_demo",
+          "events": 1,
+          "total_quantity": 1250,
+          "total_cost_cents": 2500
+        },
+        "text_preview": null
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/gate",
+        "headers": {
+          "X-API-Key": "<redacted demo api key>"
+        },
+        "json": {
+          "customer_id": "cust_demo",
+          "resource": "/premium/tool",
+          "amount_cents": 25
+        }
+      },
+      "response": {
+        "status_code": 402,
+        "json": {
+          "x402Version": 1,
+          "error": "X-PAYMENT header is required",
+          "description": "Pay to access /premium/tool",
+          "accepts": [
+            {
+              "scheme": "exact",
+              "network": "base",
+              "maxAmountRequired": "250000",
+              "resource": "/premium/tool",
+              "description": "Pay to access /premium/tool",
+              "mimeType": "application/json",
+              "payTo": "0x9c768177521C9A832B0f8567265ef02E89D0282e",
+              "maxTimeoutSeconds": 60,
+              "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+              "outputSchema": {
+                "input": {
+                  "type": "http",
+                  "method": "POST",
+                  "discoverable": true
+                }
+              },
+              "extra": {
+                "name": "USD Coin",
+                "version": "2"
+              }
+            }
+          ]
+        },
+        "text_preview": null
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/gate",
+        "headers": {
+          "X-API-Key": "<redacted demo api key>",
+          "X-PAYMENT": "demo-payment-proof"
+        },
+        "json": {
+          "customer_id": "cust_demo",
+          "resource": "/premium/tool",
+          "amount_cents": 25
+        }
+      },
+      "response": {
+        "status_code": 200,
+        "json": {
+          "status": "paid",
+          "resource": "/premium/tool",
+          "customer_id": "cust_demo",
+          "event_id": "evt_4611471e73e06c22"
+        },
+        "text_preview": null
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/invoice/generate",
+        "headers": {
+          "X-API-Key": "<redacted demo api key>"
+        },
+        "json": {
+          "customer_id": "cust_demo",
+          "period_start": "2026-05-01",
+          "period_end": "2026-05-31"
+        }
+      },
+      "response": {
+        "status_code": 201,
+        "json": {
+          "invoice_id": "inv_31c47dc7d3305676",
+          "agent_id": "agt_fb3a7f725ca17154",
+          "customer_id": "cust_demo",
+          "period_start": "2026-05-01",
+          "period_end": "2026-05-31",
+          "line_items": [
+            {
+              "event_type": "tokens",
+              "quantity": 1250,
+              "total_cents": 2500
+            },
+            {
+              "event_type": "gate:/premium/tool",
+              "quantity": 1,
+              "total_cents": 25
+            }
+          ],
+          "total_cents": 2525
+        },
+        "text_preview": null
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "path": "/plans/checkout",
+        "headers": {
+          "X-API-Key": "<redacted demo api key>"
+        },
+        "json": {
+          "plan": "pro"
+        }
+      },
+      "response": {
+        "status_code": 402,
+        "json": {
+          "x402Version": 1,
+          "error": "X-PAYMENT header is required",
+          "description": "Upgrade agent billing plan to pro",
+          "accepts": [
+            {
+              "scheme": "exact",
+              "network": "base",
+              "maxAmountRequired": "99000000",
+              "resource": "/plans/pro",
+              "description": "Upgrade agent billing plan to pro",
+              "mimeType": "application/json",
+              "payTo": "0x9c768177521C9A832B0f8567265ef02E89D0282e",
+              "maxTimeoutSeconds": 60,
+              "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+              "outputSchema": {
+                "input": {
+                  "type": "http",
+                  "method": "POST",
+                  "discoverable": true
+                }
+              },
+              "extra": {
+                "name": "USD Coin",
+                "version": "2"
+              }
+            }
+          ]
+        },
+        "text_preview": null
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "path": "/openapi.json",
+        "headers": {},
+        "json": null
+      },
+      "response": {
+        "status_code": 200,
+        "json": {
+          "title": "Agent Billing & Metering API",
+          "version": "0.1.0",
+          "paths": [
+            "/agents",
+            "/customers",
+            "/dashboard",
+            "/gate",
+            "/health",
+            "/invoice/generate",
+            "/meter/event",
+            "/meter/usage",
+            "/plans/checkout"
+          ]
+        },
+        "text_preview": null
+      }
+    }
+  ]
+}

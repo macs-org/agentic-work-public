@@ -4,6 +4,14 @@ Drop-in usage metering, spending limits, x402 payment gating, plan checkout, and
 
 Built for BTNOMB bounty `idea_023`.
 
+Reviewer evidence added during acceptance upgrade:
+
+- `DEMO.md` — end-to-end local review workflow.
+- `ACCEPTANCE_CHECKLIST.md` — bounty requirement mapping to endpoints/tests/files.
+- `LIMITATIONS.md` — MVP vs production hardening notes.
+- `demo/sample_session.json` — sanitized request/response examples.
+- `demo/test-rerun-2026-05-08.txt` — rerun command log and public URL verification.
+
 ## Features
 
 - FastAPI backend with OpenAPI docs at `/docs` and `/openapi.json`.
@@ -146,10 +154,10 @@ Production deployments should wire `X-PAYMENT` to a facilitator verification ste
 .venv/bin/python -m pytest tests -q
 ```
 
-Current result:
+Current result after acceptance-upgrade rerun (2026-05-08):
 
 ```text
-6 passed
+9 passed in 1.95s
 ```
 
 ## Acceptance mapping

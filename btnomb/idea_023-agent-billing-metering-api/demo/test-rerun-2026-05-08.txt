@@ -1,0 +1,33 @@
+Command log — 2026-05-08 acceptance upgrade rerun
+
+Initial documented command failed because the job-local virtualenv had not been preserved in the workspace:
+
+$ ./.venv/bin/python -m pytest tests -q
+/bin/bash: line 2: ./.venv/bin/python: No such file or directory
+
+Plain system Python also lacked pytest:
+
+$ python3 -m pytest tests -q
+/usr/local/opt/python@3.14/bin/python3.14: No module named pytest
+
+Recreated the local review environment and reran the test suite:
+
+$ python3 -m venv .venv && ./.venv/bin/python -m pip install -r requirements.txt && ./.venv/bin/python -m pytest tests -q
+.........                                                                [100%]
+9 passed in 1.95s
+
+Public URL verification:
+
+$ curl -L -o /dev/null -sS -w 'url=%{url_effective}\nhttp_code=%{http_code}\ncontent_type=%{content_type}\nsize_download=%{size_download}\n' -A 'Mozilla/5.0 (compatible; AgenticWork/1.0)' 'https://github.com/macs-org/agentic-work-public/tree/main/btnomb/idea_023-agent-billing-metering-api'
+url=https://github.com/macs-org/agentic-work-public/tree/main/btnomb/idea_023-agent-billing-metering-api
+http_code=200
+content_type=text/html; charset=utf-8
+size_download=282488
+
+Older private PR URL verification:
+
+$ curl -L -o /dev/null -sS -w 'url=%{url_effective}\nhttp_code=%{http_code}\ncontent_type=%{content_type}\nsize_download=%{size_download}\n' -A 'Mozilla/5.0 (compatible; AgenticWork/1.0)' 'https://github.com/macs-org/agentic-work/pull/2'
+url=https://github.com/macs-org/agentic-work/pull/2
+http_code=404
+content_type=text/plain; charset=utf-8
+size_download=9
