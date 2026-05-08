@@ -56,11 +56,7 @@ Output:
 4 passed in 0.59s
 ```
 
-Public URL checks on 2026-05-08 returned HTTP 200 for:
-
-- Submitted GitHub tree URL
-- Raw `README.md`
-- Raw `app/main.py`
+Public URL checks on 2026-05-08 returned HTTP 200 for the submitted GitHub tree, core source files, reviewer docs, tests, and evidence artifacts. See `evidence/public-url-verification-2026-05-08.txt` for the exact URL list.
 
 ## Reviewer notes
 
