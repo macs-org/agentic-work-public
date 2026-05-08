@@ -75,3 +75,13 @@ curl http://localhost:8000/api/export -H 'X-PAYMENT: demo-receipt'
 ```bash
 pytest tests -q
 ```
+
+## Reviewer evidence
+
+This acceptance-upgraded package includes reviewer-facing evidence in addition to the app source:
+
+- `DEMO.md` — local runbook with end-to-end API, dashboard, alert, digest, and x402 export flows.
+- `ACCEPTANCE_CHECKLIST.md` — explicit bounty requirement mapping to implementation and sample artifacts.
+- `LIMITATIONS.md` — MVP boundaries and production hardening notes.
+- `scripts/generate_samples.py` — deterministic sample generator using FastAPI `TestClient` and SQLite.
+- `samples/` — captured request/response artifacts, dashboard HTML snippet, and current pytest output.

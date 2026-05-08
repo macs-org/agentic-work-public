@@ -1,0 +1,134 @@
+{
+  "company_count": 50,
+  "exported_at": "2026-05-08T18:32:25+00:00",
+  "job_count": 10,
+  "sample_jobs": [
+    {
+      "active": 1,
+      "company": "Anthropic",
+      "department": "engineering",
+      "external_id": "demo:Anthropic:anthropic-ai-1",
+      "first_seen_at": "2026-05-08T18:32:25+00:00",
+      "last_seen_at": "2026-05-08T18:32:25+00:00",
+      "location": "San Francisco",
+      "seniority": "mid",
+      "source": "deterministic-demo",
+      "tech_stack": [
+        "llm"
+      ],
+      "title": "Research Engineer, LLM Evaluation",
+      "url": "https://example.test/anthropic/ai-1"
+    },
+    {
+      "active": 1,
+      "company": "OpenAI",
+      "department": "engineering",
+      "external_id": "demo:OpenAI:openai-platform-1",
+      "first_seen_at": "2026-05-08T18:32:25+00:00",
+      "last_seen_at": "2026-05-08T18:32:25+00:00",
+      "location": "San Francisco",
+      "seniority": "senior",
+      "source": "deterministic-demo",
+      "tech_stack": [
+        "python"
+      ],
+      "title": "Senior Python Platform Engineer",
+      "url": "https://example.test/openai/platform-1"
+    },
+    {
+      "active": 1,
+      "company": "OpenAI",
+      "department": "engineering",
+      "external_id": "demo:OpenAI:openai-ml-2",
+      "first_seen_at": "2026-05-08T18:32:25+00:00",
+      "last_seen_at": "2026-05-08T18:32:25+00:00",
+      "location": "Remote",
+      "seniority": "mid",
+      "source": "deterministic-demo",
+      "tech_stack": [
+        "llm"
+      ],
+      "title": "Machine Learning Engineer, LLM Agents",
+      "url": "https://example.test/openai/ml-2"
+    },
+    {
+      "active": 1,
+      "company": "OpenAI",
+      "department": "engineering",
+      "external_id": "demo:OpenAI:openai-product-3",
+      "first_seen_at": "2026-05-08T18:32:25+00:00",
+      "last_seen_at": "2026-05-08T18:32:25+00:00",
+      "location": "New York",
+      "seniority": "mid",
+      "source": "deterministic-demo",
+      "tech_stack": [],
+      "title": "Product Manager, Developer Platform",
+      "url": "https://example.test/openai/product-3"
+    },
+    {
+      "active": 1,
+      "company": "OpenAI",
+      "department": "engineering",
+      "external_id": "demo:OpenAI:openai-security-4",
+      "first_seen_at": "2026-05-08T18:32:25+00:00",
+      "last_seen_at": "2026-05-08T18:32:25+00:00",
+      "location": "Remote",
+      "seniority": "lead",
+      "source": "deterministic-demo",
+      "tech_stack": [
+        "kubernetes"
+      ],
+      "title": "Staff Security Engineer, Kubernetes",
+      "url": "https://example.test/openai/security-4"
+    }
+  ],
+  "sample_signals": [
+    {
+      "company": "Stripe",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "Captured 3 active roles for future trend comparison.",
+      "id": 5,
+      "kind": "baseline",
+      "severity": 25,
+      "title": "Stripe baseline captured"
+    },
+    {
+      "company": "Stripe",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "New postings indicate active team expansion. Top departments: {'engineering': 2, 'product': 1}.",
+      "id": 4,
+      "kind": "new_roles",
+      "severity": 60,
+      "title": "Stripe added 3 new roles"
+    },
+    {
+      "company": "OpenAI",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "Captured 6 active roles for future trend comparison.",
+      "id": 3,
+      "kind": "baseline",
+      "severity": 25,
+      "title": "OpenAI baseline captured"
+    },
+    {
+      "company": "OpenAI",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "New postings indicate active team expansion. Top departments: {'engineering': 4, 'sales': 1, 'data': 1}.",
+      "id": 2,
+      "kind": "new_roles",
+      "severity": 60,
+      "title": "OpenAI added 6 new roles"
+    },
+    {
+      "company": "Anthropic",
+      "created_at": "2026-05-08T18:32:25+00:00",
+      "detail": "Captured 1 active roles for future trend comparison.",
+      "id": 1,
+      "kind": "baseline",
+      "severity": 25,
+      "title": "Anthropic baseline captured"
+    }
+  ],
+  "signal_count": 5,
+  "status_code": 200
+}

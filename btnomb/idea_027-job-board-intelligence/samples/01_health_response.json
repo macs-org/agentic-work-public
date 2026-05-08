@@ -1,0 +1,9 @@
+{
+  "body": {
+    "ok": true,
+    "poll_interval_seconds": 3600,
+    "service": "Job Board Intelligence",
+    "tracked_companies": 50
+  },
+  "status_code": 200
+}
