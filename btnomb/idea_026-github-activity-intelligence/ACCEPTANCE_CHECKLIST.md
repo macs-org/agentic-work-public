@@ -59,7 +59,9 @@ Command:
 
 ```bash
 cd platforms/agent-native/btnomb/jobs/2026-05-06_btnomb-github-activity-intelligence-saas/work/github_activity_intelligence
-PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 /tmp/github-activity-test-venv.1oeuc1/bin/python -m pytest tests -q -p no:cacheprovider
+python3 -m venv .venv
+./.venv/bin/python -m pip install -r requirements.txt
+PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 ./.venv/bin/python -m pytest tests -q -p no:cacheprovider
 ```
 
 Result on 2026-05-08:
