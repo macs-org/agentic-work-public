@@ -238,3 +238,13 @@ Captured reviewer verification from 2026-05-09 is in `samples/test-output.txt`.
 - Dashboard: `/dashboard` shows suite overview and recent run history.
 - Payment integration: x402-compatible plan checkout requirements implemented.
 - HTTP/REST targets: endpoint calls use `httpx`; mocks keep local tests deterministic.
+
+## Live Vercel deployment evidence
+
+- Live app: https://btnomb-idea-025-autonomous-qa-agent.vercel.app
+- Health: https://btnomb-idea-025-autonomous-qa-agent.vercel.app/healthz
+- Readiness: https://btnomb-idea-025-autonomous-qa-agent.vercel.app/readyz
+- API docs: https://btnomb-idea-025-autonomous-qa-agent.vercel.app/docs
+- Smoke evidence: `samples/production-smoke-vercel.json`
+- Full deployment note: `LIVE_DEPLOYMENT.md`
+

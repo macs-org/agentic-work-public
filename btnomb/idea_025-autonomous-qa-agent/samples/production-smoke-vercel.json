@@ -1,0 +1,91 @@
+{
+  "base_url": "https://btnomb-idea-025-autonomous-qa-agent.vercel.app",
+  "checks": [
+    {
+      "detail": {
+        "body": {
+          "service": "autonomous-qa-agent",
+          "status": "ok",
+          "version": "0.1.0"
+        },
+        "status": 200
+      },
+      "name": "healthz",
+      "ok": true
+    },
+    {
+      "detail": {
+        "body": {
+          "database": "ok",
+          "status": "ready"
+        },
+        "status": 200
+      },
+      "name": "readyz",
+      "ok": true
+    },
+    {
+      "detail": {
+        "agent_id": "agt_23f9b3ac244f5100",
+        "api_key_present": true,
+        "status": 201
+      },
+      "name": "create_agent",
+      "ok": true
+    },
+    {
+      "detail": {
+        "case_count": 3,
+        "status": 201,
+        "suite_id": "sui_8cfe94c4e9749beb"
+      },
+      "name": "create_suite",
+      "ok": true
+    },
+    {
+      "detail": {
+        "passed": 3,
+        "run_status": "passed",
+        "status": 201,
+        "total": 3
+      },
+      "name": "manual_run",
+      "ok": true
+    },
+    {
+      "detail": {
+        "count": 1,
+        "status": 200
+      },
+      "name": "schedules",
+      "ok": true
+    },
+    {
+      "detail": {
+        "status": 200,
+        "suites": 1
+      },
+      "name": "reports_summary",
+      "ok": true
+    },
+    {
+      "detail": {
+        "network": "base",
+        "status": 402
+      },
+      "name": "x402_checkout",
+      "ok": true
+    },
+    {
+      "detail": {
+        "contains_title": true,
+        "status": 200
+      },
+      "name": "dashboard",
+      "ok": true
+    }
+  ],
+  "completed_at": "2026-05-09T12:08:33Z",
+  "ok": true,
+  "started_at": "2026-05-09T12:08:33Z"
+}
