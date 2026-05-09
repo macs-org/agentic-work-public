@@ -16,7 +16,8 @@ from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse
 from pydantic import BaseModel, Field
 
 DEFAULT_API_KEY = os.getenv("AUDITOR_API_KEY", "dev-audit-key")
-HISTORY_PATH = Path(os.getenv("AUDIT_HISTORY_PATH", "audit_history.jsonl"))
+DEFAULT_HISTORY = "/tmp/audit_history.jsonl" if os.getenv("VERCEL") else "audit_history.jsonl"
+HISTORY_PATH = Path(os.getenv("AUDIT_HISTORY_PATH", DEFAULT_HISTORY))
 SEVERITY_ORDER = {"Critical": 0, "High": 1, "Medium": 2, "Low": 3, "Informational": 4}
 PRICE_SMALL_CENTS = 200
 PRICE_LARGE_CENTS = 500
