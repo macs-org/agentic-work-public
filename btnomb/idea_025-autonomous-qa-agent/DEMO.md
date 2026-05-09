@@ -13,11 +13,11 @@ python3 -m venv .venv
 PYTHONPATH=. ./.venv/bin/python -m pytest tests -q
 ```
 
-Verified on 2026-05-08:
+Verified on 2026-05-09:
 
 ```text
-......                                                                   [100%]
-6 passed in 1.02s
+.......                                                                  [100%]
+7 passed in 1.03s
 ```
 
 Captured output is also in `samples/test-output.txt`.
@@ -34,6 +34,25 @@ OpenAPI docs:
 http://127.0.0.1:8000/docs
 http://127.0.0.1:8000/openapi.json
 ```
+
+Production liveness/readiness checks added for live deployments:
+
+```bash
+curl -fsS http://127.0.0.1:8000/healthz
+curl -fsS http://127.0.0.1:8000/readyz
+```
+
+## 2a. Production smoke verification
+
+The reviewer can run the same verifier against local Docker, local uvicorn, or a hosted Render/Railway/Fly URL:
+
+```bash
+AUTONOMOUS_QA_BASE_URL=http://127.0.0.1:8000 python3 scripts/production_smoke_test.py
+# or
+AUTONOMOUS_QA_BASE_URL=https://your-live-service.example python3 scripts/production_smoke_test.py
+```
+
+The verifier checks `/healthz`, `/readyz`, agent registration, YAML suite creation, manual run, schedules, reports, Base USDC x402 checkout, and dashboard HTML. Captured output from 2026-05-09 is in `samples/production-smoke-output.json`.
 
 ## 3. End-to-end reviewer flow
 
@@ -130,6 +149,7 @@ Generated from the app with `FastAPI TestClient` and `sqlite:///:memory:`:
 - `samples/05_summary_response.json` — report summary/trend response.
 - `samples/06_x402_checkout_response.json` — x402-style 402 payment requirements for the pro plan.
 - `samples/07_regression_evidence.json` — failure/regression/alert evidence.
+- `samples/production-smoke-output.json` — production smoke output from a live local uvicorn deployment.
 - `samples/test-output.txt` — current pytest output.
 
 ## 6. Why this meets the bounty

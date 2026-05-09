@@ -18,7 +18,9 @@ Compact FastAPI MVP for BTNOMB `idea_025`: a service that continuously runs stru
 - Detailed run reports with per-case output, assertions, diff, pass rate, and trend summary.
 - HTML dashboard at `/dashboard`.
 - x402-compatible paid plan checkout response at `POST /plans/checkout`.
-- Dockerfile included; no secrets committed.
+- Dockerfile, Docker Compose, Render blueprint, and `.env.example` included; no secrets committed.
+- Production health/readiness endpoints: `/healthz` and `/readyz`.
+- Stdlib production smoke test: `scripts/production_smoke_test.py` validates a live local or hosted deployment end-to-end.
 
 ## Quickstart
 
@@ -33,6 +35,29 @@ Open the API docs:
 ```text
 http://127.0.0.1:8000/docs
 ```
+
+## Production deployment and verification
+
+Counter-response upgrade, 2026-05-09: the package now includes live-deployment readiness materials and a smoke-test verifier.
+
+```bash
+# Run as a deployable service from the packaged artifact
+docker compose up --build
+
+# Verify a live local or hosted deployment
+curl -fsS http://127.0.0.1:8000/healthz
+curl -fsS http://127.0.0.1:8000/readyz
+AUTONOMOUS_QA_BASE_URL=http://127.0.0.1:8000 python3 scripts/production_smoke_test.py
+```
+
+Deployment/production files:
+
+- `DEPLOYMENT.md` — Docker/Render/Railway/Fly deployment instructions and verification checklist.
+- `docker-compose.yml` — one-command Docker deployment with persistent SQLite volume and `/readyz` health check.
+- `render.yaml` — hosted Render blueprint metadata with `/readyz` health check.
+- `.env.example` — production environment variable template; keeps database/SMTP secrets out of source.
+- `scripts/production_smoke_test.py` — stdlib smoke test for `/healthz`, `/readyz`, agent registration, suite creation, manual run, schedules, summary, x402 checkout, and dashboard.
+- `samples/production-smoke-output.json` — captured smoke-test result against a live uvicorn process.
 
 ## Database
 
@@ -186,11 +211,11 @@ PYTHONPATH=. python3 -m pytest tests -q
 Expected current result:
 
 ```text
-......                                                                   [100%]
-6 passed in 1.02s
+.......                                                                  [100%]
+7 passed in 1.03s
 ```
 
-Captured reviewer verification from 2026-05-08 is in `samples/test-output.txt`.
+Captured reviewer verification from 2026-05-09 is in `samples/test-output.txt`.
 
 ## Reviewer evidence pack
 
@@ -199,11 +224,13 @@ Captured reviewer verification from 2026-05-08 is in `samples/test-output.txt`.
 - `LIMITATIONS.md` — MVP scope and production-hardening notes.
 - `samples/demo_suite.yaml` — reviewer-friendly YAML suite definition.
 - `samples/01_create_agent_response.json` through `samples/07_regression_evidence.json` — sanitized request/response artifacts generated with FastAPI TestClient and in-memory SQLite.
+- `samples/production-smoke-output.json` — live local uvicorn production-smoke verification of health, readiness, API flow, x402, and dashboard.
 - `samples/test-output.txt` — current pytest output.
 
 ## Acceptance mapping
 
 - Test suite config parsed and executed: YAML/JSON parsing plus assertion execution implemented and tested.
+- Live deploy verification: `/healthz` and `/readyz` implemented/tested, Docker Compose health check provided, Render blueprint included, and stdlib smoke test captured in `samples/production-smoke-output.json`.
 - Scheduled runs: schedule representation plus `/scheduler/tick` due runner implemented and tested.
 - Regression detection: previously passing case failing creates alerts, implemented and tested.
 - Detailed reports: `/runs/{run_id}`, output diffs, pass rate, and `/reports/summary` trends.
