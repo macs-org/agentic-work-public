@@ -190,3 +190,13 @@ See `DEPLOYMENT.md` for Docker, Render/Railway/Fly-style deployment notes, produ
 - For 1,000+ repos, batch the poller and respect GitHub rate-limit headers.
 - Replace demo alert delivery with SendGrid/Postmark/SES.
 - Replace demo x402 receipt acceptance with a real verifier or Stripe checkout if required.
+
+## Live Vercel deployment evidence
+
+- Live app: https://btnomb-idea-026-github-activity-int.vercel.app
+- Health: https://btnomb-idea-026-github-activity-int.vercel.app/healthz
+- Readiness: https://btnomb-idea-026-github-activity-int.vercel.app/readyz
+- API docs: https://btnomb-idea-026-github-activity-int.vercel.app/docs
+- Smoke evidence: `samples/production-smoke-vercel.json`
+- Full deployment note: `LIVE_DEPLOYMENT.md`
+
