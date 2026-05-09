@@ -411,6 +411,25 @@ def create_app(database_url: str | None = None) -> FastAPI:
         repo_count = db.scalar(select(func.count()).select_from(Repo)) or 0
         return {"status": "ok", "repos": int(repo_count), "service": "github-activity-intelligence"}
 
+    @app.get("/", response_class=HTMLResponse)
+    def landing() -> str:
+        return """
+        <html><head><title>GitHub Activity Intelligence</title>
+        <style>body{font-family:system-ui;margin:2rem;max-width:900px;line-height:1.5}code{background:#f4f4f4;padding:.15rem .3rem;border-radius:4px}li{margin:.35rem 0}</style></head>
+        <body>
+          <h1>GitHub Activity Intelligence</h1>
+          <p>Live API for ranking repositories by activity momentum, managing watchlists, generating alerts, and producing weekly digests.</p>
+          <ul>
+            <li><a href='/dashboard'>Public dashboard</a></li>
+            <li><a href='/healthz'>Health</a></li>
+            <li><a href='/readyz'>Readiness</a></li>
+            <li><a href='/docs'>Interactive API docs</a></li>
+            <li><a href='/openapi.json'>OpenAPI schema</a></li>
+          </ul>
+          <p>Administrative seed, snapshot, alert, digest, and polling endpoints require <code>X-API-Key</code>; public ranked search is available at <code>/repos</code>.</p>
+        </body></html>
+        """
+
     @app.get("/readyz")
     def readyz(db: Session = Depends(get_db)) -> dict[str, Any]:
         snapshot = readiness_snapshot(db)
