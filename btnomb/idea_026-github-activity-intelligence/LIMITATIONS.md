@@ -11,7 +11,7 @@ This is a compact BTNOMB MVP meant to be easy for reviewers to run and inspect. 
 - SQLite is the default database for local review. Production should run Postgres with migrations, backups, and indexes sized for large repo universes.
 - Scheduler behavior is represented by callable API endpoints; production should run polling/digest jobs from cron, a queue worker, or a cloud scheduler.
 - The dashboard is functional reviewer HTML, not a polished frontend product.
-- Tests currently cover the main product contract but do not include load tests or live GitHub API integration tests.
+- Tests cover the main product contract plus health/readiness production checks; `scripts/production_smoke_test.py` covers a live HTTP process. Production hardening should still add load tests and authenticated live GitHub API integration tests.
 
 ## Known non-blocking issue
 

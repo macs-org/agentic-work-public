@@ -5,6 +5,7 @@ import hmac
 import json
 import os
 import secrets
+import time
 from collections import defaultdict
 from datetime import UTC, datetime, timedelta
 from typing import Any
@@ -22,6 +23,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 BASE_USDC = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
 DEFAULT_PAY_TO = os.getenv("PAY_TO", "0x9c768177521C9A832B0f8567265ef02E89D0282e")
 PLAN_PRICES_CENTS = {"free": 0, "starter": 4900, "pro": 14900, "enterprise": 49900}
+STARTED_AT = time.time()
 CATEGORY_KEYWORDS = {
     "AI/ML": {"ai", "ml", "llm", "rag", "agent", "model", "neural", "pytorch", "tensorflow", "embedding", "inference"},
     "DevTools": {"cli", "developer", "tool", "sdk", "debug", "lint", "test", "ci", "automation", "observability"},
@@ -360,10 +362,48 @@ def create_app(database_url: str | None = None) -> FastAPI:
         finally:
             db.close()
 
+    def readiness_snapshot(db: Session) -> dict[str, Any]:
+        repo_count = db.scalar(select(func.count()).select_from(Repo)) or 0
+        snapshot_count = db.scalar(select(func.count()).select_from(Snapshot)) or 0
+        watchlist_count = db.scalar(select(func.count()).select_from(Watchlist)) or 0
+        api_key_default = API_KEY == "dev-api-key"
+        checks = {
+            "database_query": True,
+            "schema_initialized": True,
+            "admin_api_key_configured": bool(API_KEY),
+            "admin_api_key_not_default": not api_key_default,
+            "pay_to_configured": bool(DEFAULT_PAY_TO),
+            "base_usdc_asset_configured": bool(BASE_USDC),
+            "github_token_optional": True,
+        }
+        warnings = []
+        if api_key_default:
+            warnings.append("APP_API_KEY is using the reviewer default; set a unique secret before public production exposure.")
+        if not GITHUB_TOKEN:
+            warnings.append("GITHUB_TOKEN is unset; live polling still works at unauthenticated GitHub REST limits.")
+        return {
+            "status": "ok" if checks["database_query"] and checks["admin_api_key_configured"] else "degraded",
+            "production_ready": checks["database_query"] and checks["admin_api_key_configured"] and checks["pay_to_configured"],
+            "checks": checks,
+            "warnings": warnings,
+            "counts": {"repos": int(repo_count), "snapshots": int(snapshot_count), "watchlists": int(watchlist_count)},
+            "uptime_seconds": round(time.time() - STARTED_AT, 3),
+            "database_url_kind": "sqlite" if app.state.database_url.startswith("sqlite") else "external",
+            "service": "github-activity-intelligence",
+        }
+
     @app.get("/health")
+    @app.get("/healthz")
     def health(db: Session = Depends(get_db)) -> dict[str, Any]:
         repo_count = db.scalar(select(func.count()).select_from(Repo)) or 0
-        return {"status": "ok", "repos": int(repo_count)}
+        return {"status": "ok", "repos": int(repo_count), "service": "github-activity-intelligence"}
+
+    @app.get("/readyz")
+    def readyz(db: Session = Depends(get_db)) -> dict[str, Any]:
+        snapshot = readiness_snapshot(db)
+        if snapshot["status"] != "ok":
+            return JSONResponse(status_code=503, content=snapshot)
+        return snapshot
 
     @app.post("/repos/seed", status_code=201, dependencies=[Depends(require_api_key)])
     def seed_repo(payload: RepoSeed, db: Session = Depends(get_db)) -> dict[str, Any]:

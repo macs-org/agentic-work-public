@@ -13,11 +13,11 @@ python3 -m venv .venv
 PYTHONPATH=. ./.venv/bin/python -m pytest tests -q
 ```
 
-Verified on 2026-05-08:
+Verified on 2026-05-09 counter-response run:
 
 ```text
-...                                                                      [100%]
-3 passed, 26 warnings in 1.71s
+....                                                                     [100%]
+4 passed, 26 warnings in 0.95s
 ```
 
 Captured output is also in `samples/test-output.txt`.
@@ -34,7 +34,8 @@ Open:
 http://127.0.0.1:8000/dashboard
 http://127.0.0.1:8000/docs
 http://127.0.0.1:8000/openapi.json
-http://127.0.0.1:8000/health
+http://127.0.0.1:8000/healthz
+http://127.0.0.1:8000/readyz
 ```
 
 ## 3. End-to-end reviewer flow
@@ -113,9 +114,27 @@ curl -i -X POST http://127.0.0.1:8000/plans/checkout \
 
 Expected result: HTTP 402 with Base USDC x402 requirement fields including `x402Version`, `accepts`, `network: base`, and `asset: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`.
 
-## 7. Sample artifacts
+## 7. Deployment and production smoke verification
 
-Generated from the app with `FastAPI TestClient` and `sqlite:///:memory:`:
+To address production-readiness review, the package includes `DEPLOYMENT.md`, `docker-compose.yml`, `render.yaml`, `/healthz`, `/readyz`, and a no-dependency smoke verifier.
+
+```bash
+docker compose up --build
+curl http://127.0.0.1:8000/readyz
+python3 scripts/production_smoke_test.py --base-url http://127.0.0.1:8000 --api-key "$APP_API_KEY"
+```
+
+Counter-response verification captured in `samples/production-smoke-output.json`:
+
+```text
+ok=true; 14/14 checks passed
+```
+
+Smoke coverage includes health, readiness, repo seed, historical snapshots, recompute, ranked search, repo detail persistence, watchlist, alert evaluation, weekly digest, x402 402 checkout, and dashboard rendering.
+
+## 8. Sample artifacts
+
+Generated from the app with `FastAPI TestClient`, `sqlite:///:memory:`, and a live local uvicorn smoke process:
 
 - `samples/00_evidence_summary.json` — generated evidence summary and key checks.
 - `samples/01_seed_repos_response.json` — repo seeding responses.
@@ -128,7 +147,8 @@ Generated from the app with `FastAPI TestClient` and `sqlite:///:memory:`:
 - `samples/08_x402_checkout_response.json` — x402-style HTTP 402 payment requirements.
 - `samples/09_dashboard_snippet.html` — HTML dashboard snippet.
 - `samples/test-output.txt` — current pytest output.
+- `samples/production-smoke-output.json` — live uvicorn smoke output with 14/14 checks passing.
 
-## 8. Why this meets the bounty
+## 9. Why this meets the bounty
 
 The deliverable is a working GitHub activity intelligence service: it ingests repository metrics, stores historical snapshots, computes velocity-based momentum scores, tags categories, supports ranked/searchable API results and an HTML dashboard, triggers watchlist alerts, generates weekly rising-star digests, optionally polls live GitHub data, protects write/admin routes, and exposes an x402-style paid-plan checkout surface.

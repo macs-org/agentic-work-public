@@ -13,6 +13,9 @@ Compact FastAPI MVP for BTNOMB `idea_026`: monitor GitHub repositories, score mo
 - Search/filter API and HTML dashboard.
 - Watchlist alert records and weekly digest generation.
 - x402-compatible demo checkout response for paid plans.
+- Deployment readiness endpoints: `/healthz` and `/readyz`.
+- Dockerfile with unprivileged runtime user and health check.
+- Docker Compose, Render blueprint, deployment runbook, and live production smoke verifier.
 - Dockerfile and pytest coverage.
 
 ## Quick start
@@ -27,7 +30,8 @@ Open:
 
 - Dashboard: `/dashboard`
 - API docs: `/docs`
-- Health: `/health`
+- Health: `/health`, `/healthz`
+- Readiness: `/readyz`
 
 ## Test
 
@@ -35,11 +39,11 @@ Open:
 PYTHONPATH=. python -m pytest tests -q
 ```
 
-Current reviewer verification (2026-05-08):
+Current reviewer verification (2026-05-09 counter response):
 
 ```text
-...                                                                      [100%]
-3 passed, 26 warnings in 1.71s
+....                                                                     [100%]
+4 passed, 26 warnings in 0.95s
 ```
 
 Captured output is in `samples/test-output.txt`. The warnings are Python 3.14 `datetime.utcnow()` deprecations and do not affect the MVP behavior.
@@ -49,9 +53,12 @@ Captured output is in `samples/test-output.txt`. The warnings are Python 3.14 `d
 Start with:
 
 - `DEMO.md` — reviewer walkthrough from install/test through scoring, search, watchlists, digest, dashboard, live polling, and x402 checkout.
+- `DEPLOYMENT.md` — Docker/Compose/Render deployment runbook and production verification checklist.
 - `ACCEPTANCE_CHECKLIST.md` — bounty requirement mapping to code, tests, and sample files.
 - `LIMITATIONS.md` — MVP boundaries and production-hardening notes.
+- `scripts/production_smoke_test.py` — no-dependency smoke verifier for any live hosted URL.
 - `samples/00_evidence_summary.json` — generated evidence summary.
+- `samples/production-smoke-output.json` — captured smoke test against a live local uvicorn process, 14/14 checks passing.
 - `samples/03_ranked_repos_response.json` — momentum ranking evidence.
 - `samples/04_search_filter_response.json` — category/text/min-score filter evidence.
 - `samples/06_watchlist_alerts_response.json` — watchlist alert evidence.
@@ -166,12 +173,15 @@ Where:
 
 This makes the MVP favor recent acceleration over absolute repo size, which matches the product goal of surfacing emerging libraries before mainstream discovery.
 
-## Docker
+## Docker / production smoke
 
 ```bash
-docker build -t github-activity-intelligence .
-docker run --rm -p 8000:8000 -e APP_API_KEY=change-me github-activity-intelligence
+docker compose up --build
+curl http://127.0.0.1:8000/readyz
+python3 scripts/production_smoke_test.py --base-url http://127.0.0.1:8000 --api-key "$APP_API_KEY"
 ```
+
+See `DEPLOYMENT.md` for Docker, Render/Railway/Fly-style deployment notes, production readiness checks, and the reviewer smoke checklist. The included counter-response smoke evidence passed 14/14 checks.
 
 ## Production notes
 
