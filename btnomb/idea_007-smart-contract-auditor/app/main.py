@@ -94,6 +94,24 @@ def create_app(history_path: Path | str | None = None) -> FastAPI:
     def health() -> dict[str, str]:
         return {"status": "ok"}
 
+    @app.get("/", response_class=HTMLResponse)
+    def landing() -> str:
+        return """
+        <html><head><title>Smart Contract Auditor</title>
+        <style>body{font-family:system-ui;margin:2rem;max-width:900px;line-height:1.5}code{background:#f4f4f4;padding:.15rem .3rem;border-radius:4px}li{margin:.35rem 0}</style></head>
+        <body>
+          <h1>Smart Contract Auditor</h1>
+          <p>Live FastAPI/x402 MVP for deterministic Solidity vulnerability reports.</p>
+          <ul>
+            <li><a href='/health'>Health</a></li>
+            <li><a href='/ready'>Readiness</a></li>
+            <li><a href='/docs'>Interactive API docs</a></li>
+            <li><a href='/openapi.json'>OpenAPI schema</a></li>
+          </ul>
+          <p>Protected audit/report endpoints require <code>X-API-Key</code>. Full audits without <code>X-PAYMENT</code> return an x402 <code>402</code> payment requirement; preview audits are free.</p>
+        </body></html>
+        """
+
     @app.get("/ready")
     def readiness() -> dict[str, Any]:
         history_path = Path(app.state.history_path)
