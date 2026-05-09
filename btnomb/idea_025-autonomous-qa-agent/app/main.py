@@ -654,6 +654,24 @@ def create_app(database_url: str | None = None) -> FastAPI:
     def health() -> dict[str, str]:
         return {"status": "ok", "service": "autonomous-qa-agent", "version": app.version}
 
+    @app.get("/", response_class=HTMLResponse)
+    def landing() -> str:
+        return """
+        <html><head><title>Autonomous QA Agent</title>
+        <style>body{font-family:system-ui;margin:2rem;max-width:900px;line-height:1.5}code{background:#f4f4f4;padding:.15rem .3rem;border-radius:4px}li{margin:.35rem 0}</style></head>
+        <body>
+          <h1>Autonomous QA Agent</h1>
+          <p>Live API for creating synthetic QA agents, uploading test suites, running regression checks, and viewing run summaries.</p>
+          <ul>
+            <li><a href='/healthz'>Health</a></li>
+            <li><a href='/readyz'>Readiness</a></li>
+            <li><a href='/docs'>Interactive API docs</a></li>
+            <li><a href='/openapi.json'>OpenAPI schema</a></li>
+          </ul>
+          <p>Start with <code>POST /agents</code> to create a reviewer API key, then use it as <code>X-API-Key</code> for suites, runs, schedules, reports, checkout, and dashboard.</p>
+        </body></html>
+        """
+
     @app.get("/readyz")
     def readiness(db: Session = Depends(get_db)) -> dict[str, str]:
         db.execute(select(1)).scalar_one()

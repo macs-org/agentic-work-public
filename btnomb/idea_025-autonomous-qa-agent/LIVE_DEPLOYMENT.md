@@ -1,6 +1,6 @@
 # Live Deployment Evidence — Autonomous QA Agent (idea_025)
 
-Generated: 2026-05-09T12:09:03+00:00
+Last verified: 2026-05-09T12:25:03Z
 
 ## Public Vercel deployment
 
@@ -12,9 +12,11 @@ Generated: 2026-05-09T12:09:03+00:00
 
 ## Verification
 
-Live Vercel smoke passed: health/readiness, agent creation, suite creation, manual run passed, schedules, report summary, x402 checkout, and dashboard.
+Live Vercel smoke passed: root landing page, health/readiness, agent creation, suite creation, manual run passed, schedules, report summary, x402 checkout, and dashboard.
 
 Smoke-test evidence file: `samples/production-smoke-vercel.json`
+
+Reviewer flow: start with `POST /agents` to create an API key, then send that generated key as `X-API-Key` for protected suite/run/report/dashboard endpoints.
 
 ## Vercel runtime notes
 
