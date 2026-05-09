@@ -1,0 +1,39 @@
+{
+  "status_code": 200,
+  "body": {
+    "polled_at": "2026-05-09T14:53:41+00:00",
+    "live_sources_loaded": 3,
+    "source_results": [
+      {
+        "source_key": "truckload_ppi",
+        "ok": true,
+        "points_loaded": 39,
+        "rows_changed": 39,
+        "latest_date": "2026-03-01",
+        "latest_value": 185.239
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "ok": true,
+        "points_loaded": 39,
+        "rows_changed": 39,
+        "latest_date": "2026-03-01",
+        "latest_value": 205.671
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "ok": true,
+        "points_loaded": 39,
+        "rows_changed": 39,
+        "latest_date": "2026-03-01",
+        "latest_value": 176.501
+      },
+      {
+        "source_key": "freight_tsi",
+        "ok": false,
+        "error": "The read operation timed out"
+      }
+    ],
+    "anomalies_recorded": []
+  }
+}

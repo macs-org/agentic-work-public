@@ -1,0 +1,40 @@
+{
+  "status_code": 200,
+  "body": {
+    "plans": {
+      "starter": {
+        "price_usd_month": 99,
+        "refresh": "daily",
+        "features": [
+          "3 freight modes",
+          "email alerts",
+          "dashboard"
+        ]
+      },
+      "pro": {
+        "price_usd_month": 299,
+        "refresh": "hourly-capable",
+        "features": [
+          "all modes",
+          "webhooks",
+          "Slack-ready payloads",
+          "API access"
+        ]
+      },
+      "institutional": {
+        "price_usd_month": 999,
+        "refresh": "custom",
+        "features": [
+          "raw export",
+          "custom thresholds",
+          "unlimited seats"
+        ]
+      }
+    },
+    "payment": {
+      "x402": true,
+      "network": "base",
+      "asset": "USDC"
+    }
+  }
+}

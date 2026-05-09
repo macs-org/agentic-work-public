@@ -1,0 +1,41 @@
+{
+  "status_code": 402,
+  "body": {
+    "error": "payment_required",
+    "x402Version": 1,
+    "network": "base",
+    "asset": "USDC",
+    "recipient": "0x23bB05603A980C2915FC3B9D5D4a475993b666DE",
+    "plans": {
+      "starter": {
+        "price_usd_month": 99,
+        "refresh": "daily",
+        "features": [
+          "3 freight modes",
+          "email alerts",
+          "dashboard"
+        ]
+      },
+      "pro": {
+        "price_usd_month": 299,
+        "refresh": "hourly-capable",
+        "features": [
+          "all modes",
+          "webhooks",
+          "Slack-ready payloads",
+          "API access"
+        ]
+      },
+      "institutional": {
+        "price_usd_month": 999,
+        "refresh": "custom",
+        "features": [
+          "raw export",
+          "custom thresholds",
+          "unlimited seats"
+        ]
+      }
+    },
+    "message": "Send an X-PAYMENT header to unlock paid API/export endpoints. Demo accepts any non-empty token in local mode."
+  }
+}

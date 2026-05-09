@@ -1,0 +1,45 @@
+{
+  "generated": "2026-05-09T14:55Z",
+  "checks": [
+    {
+      "file": "01_health.json",
+      "status_code": 200,
+      "path": "/health"
+    },
+    {
+      "file": "02_pricing.json",
+      "status_code": 200,
+      "path": "/pricing"
+    },
+    {
+      "file": "03_poll_live_sources.json",
+      "status_code": 200,
+      "path": "/poll"
+    },
+    {
+      "file": "04_anomalies.json",
+      "status_code": 200,
+      "path": "/anomalies?threshold_pct=2&baseline_window=7"
+    },
+    {
+      "file": "05_rates_truck.json",
+      "status_code": 200,
+      "path": "/rates?mode=truck&limit=12"
+    },
+    {
+      "file": "06_x402_required.json",
+      "status_code": 402,
+      "path": "/api/export"
+    },
+    {
+      "file": "07_x402_paid_export.json",
+      "status_code": 200,
+      "path": "/api/export"
+    },
+    {
+      "file": "08_alert_dispatch.json",
+      "status_code": 200,
+      "path": "/alerts/dispatch"
+    }
+  ]
+}

@@ -1,0 +1,1062 @@
+{
+  "status_code": 200,
+  "body": {
+    "paid": true,
+    "count": 117,
+    "rates": [
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-01-01",
+        "value": 179.408,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-02-01",
+        "value": 186.62,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-03-01",
+        "value": 179.074,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-04-01",
+        "value": 173.813,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-05-01",
+        "value": 170.859,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-06-01",
+        "value": 163.294,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-07-01",
+        "value": 166.124,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-08-01",
+        "value": 167.246,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-09-01",
+        "value": 169.812,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-10-01",
+        "value": 177.403,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-11-01",
+        "value": 178.266,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2023-12-01",
+        "value": 177.145,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-01-01",
+        "value": 169.259,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-02-01",
+        "value": 169.442,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-03-01",
+        "value": 165.366,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-04-01",
+        "value": 166.854,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-05-01",
+        "value": 165.018,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-06-01",
+        "value": 164.649,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-07-01",
+        "value": 167.297,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-08-01",
+        "value": 161.415,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-09-01",
+        "value": 163.818,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-10-01",
+        "value": 168.84,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-11-01",
+        "value": 170.597,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2024-12-01",
+        "value": 172.789,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-01-01",
+        "value": 170.2,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-02-01",
+        "value": 168.888,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-03-01",
+        "value": 168.904,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-04-01",
+        "value": 171.833,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-05-01",
+        "value": 165.564,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-06-01",
+        "value": 167.323,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-07-01",
+        "value": 173.776,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-08-01",
+        "value": 171.327,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-09-01",
+        "value": 171.846,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-10-01",
+        "value": 173.555,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-11-01",
+        "value": 172.694,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2025-12-01",
+        "value": 177.987,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2026-01-01",
+        "value": 177.227,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2026-02-01",
+        "value": 175.01,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "air_transport_ppi",
+        "mode": "air",
+        "provider": "FRED/BLS",
+        "series_id": "PCU481112481112",
+        "observed_date": "2026-03-01",
+        "value": 176.501,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-01-01",
+        "value": 223.984,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-02-01",
+        "value": 220.646,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-03-01",
+        "value": 220.064,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-04-01",
+        "value": 215.692,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-05-01",
+        "value": 206.81,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-06-01",
+        "value": 203.755,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-07-01",
+        "value": 203.111,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-08-01",
+        "value": 207.789,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-09-01",
+        "value": 212.334,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-10-01",
+        "value": 214.341,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-11-01",
+        "value": 215.011,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2023-12-01",
+        "value": 215.239,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-01-01",
+        "value": 215.303,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-02-01",
+        "value": 204.582,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-03-01",
+        "value": 204.03,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-04-01",
+        "value": 204.587,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-05-01",
+        "value": 206.228,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-06-01",
+        "value": 205.571,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-07-01",
+        "value": 207.581,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-08-01",
+        "value": 206.553,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-09-01",
+        "value": 206.948,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-10-01",
+        "value": 203.185,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-11-01",
+        "value": 204.334,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2024-12-01",
+        "value": 203.933,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-01-01",
+        "value": 204.987,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-02-01",
+        "value": 204.77,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-03-01",
+        "value": 204.378,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-04-01",
+        "value": 204.567,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-05-01",
+        "value": 204.04,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-06-01",
+        "value": 204.789,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-07-01",
+        "value": 205.178,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-08-01",
+        "value": 205.728,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-09-01",
+        "value": 206.494,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-10-01",
+        "value": 205.531,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-11-01",
+        "value": 205.912,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2025-12-01",
+        "value": 207.921,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2026-01-01",
+        "value": 205.264,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2026-02-01",
+        "value": 205.468,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "intermodal_rail_ppi",
+        "mode": "rail",
+        "provider": "FRED/BLS",
+        "series_id": "PCU482111482111412",
+        "observed_date": "2026-03-01",
+        "value": 205.671,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-01-01",
+        "value": 187.156,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-02-01",
+        "value": 194.459,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-03-01",
+        "value": 202.307,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-04-01",
+        "value": 184.407,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-05-01",
+        "value": 192.615,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-06-01",
+        "value": 190.471,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-07-01",
+        "value": 178.666,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-08-01",
+        "value": 173.268,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-09-01",
+        "value": 182.025,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-10-01",
+        "value": 184.002,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-11-01",
+        "value": 187.206,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2023-12-01",
+        "value": 177.712,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-01-01",
+        "value": 178.925,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-02-01",
+        "value": 178.32,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-03-01",
+        "value": 172.822,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-04-01",
+        "value": 172.961,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-05-01",
+        "value": 181.575,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-06-01",
+        "value": 182.698,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-07-01",
+        "value": 190.065,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-08-01",
+        "value": 176.722,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-09-01",
+        "value": 172.163,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-10-01",
+        "value": 165.925,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-11-01",
+        "value": 160.349,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2024-12-01",
+        "value": 171.718,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-01-01",
+        "value": 181.652,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-02-01",
+        "value": 179.387,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-03-01",
+        "value": 165.826,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-04-01",
+        "value": 175.089,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-05-01",
+        "value": 178.512,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-06-01",
+        "value": 168.388,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-07-01",
+        "value": 180.906,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-08-01",
+        "value": 182.33,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-09-01",
+        "value": 186.058,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-10-01",
+        "value": 184.899,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-11-01",
+        "value": 189.108,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-12-01",
+        "value": 181.077,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2026-01-01",
+        "value": 181.359,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2026-02-01",
+        "value": 183.362,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2026-03-01",
+        "value": 185.239,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      }
+    ]
+  }
+}
