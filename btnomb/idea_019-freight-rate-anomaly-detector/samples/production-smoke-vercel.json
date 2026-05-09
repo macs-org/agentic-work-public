@@ -1,0 +1,30 @@
+{
+  "base_url": "https://freightrateanomalydetector.vercel.app",
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "bytes": 96
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 6186
+    },
+    {
+      "path": "/pricing",
+      "status": 200,
+      "bytes": 428
+    },
+    {
+      "path": "/anomalies",
+      "status": 200,
+      "bytes": 2087
+    },
+    {
+      "path": "/api/export",
+      "status": 200,
+      "bytes": 21942
+    }
+  ]
+}

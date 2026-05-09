@@ -1,0 +1,9 @@
+{
+  "status_code": 200,
+  "body": {
+    "ok": true,
+    "app": "Freight Rate Anomaly Detector",
+    "sources": 4,
+    "time": "2026-05-09T14:53:20+00:00"
+  }
+}

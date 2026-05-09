@@ -1,0 +1,116 @@
+{
+  "status_code": 200,
+  "body": {
+    "count": 12,
+    "rates": [
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2026-03-01",
+        "value": 185.239,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2026-02-01",
+        "value": 183.362,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2026-01-01",
+        "value": 181.359,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-12-01",
+        "value": 181.077,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-11-01",
+        "value": 189.108,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-10-01",
+        "value": 184.899,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-09-01",
+        "value": 186.058,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-08-01",
+        "value": 182.33,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-07-01",
+        "value": 180.906,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-06-01",
+        "value": 168.388,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-05-01",
+        "value": 178.512,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      },
+      {
+        "source_key": "truckload_ppi",
+        "mode": "truck",
+        "provider": "FRED/BLS",
+        "series_id": "PCU484121484121",
+        "observed_date": "2025-04-01",
+        "value": 175.089,
+        "fetched_at": "2026-05-09T14:53:21+00:00"
+      }
+    ]
+  }
+}
