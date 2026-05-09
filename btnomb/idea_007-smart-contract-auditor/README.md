@@ -193,3 +193,13 @@ docker run --rm -p 8000:8000 \
 ## Limitations
 
 This is a public-submission-ready MVP, not a replacement for a professional audit. The heuristic engine is intentionally deterministic and compact; production deployments should add AST parsing, Slither/Mythril integration, verified x402 facilitator checks, and real model provider adapters behind the included report abstraction.
+
+## Live Vercel deployment evidence
+
+- Live app: https://btnomb-idea-007-smart-contract-audi.vercel.app
+- Health: https://btnomb-idea-007-smart-contract-audi.vercel.app/health
+- Readiness: https://btnomb-idea-007-smart-contract-audi.vercel.app/ready
+- API docs: https://btnomb-idea-007-smart-contract-audi.vercel.app/docs
+- Smoke evidence: `evidence/e2e-smoke-vercel.json`
+- Full deployment note: `LIVE_DEPLOYMENT.md`
+
