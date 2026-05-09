@@ -343,15 +343,28 @@ def save_repo_payload(db: Session, payload: dict[str, Any]) -> Repo:
     return repo
 
 
+def normalize_database_url(database_url: str | None = None) -> str:
+    """Return a SQLAlchemy URL that works in local, Postgres, and Vercel runtimes."""
+    if database_url is None:
+        database_url = os.getenv("DATABASE_URL")
+    if not database_url:
+        # Vercel serverless bundles are read-only except /tmp. A repo-local
+        # sqlite:///github_activity.db default crashes at import time there.
+        database_url = "sqlite:////tmp/github_activity.db" if os.getenv("VERCEL") else "sqlite:///github_activity.db"
+    if database_url.startswith("postgres://"):
+        database_url = database_url.replace("postgres://", "postgresql+psycopg://", 1)
+    elif database_url.startswith("postgresql://"):
+        database_url = database_url.replace("postgresql://", "postgresql+psycopg://", 1)
+    return database_url
+
+
 def create_app(database_url: str | None = None) -> FastAPI:
     app = FastAPI(
         title="GitHub Activity Intelligence",
         description="Monitor GitHub repository momentum, generate rising-star digests, and trigger watchlist alerts.",
         version="0.1.0",
     )
-    database_url = database_url or os.getenv("DATABASE_URL", "sqlite:///github_activity.db")
-    if database_url.startswith("postgres://"):
-        database_url = database_url.replace("postgres://", "postgresql://", 1)
+    database_url = normalize_database_url(database_url)
     SessionLocal = make_session_factory(database_url)
     app.state.database_url = database_url
 
