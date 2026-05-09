@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: autonomous-qa-agent
+    runtime: docker
+    plan: starter
+    healthCheckPath: /readyz
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SMTP_TLS
+        value: "true"

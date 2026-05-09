@@ -53,8 +53,16 @@ Public submission URL: https://github.com/macs-org/agentic-work-public/tree/main
   - Evidence: `samples/06_x402_checkout_response.json`.
 
 - [x] Deployment package
-  - `Dockerfile`, `requirements.txt`, `README.md`, tests, and reviewer evidence are included.
+  - `Dockerfile`, `docker-compose.yml`, `render.yaml`, `.env.example`, `requirements.txt`, `README.md`, tests, and reviewer evidence are included.
   - No secrets are committed; sample API keys are redacted or generated in-memory.
+
+- [x] Live deployment and production verification evidence
+  - `GET /healthz` returns liveness metadata for hosted load balancers and uptime checks.
+  - `GET /readyz` verifies database readiness with a SQL probe.
+  - `docker-compose.yml` includes a `/readyz` health check and persistent data volume.
+  - `render.yaml` includes hosted blueprint metadata with `/readyz` health check path.
+  - `scripts/production_smoke_test.py` verifies a live URL end-to-end using only Python stdlib.
+  - Evidence: `samples/production-smoke-output.json` captured from a live local uvicorn process.
 
 ## Current verification
 
@@ -63,14 +71,17 @@ Command:
 ```bash
 cd platforms/agent-native/btnomb/jobs/2026-05-06_btnomb-autonomous-qa-agent/work/autonomous_qa_agent
 PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest tests -q -p no:cacheprovider
+AUTONOMOUS_QA_BASE_URL=http://127.0.0.1:8015 python3 scripts/production_smoke_test.py
 ```
 
-Result on 2026-05-08:
+Result on 2026-05-09:
 
 ```text
-......                                                                   [100%]
-6 passed in 1.02s
+.......                                                                  [100%]
+7 passed in 1.03s
 ```
+
+Smoke test result: `samples/production-smoke-output.json` has `ok: true` with 9/9 checks passing against a live local uvicorn process.
 
 ## Guardrails
 

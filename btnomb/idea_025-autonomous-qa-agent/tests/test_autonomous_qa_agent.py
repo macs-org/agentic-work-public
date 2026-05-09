@@ -11,6 +11,21 @@ def make_client_and_key() -> tuple[TestClient, str]:
     return client, agent["api_key"]
 
 
+def test_health_and_readiness_endpoints_for_live_deploy_monitoring():
+    client, _api_key = make_client_and_key()
+
+    health = client.get("/healthz")
+    legacy_health = client.get("/health")
+    readiness = client.get("/readyz")
+
+    assert health.status_code == 200
+    assert health.json()["status"] == "ok"
+    assert health.json()["service"] == "autonomous-qa-agent"
+    assert legacy_health.status_code == 200
+    assert readiness.status_code == 200
+    assert readiness.json() == {"status": "ready", "database": "ok"}
+
+
 def test_yaml_suite_is_parsed_and_manual_run_executes_all_assertion_types():
     client, api_key = make_client_and_key()
     yaml_definition = """

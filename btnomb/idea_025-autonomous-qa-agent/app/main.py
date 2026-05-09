@@ -636,8 +636,14 @@ def create_app(database_url: str | None = None) -> FastAPI:
         return run
 
     @app.get("/health")
+    @app.get("/healthz")
     def health() -> dict[str, str]:
-        return {"status": "ok"}
+        return {"status": "ok", "service": "autonomous-qa-agent", "version": app.version}
+
+    @app.get("/readyz")
+    def readiness(db: Session = Depends(get_db)) -> dict[str, str]:
+        db.execute(select(1)).scalar_one()
+        return {"status": "ready", "database": "ok"}
 
     @app.post("/agents", status_code=201)
     def create_agent(payload: AgentCreate, db: Session = Depends(get_db)) -> dict[str, str]:
