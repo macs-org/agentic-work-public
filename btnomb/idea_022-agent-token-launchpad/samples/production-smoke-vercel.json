@@ -1,0 +1,35 @@
+{
+  "base_url": "https://agenttokenlaunchpad.vercel.app",
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "bytes": 115
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1385
+    },
+    {
+      "path": "/pricing",
+      "status": 200,
+      "bytes": 159
+    },
+    {
+      "path": "/tokens",
+      "status": 200,
+      "bytes": 827
+    },
+    {
+      "path": "/openapi-agent.json",
+      "status": 200,
+      "bytes": 4786
+    },
+    {
+      "path": "/api/export",
+      "status": 200,
+      "bytes": 827
+    }
+  ]
+}
