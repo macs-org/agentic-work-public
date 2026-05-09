@@ -1,0 +1,243 @@
+{
+  "base_url": "https://btnomb-idea-026-github-activity-int.vercel.app",
+  "checked_at": "2026-05-09T12:08:19.304298+00:00",
+  "checks_passed": 14,
+  "checks_total": 14,
+  "ok": true,
+  "repo_under_test": "reviewer/live-signal-1778328497",
+  "steps": [
+    {
+      "body": {
+        "repos": 0,
+        "service": "github-activity-intelligence",
+        "status": "ok"
+      },
+      "name": "healthz",
+      "status": 200
+    },
+    {
+      "body": {
+        "checks": {
+          "admin_api_key_configured": true,
+          "admin_api_key_not_default": true,
+          "base_usdc_asset_configured": true,
+          "database_query": true,
+          "github_token_optional": true,
+          "pay_to_configured": true,
+          "schema_initialized": true
+        },
+        "counts": {
+          "repos": 0,
+          "snapshots": 0,
+          "watchlists": 0
+        },
+        "database_url_kind": "sqlite",
+        "production_ready": true,
+        "service": "github-activity-intelligence",
+        "status": "ok",
+        "uptime_seconds": 26.743,
+        "warnings": [
+          "GITHUB_TOKEN is unset; live polling still works at unauthenticated GitHub REST limits."
+        ]
+      },
+      "name": "readyz",
+      "status": 200
+    },
+    {
+      "body": {
+        "category": "AI/ML",
+        "commits": 45,
+        "contributors": 4,
+        "description": "LLM agent observability library for production smoke verification",
+        "forks": 8,
+        "full_name": "reviewer/live-signal-1778328497",
+        "html_url": "https://github.com/reviewer/live-signal-1778328497",
+        "language": "Python",
+        "last_polled_at": "2026-05-09T12:08:18.166165",
+        "momentum_score": 0.0,
+        "open_issues": 18,
+        "stars": 80,
+        "watchers": 80
+      },
+      "name": "seed_repo",
+      "status": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-04-09T12:08:18.185539",
+        "momentum_score": 0.0,
+        "repo_full_name": "reviewer/live-signal-1778328497"
+      },
+      "name": "snapshot_30d",
+      "status": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-05-02T12:08:18.308553",
+        "momentum_score": 0.0,
+        "repo_full_name": "reviewer/live-signal-1778328497"
+      },
+      "name": "snapshot_7d",
+      "status": 201
+    },
+    {
+      "body": {
+        "created_at": "2026-05-09T12:08:18.419091",
+        "momentum_score": 269.04,
+        "repo_full_name": "reviewer/live-signal-1778328497"
+      },
+      "name": "snapshot_0d",
+      "status": 201
+    },
+    {
+      "body": {
+        "repos_scored": 1
+      },
+      "name": "scores_recompute",
+      "status": 200
+    },
+    {
+      "body": {
+        "count": 1,
+        "repos": [
+          {
+            "category": "AI/ML",
+            "commits": 180,
+            "contributors": 18,
+            "description": "LLM agent observability library for production smoke verification",
+            "forks": 35,
+            "full_name": "reviewer/live-signal-1778328497",
+            "html_url": "https://github.com/reviewer/live-signal-1778328497",
+            "language": "Python",
+            "last_polled_at": "2026-05-09T12:08:18.166165",
+            "momentum_score": 269.04,
+            "open_issues": 7,
+            "stars": 240,
+            "watchers": 80
+          }
+        ]
+      },
+      "name": "ranked_search",
+      "status": 200
+    },
+    {
+      "body": {
+        "category": "AI/ML",
+        "commits": 180,
+        "contributors": 18,
+        "description": "LLM agent observability library for production smoke verification",
+        "forks": 35,
+        "full_name": "reviewer/live-signal-1778328497",
+        "html_url": "https://github.com/reviewer/live-signal-1778328497",
+        "language": "Python",
+        "last_polled_at": "2026-05-09T12:08:18.166165",
+        "momentum_score": 269.04,
+        "open_issues": 7,
+        "snapshots": [
+          {
+            "commits": 180,
+            "contributors": 18,
+            "created_at": "2026-05-09T12:08:18.419091",
+            "forks": 35,
+            "open_issues": 7,
+            "stars": 240
+          },
+          {
+            "commits": 45,
+            "contributors": 4,
+            "created_at": "2026-05-09T12:08:18.166176",
+            "forks": 8,
+            "open_issues": 18,
+            "stars": 80
+          },
+          {
+            "commits": 88,
+            "contributors": 8,
+            "created_at": "2026-05-02T12:08:18.308553",
+            "forks": 13,
+            "open_issues": 14,
+            "stars": 120
+          },
+          {
+            "commits": 45,
+            "contributors": 4,
+            "created_at": "2026-04-09T12:08:18.185539",
+            "forks": 8,
+            "open_issues": 18,
+            "stars": 80
+          }
+        ],
+        "stars": 240,
+        "watchers": 80
+      },
+      "name": "repo_detail",
+      "status": 200
+    },
+    {
+      "body": {
+        "email": "reviewer@example.com",
+        "repo_full_name": "reviewer/live-signal-1778328497",
+        "threshold": 25.0
+      },
+      "name": "watchlist",
+      "status": 201
+    },
+    {
+      "body": {
+        "alerts_created": 1
+      },
+      "name": "alerts_evaluate",
+      "status": 200
+    },
+    {
+      "body": {
+        "categories": 1,
+        "digests": {
+          "AI/ML": "Weekly Rising Stars \u2014 AI/ML\n\nTop repositories by composite momentum score:\n1. reviewer/live-signal-1778328497 \u2014 score 269.04, \u2b50 240, forks 35, Python"
+        }
+      },
+      "name": "weekly_digest",
+      "status": 200
+    },
+    {
+      "body": {
+        "accepts": [
+          {
+            "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "description": "Activate pro plan",
+            "extra": {
+              "name": "USD Coin",
+              "version": "2"
+            },
+            "maxAmountRequired": "149000000",
+            "maxTimeoutSeconds": 60,
+            "mimeType": "application/json",
+            "network": "base",
+            "outputSchema": {
+              "input": {
+                "discoverable": true,
+                "method": "POST",
+                "type": "http"
+              }
+            },
+            "payTo": "0x23bB05603A980C2915FC3B9D5D4a475993b666DE",
+            "resource": "/plans/checkout",
+            "scheme": "exact"
+          }
+        ],
+        "description": "Activate pro plan",
+        "error": "X-PAYMENT header is required",
+        "x402Version": 1
+      },
+      "name": "x402_checkout",
+      "status": 402
+    },
+    {
+      "body": {
+        "text": "\n        <html><head><title>GitHub Activity Intelligence</title>\n        <style>body{font-family:system-ui;margin:2rem}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #ddd;padding:.5rem;text-align:left}.pill{background:#eef;border-radius:999px;padding:.2rem .5rem}</style></head>\n        <body><h1>GitHub Activity Intelligence</h1><p class='pill'>1 repos shown \u00b7 filters: category=any q=live-signal</p>\n        <form><input name='q' placeholder='search repos or descriptions' value='live-signal'><input name='category' placeholder='category' value=''><button>Filter</button></form>\n        <table><thead><tr><th>Repo</th><th>Category</th><th>Language</th><th>Stars</th><th>Forks</th><th>Momentum</th><th>Description</th></tr></thead><tbody><tr><td><a href='https://github.com/reviewer/live-signal-1778328497'>reviewer/live-signal-1778328497</a></td><td>AI/ML</td><td>Python</td><td>240</td><td>35</td><td>269.04</td><td>LLM agent observability library for production smoke ver"
+      },
+      "name": "dashboard",
+      "status": 200
+    }
+  ]
+}
