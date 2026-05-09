@@ -1,9 +1,18 @@
 {
   "alerts_created": 1,
   "auth": "write/admin routes require X-API-Key; sample uses dev-api-key only",
-  "database": "sqlite:///:memory:",
+  "database": "sqlite:///:memory: for deterministic samples; sqlite:////tmp/github_activity_counter_smoke_2.db for live smoke",
+  "deployment_readiness": {
+    "dockerfile_healthcheck": "GET /readyz",
+    "docker_compose": "persistent sqlite volume plus healthcheck",
+    "render_blueprint": "render.yaml with /readyz healthCheckPath",
+    "smoke_test": "scripts/production_smoke_test.py",
+    "smoke_output": "samples/production-smoke-output.json",
+    "smoke_result": "ok=true; 14/14 checks passed"
+  },
   "digest_categories": 3,
-  "generated_at": "2026-05-08T17:29:04.637801+00:00",
+  "generated_at": "2026-05-09T05:34:54Z",
+  "production_smoke_checked_at": "2026-05-09T05:34:02.711232+00:00",
   "repos_ranked": 3,
   "top_repo": "acme/hot-ai-agents",
   "top_score": 280.61,

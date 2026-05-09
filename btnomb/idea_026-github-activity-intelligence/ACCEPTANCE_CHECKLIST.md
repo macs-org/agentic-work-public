@@ -47,7 +47,15 @@ Public submission URL: https://github.com/macs-org/agentic-work-public/tree/main
 
 - [x] OpenAPI and deployable package
   - FastAPI exposes `/docs` and `/openapi.json`.
-  - Package includes `Dockerfile`, `.env.example`, `requirements.txt`, README, tests, and reviewer evidence.
+  - Package includes `Dockerfile`, `docker-compose.yml`, `render.yaml`, `.env.example`, `requirements.txt`, README, tests, and reviewer evidence.
+  - `Dockerfile` runs as an unprivileged user, persists SQLite under `/data`, and health-checks `/readyz`.
+
+- [x] Live deployment and production verification evidence
+  - `GET /healthz` returns service liveness.
+  - `GET /readyz` checks DB query/schema, configured admin API key, Base USDC asset, pay-to address, count metadata, and runtime warnings.
+  - `DEPLOYMENT.md` documents Docker Compose, direct Docker, Render/Railway/Fly-style deployment, and a 10-point verification checklist.
+  - `scripts/production_smoke_test.py` verifies any live hosted URL using only Python stdlib.
+  - Evidence: `samples/production-smoke-output.json` captured 14/14 live uvicorn smoke checks passing.
 
 - [x] x402-compatible paid-plan surface
   - `POST /plans/checkout` returns HTTP 402 with x402-style Base USDC payment requirements when `X-PAYMENT` is absent for paid plans.
@@ -64,11 +72,18 @@ python3 -m venv .venv
 PYTHONPATH=. PYTHONDONTWRITEBYTECODE=1 ./.venv/bin/python -m pytest tests -q -p no:cacheprovider
 ```
 
-Result on 2026-05-08:
+Result on 2026-05-09 counter-response run:
 
 ```text
-...                                                                      [100%]
-3 passed, 26 warnings in 1.71s
+....                                                                     [100%]
+4 passed, 26 warnings in 0.95s
+```
+
+Production smoke run:
+
+```text
+python3 scripts/production_smoke_test.py --base-url http://127.0.0.1:8017 --api-key dev-api-key --out samples/production-smoke-output.json
+{"checks": "14/14", "ok": true, "out": "samples/production-smoke-output.json"}
 ```
 
 The warnings are Python 3.14 `datetime.utcnow()` deprecation warnings; they do not affect MVP behavior. Production hardening should switch to timezone-aware `datetime.now(datetime.UTC)`.

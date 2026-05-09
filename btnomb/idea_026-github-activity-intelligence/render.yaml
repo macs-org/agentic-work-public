@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: github-activity-intelligence
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /readyz
+    envVars:
+      - key: APP_API_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:////data/github_activity.db
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: PAY_TO
+        value: 0x9c768177521C9A832B0f8567265ef02E89D0282e

@@ -118,3 +118,23 @@ def test_dashboard_auth_openapi_checkout_and_persistence(tmp_path):
     detail = second.get("/repos/open/dashboard")
     assert detail.status_code == 200
     assert len(detail.json()["snapshots"]) >= 1
+
+
+def test_health_and_readiness_endpoints_expose_production_checks():
+    client = TestClient(create_app(database_url="sqlite:///:memory:"))
+
+    health = client.get("/healthz")
+    assert health.status_code == 200
+    assert health.json()["status"] == "ok"
+    assert health.json()["service"] == "github-activity-intelligence"
+
+    ready = client.get("/readyz")
+    assert ready.status_code == 200
+    body = ready.json()
+    assert body["status"] == "ok"
+    assert body["production_ready"] is True
+    assert body["checks"]["database_query"] is True
+    assert body["checks"]["schema_initialized"] is True
+    assert body["checks"]["pay_to_configured"] is True
+    assert body["counts"]["repos"] == 0
+    assert body["database_url_kind"] == "sqlite"
