@@ -23,7 +23,7 @@ from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 from sqlalchemy.pool import StaticPool
 
 BASE_USDC = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
-DEFAULT_PAY_TO = "0x9c768177521C9A832B0f8567265ef02E89D0282e"
+DEFAULT_PAY_TO = os.getenv("PAY_TO", "0x23bB05603A980C2915FC3B9D5D4a475993b666DE")
 PLAN_PRICES_CENTS = {"starter": 4900, "pro": 14900, "enterprise": 49900}
 VECTOR_DIMS = 64
 
@@ -370,13 +370,27 @@ def serialize_alert(alert: Alert) -> dict[str, Any]:
     }
 
 
+def normalize_database_url(database_url: str | None = None) -> str:
+    if database_url is None:
+        database_url = os.getenv("DATABASE_URL")
+    if not database_url:
+        database_url = "sqlite:////tmp/autonomous_qa.db" if os.getenv("VERCEL") else "sqlite:///autonomous_qa.db"
+    if database_url.startswith("postgres://"):
+        database_url = database_url.replace("postgres://", "postgresql+psycopg://", 1)
+    elif database_url.startswith("postgresql://"):
+        database_url = database_url.replace("postgresql://", "postgresql+psycopg://", 1)
+    return database_url
+
+
 def create_app(database_url: str | None = None) -> FastAPI:
     app = FastAPI(
         title="Autonomous QA Agent",
         description="Continuously runs structured YAML/JSON test suites against AI agent endpoints and reports regressions.",
         version="0.1.0",
     )
-    SessionLocal = make_session_factory(database_url or os.getenv("DATABASE_URL", "sqlite:///autonomous_qa.db"))
+    database_url = normalize_database_url(database_url)
+    SessionLocal = make_session_factory(database_url)
+    app.state.database_url = database_url
 
     def get_db():
         db = SessionLocal()
