@@ -1,6 +1,6 @@
 # Live Deployment Evidence — GitHub Activity Intelligence (idea_026)
 
-Generated: 2026-05-09T12:09:03+00:00
+Last verified: 2026-05-09T12:25:03Z
 
 ## Public Vercel deployment
 
@@ -12,9 +12,11 @@ Generated: 2026-05-09T12:09:03+00:00
 
 ## Verification
 
-Live Vercel smoke passed 14/14 checks: health/readiness, seeded repo, snapshots, score recompute, ranked search, repo detail, watchlist, alerts, digest, x402 checkout, and dashboard.
+Live Vercel smoke passed 14/14 checks: root landing page, health/readiness, seeded repo, snapshots, score recompute, ranked search, repo detail, watchlist, alerts, digest, x402 checkout, and dashboard.
 
 Smoke-test evidence file: `samples/production-smoke-vercel.json`
+
+Reviewer demo API key for protected seed/snapshot/alert/digest/polling endpoints: `reviewer-api-key`
 
 ## Vercel runtime notes
 
