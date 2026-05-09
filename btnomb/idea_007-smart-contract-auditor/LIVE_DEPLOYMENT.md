@@ -1,6 +1,6 @@
 # Live Deployment Evidence — Smart Contract Auditor (idea_007)
 
-Generated: 2026-05-09T12:09:03+00:00
+Last verified: 2026-05-09T12:25:03Z
 
 ## Public Vercel deployment
 
@@ -12,9 +12,11 @@ Generated: 2026-05-09T12:09:03+00:00
 
 ## Verification
 
-Live Vercel smoke passed: health, readiness production_ready=true, preview audit, x402 402 gate, paid audit, JSON/Markdown/HTML/PDF report retrieval, and history verification.
+Live Vercel smoke passed: root landing page, health, readiness `production_ready=true`, preview audit, x402 402 gate, paid audit, JSON/Markdown/HTML/PDF report retrieval, and history verification.
 
 Smoke-test evidence file: `evidence/e2e-smoke-vercel.json`
+
+Reviewer demo API key for protected audit/report endpoints: `reviewer-audit-key`
 
 ## Vercel runtime notes
 
