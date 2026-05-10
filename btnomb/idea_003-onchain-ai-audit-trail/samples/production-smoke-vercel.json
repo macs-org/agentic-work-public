@@ -1,0 +1,17 @@
+{
+  "base_url": "https://onchainaiaudittrail.vercel.app",
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "bytes": 92,
+      "has_html": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 783,
+      "has_html": true
+    }
+  ]
+}
