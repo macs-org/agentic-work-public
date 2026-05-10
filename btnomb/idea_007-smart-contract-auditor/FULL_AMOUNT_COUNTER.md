@@ -6,7 +6,7 @@ We are countering the reduced `$150` offer and requesting the original full boun
 
 ## Reason
 
-The counter-offer reason cited missing live deployment, end-to-end integration tests, and verified production readiness. Those gaps are now resolved.
+The latest counter-offer reason cited regex/heuristic-only analysis and overstated auditor capability. That gap is now directly addressed with AST-lite function/state indexing, bounded symbolic operation traces, and docs that accurately label the deliverable as an MVP rather than full compiler-backed symbolic execution. The earlier live-deployment/readiness gaps also remain resolved.
 
 ## Current live verification
 

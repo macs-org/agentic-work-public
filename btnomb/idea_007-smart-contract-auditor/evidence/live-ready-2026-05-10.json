@@ -1,0 +1,49 @@
+{
+  "base_url": "https://btnomb-idea-007-smart-contract-audi.vercel.app",
+  "generated_at": "2026-05-10T18:31:34Z",
+  "passed": true,
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "body": {
+        "status": "ok"
+      }
+    },
+    {
+      "path": "/ready",
+      "status": 200,
+      "body": {
+        "status": "ready",
+        "checks": {
+          "history_path": "/tmp/audit_history.jsonl",
+          "history_directory_writable": true,
+          "api_key_configured": true,
+          "x402_pay_to_configured": true,
+          "pricing_configured": {
+            "small_audit_cents": 200,
+            "large_audit_cents": 500,
+            "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "network": "base"
+          },
+          "report_formats": [
+            "json",
+            "markdown",
+            "html",
+            "pdf-ish"
+          ],
+          "analysis_engine": {
+            "ast_indexer": true,
+            "bounded_symbolic_trace": true,
+            "deterministic_static_rules": true,
+            "model_synthesis_mockable": true
+          },
+          "started_at": "2026-05-10T18:36:33.248516+00:00",
+          "serving": true,
+          "production_ready": true,
+          "warnings": []
+        }
+      }
+    }
+  ]
+}
