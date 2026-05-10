@@ -69,7 +69,7 @@ The included full-audit evidence detects the high-signal issues expected from `V
 - `Authorization uses tx.origin`
 - `Miner/validator-influenced time dependency`
 
-This demonstrates the end-to-end flow requested in the bounty: Solidity input → multi-pass analysis shape → synthesis → structured report → remediation guidance → report formats.
+This demonstrates the end-to-end flow requested in the bounty: Solidity input → AST-lite structure extraction → bounded symbolic operation trace → multi-pass analysis shape → synthesis → structured report → remediation guidance → report formats.
 
 ## Tests
 
@@ -77,7 +77,7 @@ This demonstrates the end-to-end flow requested in the bounty: Solidity input �
 PYTHONPATH=. python -m pytest tests -q
 ```
 
-The test suite includes unit/API tests plus `tests/test_e2e_http.py`, which starts a real Uvicorn server on an ephemeral local port and verifies the live HTTP flow: `/ready`, preview audit, x402 `402 Payment Required`, paid audit, report downloads, history, and the under-90-second target.
+The test suite includes unit/API tests plus `tests/test_e2e_http.py`, which starts a real Uvicorn server on an ephemeral local port and verifies the live HTTP flow: `/ready`, preview audit, x402 `402 Payment Required`, paid audit, report downloads, history, and the under-90-second target. It also asserts that the `withdraw` trace records an external interaction before the later `balances` state write, which is the AST/dataflow-backed reentrancy signal added for the counter response.
 
 For deployment smoke checks against a local container or public URL:
 

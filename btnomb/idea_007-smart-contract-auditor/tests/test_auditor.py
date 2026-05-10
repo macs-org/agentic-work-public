@@ -86,6 +86,9 @@ def test_paid_audit_returns_ranked_findings_reports_and_report_formats(tmp_path:
     body = response.json()
     assert body["contract_name"] == "Vault"
     assert len(body["model_reports"]) == 2
+    assert body["analysis_engine"]["ast_indexer"] is True
+    assert body["analysis_engine"]["bounded_symbolic_trace"] is True
+    assert body["structural_summary"]["functions_indexed"] >= 4
     assert body["findings"][0]["severity"] == "Critical"
     titles = {finding["title"] for finding in body["findings"]}
     assert "External call before state update" in titles
@@ -156,3 +159,25 @@ def test_gas_and_compliance_checks_for_erc20_shape(tmp_path: Path):
     assert body["compliance"]["ERC-20"]["status"] == "appears_compliant"
     assert any(item["title"] == "Cache array length in loops" for item in body["gas_optimizations"])
     assert any(item["title"] == "Use calldata for external dynamic arguments" for item in body["gas_optimizations"])
+
+
+def test_ast_dataflow_trace_explains_reentrancy_order(tmp_path: Path):
+    c = client(tmp_path)
+    response = c.post(
+        "/audit",
+        headers={"X-API-Key": API_KEY, "X-PAYMENT": "demo-paid"},
+        json={"contract_name": "Vault", "source": VULNERABLE_SOURCE},
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    trace = next(item for item in body["structural_summary"]["trace_functions_sample"] if item["function"] == "withdraw")
+    op_types = [op["type"] for op in trace["operations"]]
+    assert "external_interaction" in op_types
+    assert "state_write" in op_types
+    interaction_line = next(op["line"] for op in trace["operations"] if op["type"] == "external_interaction")
+    write_line = next(op["line"] for op in trace["operations"] if op["type"] == "state_write" and op.get("state_variable") == "balances")
+    assert interaction_line < write_line
+    reentrancy = next(f for f in body["findings"] if f["title"] == "External call before state update")
+    assert reentrancy["source"].startswith("synthesizer")
+    assert "AST-lite" in reentrancy["description"]

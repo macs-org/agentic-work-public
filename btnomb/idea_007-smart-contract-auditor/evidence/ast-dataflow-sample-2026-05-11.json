@@ -1,0 +1,159 @@
+{
+  "generated_at": "2026-05-10T18:31:34Z",
+  "purpose": "Counter-response evidence for reviewer critique that earlier package was regex/heuristic-only.",
+  "analysis_engine": {
+    "ast_indexer": true,
+    "bounded_symbolic_trace": true,
+    "deterministic_static_rules": true,
+    "providers": [
+      "ast-dataflow-model-a",
+      "remediation-model-b",
+      "synthesizer"
+    ]
+  },
+  "structural_summary": {
+    "engine": "dependency-free AST-lite + bounded symbolic operation trace",
+    "files_indexed": 1,
+    "contracts_or_files": [
+      "Contract.sol"
+    ],
+    "functions_indexed": 4,
+    "state_variables_indexed": 2,
+    "trace_functions_sample": [
+      {
+        "file": "Contract.sol",
+        "function": "deposit",
+        "start_line": 6,
+        "state_variables_seen": [
+          "balances",
+          "owner"
+        ],
+        "operations": [
+          {
+            "type": "state_write",
+            "state_variable": "balances",
+            "line": 6,
+            "code": "function deposit() external payable { balances[msg.sender] += msg.value; }"
+          }
+        ]
+      },
+      {
+        "file": "Contract.sol",
+        "function": "withdraw",
+        "start_line": 7,
+        "state_variables_seen": [
+          "balances",
+          "owner"
+        ],
+        "operations": [
+          {
+            "type": "external_interaction",
+            "line": 9,
+            "code": "(bool ok, ) = msg.sender.call{value: amount}(\"\");"
+          },
+          {
+            "type": "state_write",
+            "state_variable": "balances",
+            "line": 10,
+            "code": "balances[msg.sender] = 0;"
+          }
+        ]
+      },
+      {
+        "file": "Contract.sol",
+        "function": "adminSweep",
+        "start_line": 12,
+        "state_variables_seen": [
+          "balances",
+          "owner"
+        ],
+        "operations": [
+          {
+            "type": "guard",
+            "line": 13,
+            "code": "require(tx.origin == owner, \"not owner\");"
+          },
+          {
+            "type": "origin_auth_source",
+            "line": 13,
+            "code": "require(tx.origin == owner, \"not owner\");"
+          },
+          {
+            "type": "external_interaction",
+            "line": 14,
+            "code": "to.transfer(address(this).balance);"
+          }
+        ]
+      },
+      {
+        "file": "Contract.sol",
+        "function": "drawWinner",
+        "start_line": 16,
+        "state_variables_seen": [
+          "balances",
+          "owner"
+        ],
+        "operations": [
+          {
+            "type": "validator_controlled_source",
+            "line": 17,
+            "code": "return users[block.timestamp % users.length];"
+          }
+        ]
+      }
+    ],
+    "production_note": "Designed as a deterministic MVP; Slither/Mythril can be added behind this report schema for deeper production analysis."
+  },
+  "key_findings": [
+    {
+      "title": "External call before state update",
+      "severity": "Critical",
+      "swc_id": "SWC-107",
+      "file": "Contract.sol",
+      "line": 9,
+      "source": "synthesizer:confirmed_by_multiple_models",
+      "description": "AST-lite checks-effects-interactions trace found external interaction before later state write(s): balances."
+    },
+    {
+      "title": "Sensitive function may be missing access control",
+      "severity": "High",
+      "swc_id": "SWC-105",
+      "file": "Contract.sol",
+      "line": 7,
+      "source": "synthesizer:confirmed_by_multiple_models",
+      "description": "AST-lite function index found a privileged-looking function without an obvious authorization guard/modifier."
+    },
+    {
+      "title": "Unchecked low-level external call",
+      "severity": "High",
+      "swc_id": "SWC-104",
+      "file": "Contract.sol",
+      "line": 9,
+      "source": "synthesizer:confirmed_by_multiple_models",
+      "description": "AST-lite function tracing found a low-level call without a success guard in the same function."
+    },
+    {
+      "title": "Authorization uses tx.origin",
+      "severity": "High",
+      "swc_id": "SWC-115",
+      "file": "Contract.sol",
+      "line": 13,
+      "source": "synthesizer:confirmed_by_multiple_models",
+      "description": "AST-lite function tracing found tx.origin participating in authorization/control flow."
+    },
+    {
+      "title": "Miner/validator-influenced time dependency",
+      "severity": "Medium",
+      "swc_id": "SWC-116",
+      "file": "Contract.sol",
+      "line": 17,
+      "source": "synthesizer",
+      "description": "AST-lite function tracing found validator-influenced block data used inside the function."
+    }
+  ],
+  "verification": {
+    "ast_indexer": true,
+    "bounded_symbolic_trace": true,
+    "withdraw_trace_has_external_interaction_before_balances_write": true
+  }
+}
