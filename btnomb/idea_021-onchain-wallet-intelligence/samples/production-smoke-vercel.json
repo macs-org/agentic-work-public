@@ -1,0 +1,17 @@
+{
+  "base_url": "https://onchainwalletintelligence.vercel.app",
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "bytes": 121,
+      "has_html": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 2083,
+      "has_html": true
+    }
+  ]
+}
