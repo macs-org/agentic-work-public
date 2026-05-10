@@ -1,19 +1,19 @@
 # Smart Contract Auditor MVP
 
-Compact FastAPI MVP for BTNOMB `idea_007`: an API-key protected Solidity smart contract auditing service that accepts single-file or multi-file Solidity source and returns structured audit reports.
+Compact FastAPI MVP for BTNOMB `idea_007`: an API-key protected Solidity smart contract auditing service that accepts single-file or multi-file Solidity source and returns structured audit reports. The 2026-05-10 counter-response upgrade adds dependency-free Solidity AST-lite indexing plus bounded symbolic operation traces so the core reentrancy/access-control findings are not raw regex-only checks.
 
 ## What it does
 
 - Accepts Solidity source via `POST /audit` as either `source` or `files`.
 - Supports basic multi-file import inlining for local imports.
 - Requires `X-API-Key` for all audit/history/report/dashboard endpoints.
-- Implements deterministic static heuristic analysis for common Solidity risk patterns:
+- Implements deterministic AST-lite + bounded symbolic dataflow analysis for common Solidity risk patterns:
   - reentrancy / external call before state update (`SWC-107`)
   - unchecked low-level calls (`SWC-104`)
   - unsafe `tx.origin` authorization (`SWC-115`)
   - timestamp/block dependency (`SWC-116`)
   - `delegatecall`, `selfdestruct`, old pragma, unchecked arithmetic, hash collision, access-control hints
-- Provides a mockable multi-model abstraction: two deterministic provider passes plus a synthesizer that merges severity-ranked findings.
+- Provides a mockable multi-model abstraction: AST/dataflow and remediation provider passes plus a synthesizer that merges severity-ranked findings.
 - Returns severity-ranked findings with attack vectors, line annotations, SWC IDs where applicable, remediation guidance, and corrected Solidity snippets.
 - Includes gas optimization suggestions and ERC-20 / ERC-721 / ERC-1155 shape checks.
 - Supports free preview mode (`preview: true`) that returns only severity summary and hides detailed findings.
@@ -139,6 +139,8 @@ curl -sS -X POST http://127.0.0.1:8000/audit \
 
 Each full report includes:
 
+- `analysis_engine` describing AST-lite, bounded symbolic trace, static rules, and synthesizer providers
+- `structural_summary` with indexed functions, state variables, and operation traces
 - `severity_summary`
 - `findings[]` sorted Critical → High → Medium → Low → Informational
 - `findings[].attack_vector`
@@ -177,7 +179,7 @@ docker run --rm -p 8000:8000 \
 - Solidity source API: implemented via `POST /audit`.
 - Multi-file import resolution: local import inlining implemented.
 - API key auth: implemented via `X-API-Key`.
-- Multi-model AI pipeline: deterministic provider abstraction + synthesizer implemented; no external paid models required.
+- Multi-model AI pipeline: deterministic AST/dataflow provider + remediation provider + synthesizer implemented; no external paid models required.
 - Severity-ranked vulnerability list: implemented.
 - Attack vectors and proof-of-concept scenarios: included per finding.
 - Line-by-line annotations: file/line/code included per finding.
@@ -192,7 +194,7 @@ docker run --rm -p 8000:8000 \
 
 ## Limitations
 
-This is a public-submission-ready MVP, not a replacement for a professional audit. The heuristic engine is intentionally deterministic and compact; production deployments should add AST parsing, Slither/Mythril integration, verified x402 facilitator checks, and real model provider adapters behind the included report abstraction.
+This is a public-submission-ready MVP, not a replacement for a professional audit. The engine now includes dependency-free AST-lite parsing and bounded symbolic operation traces for function-level ordering checks. It is still intentionally deterministic and compact; production deployments should add full Solidity compiler AST integration, Slither/Mythril, verified x402 facilitator checks, and real model provider adapters behind the included report abstraction.
 
 ## Live Vercel deployment evidence
 

@@ -8,9 +8,9 @@ Submission path: `btnomb/idea_007-smart-contract-auditor`
   - `POST /audit` accepts `source` for single-file contracts.
   - `POST /audit` accepts `files[]` for multi-file projects.
 - [x] Structured security report.
-  - JSON response includes `audit_id`, `severity_summary`, `findings`, `gas_optimizations`, `compliance`, `model_reports`, `markdown_report`, and `pdf_report`.
+  - JSON response includes `audit_id`, `analysis_engine`, `structural_summary`, `severity_summary`, `findings`, `gas_optimizations`, `compliance`, `model_reports`, `markdown_report`, and `pdf_report`.
 - [x] Multi-model pipeline shape.
-  - Two deterministic model-provider passes (`heuristic-model-a`, `heuristic-model-b`) plus synthesis layer are implemented behind the same `ModelReport` abstraction that can be swapped for live LLM providers.
+  - Two deterministic model-provider passes (`ast-dataflow-model-a`, `remediation-model-b`) plus synthesis layer are implemented behind the same `ModelReport` abstraction that can be swapped for live LLM providers.
 - [x] Severity-ranked vulnerability list.
   - Findings are sorted Critical → High → Medium → Low → Informational.
 - [x] Attack vectors and proof-of-concept descriptions.
@@ -39,6 +39,11 @@ Submission path: `btnomb/idea_007-smart-contract-auditor`
 
 ## Evidence added in acceptance upgrade
 
+- [x] Counter-response AST/dataflow upgrade.
+  - `app/main.py` now includes dependency-free Solidity AST-lite function indexing, state-variable indexing, and bounded symbolic operation traces.
+  - Reentrancy/access-control findings are backed by function-level external-interaction/state-write ordering, not regex-only matching.
+  - Evidence: `evidence/ast-dataflow-sample-2026-05-11.json` and `evidence/pytest-2026-05-11.txt`.
+
 - `DEMO.md` with copy/paste commands and expected result summary.
 - `examples/VulnerableVault.sol` — intentionally vulnerable demo contract.
 - `examples/DemoToken.sol` — ERC-20 shape/compliance demo contract.
@@ -48,4 +53,4 @@ Submission path: `btnomb/idea_007-smart-contract-auditor`
 - `tests/test_e2e_http.py` — process-level HTTP E2E test for readiness, preview, x402 gate, paid audit, reports, and history.
 - `scripts/e2e_smoke.py` — smoke runner for local containers or public deployments.
 - `DEPLOYMENT.md` — production deployment/runbook and readiness evidence checklist.
-- `evidence/e2e-smoke.json` and `evidence/pytest-2026-05-08.txt` — generated verification artifacts.
+- `evidence/e2e-smoke.json`, `evidence/pytest-2026-05-08.txt`, `evidence/ast-dataflow-sample-2026-05-11.json`, and `evidence/pytest-2026-05-11.txt` — generated verification artifacts.
