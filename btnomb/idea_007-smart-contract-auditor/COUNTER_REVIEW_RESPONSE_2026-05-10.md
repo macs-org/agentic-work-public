@@ -24,6 +24,7 @@ The public artifact now addresses that criticism directly:
 - Evidence files added:
   - `evidence/pytest-2026-05-11.txt`
   - `evidence/ast-dataflow-sample-2026-05-11.json`
+  - `evidence/live-ready-2026-05-10.json` confirms the live Vercel `/ready` endpoint exposes `ast_indexer=true`, `bounded_symbolic_trace=true`, and `production_ready=true` after redeploy.
 
 ## Updated artifact URL
 

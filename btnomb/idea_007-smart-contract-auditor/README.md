@@ -203,5 +203,6 @@ This is a public-submission-ready MVP, not a replacement for a professional audi
 - Readiness: https://btnomb-idea-007-smart-contract-audi.vercel.app/ready
 - API docs: https://btnomb-idea-007-smart-contract-audi.vercel.app/docs
 - Smoke evidence: `evidence/e2e-smoke-vercel.json`
+- AST/dataflow readiness evidence after redeploy: `evidence/live-ready-2026-05-10.json`
 - Full deployment note: `LIVE_DEPLOYMENT.md`
 
