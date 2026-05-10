@@ -1,0 +1,17 @@
+{
+  "base_url": "https://patentfilingtracker.vercel.app",
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "bytes": 111,
+      "has_html": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1450,
+      "has_html": true
+    }
+  ]
+}
