@@ -1,0 +1,17 @@
+{
+  "base_url": "https://regulatorychangemonitor.vercel.app",
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "bytes": 114,
+      "has_html": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1518,
+      "has_html": true
+    }
+  ]
+}
