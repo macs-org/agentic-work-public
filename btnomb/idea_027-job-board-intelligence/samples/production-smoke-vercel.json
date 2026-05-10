@@ -1,0 +1,17 @@
+{
+  "base_url": "https://jobboardintelligence.vercel.app",
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "bytes": 98,
+      "has_html": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1412,
+      "has_html": true
+    }
+  ]
+}
