@@ -26,6 +26,9 @@ def main() -> int:
         "status_200": status == 200,
         "has_title": "Captionator" in html,
         "has_upload_copy": "Upload video" in html,
+        "has_transcription_copy": "Transcribe uploaded video" in html,
+        "has_style_copy": "Style captions for the final video" in html,
+        "has_video_download_copy": "Download captioned video" in html,
         "has_export_copy": "Export VTT" in html,
     }
     result = {

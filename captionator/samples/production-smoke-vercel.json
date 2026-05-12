@@ -1,13 +1,16 @@
 {
   "url": "https://captionator-nine.vercel.app/",
   "status": 200,
-  "elapsed_ms": 284,
+  "elapsed_ms": 300,
   "checks": {
     "status_200": true,
     "has_title": true,
     "has_upload_copy": true,
+    "has_transcription_copy": true,
+    "has_style_copy": true,
+    "has_video_download_copy": true,
     "has_export_copy": true
   },
   "ok": true,
-  "html_preview": "<!DOCTYPE html><html data-dpl-id=\"dpl_7GVrBnUoEDNNo23kAWUrtKYqtpmL\" lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/0a5i1kegmcs6~.css?dpl=dpl_7GVrBnUoEDNNo23kAWUrtKYqtpmL\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/0ht900cau6_ur.js?dpl=dpl_7GVrBnUoEDNNo23kAWUrtKYqtpmL\"/><script src=\"/_next/static/chunks/03ryj2_zvrvur.js?dpl=dpl_"
+  "html_preview": "<!DOCTYPE html><html data-dpl-id=\"dpl_5EGr8fxVioQgL6HeCAJG7ULj1FM8\" lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/0lrfg3ffd39xl.css?dpl=dpl_5EGr8fxVioQgL6HeCAJG7ULj1FM8\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/0ht900cau6_ur.js?dpl=dpl_5EGr8fxVioQgL6HeCAJG7ULj1FM8\"/><script src=\"/_next/static/chunks/03ryj2_zvrvur.js?dpl=dpl_"
 }
