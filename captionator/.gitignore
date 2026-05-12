@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Vercel local project link; do not publish
+.vercel/
+
+# env/secrets
+.env
+.env.*
+!.env.example
+
+# OS/editor
+.DS_Store
+*.log
+.vercel
