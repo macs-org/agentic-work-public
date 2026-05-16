@@ -1,0 +1,70 @@
+{
+  "all_ok": true,
+  "base_url": "https://test-launch-flow.vercel.app",
+  "checked_at": "2026-05-16T16:12:40.250210+00:00",
+  "checks": [
+    {
+      "ok": true,
+      "path": "/",
+      "sample": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Home \u00b7 clarity-act.fun test launch flow</title>\n  <style>\n    :root { color-scheme: dark; -",
+      "status": 200,
+      "url": "https://test-launch-flow.vercel.app/"
+    },
+    {
+      "ok": true,
+      "path": "/health",
+      "sample": "{\"status\":\"ok\",\"app\":\"clarity-act-dot-fun/test-launch-flow\",\"no_auth_public_demo\":true}",
+      "status": 200,
+      "url": "https://test-launch-flow.vercel.app/health"
+    },
+    {
+      "ok": true,
+      "path": "/ready",
+      "sample": "{\"status\":\"ready\",\"requirement_count\":80,\"requirement_range\":[\"R-001\",\"R-080\"],\"matrix_loaded\":true,\"errors\":[],\"public_paths\":[\"/\",\"/token/create\",\"/forms/demo/offering-statement\",\"/forms/demo/purchaser-information\",\"/reports/0xDemo/semian",
+      "status": 200,
+      "url": "https://test-launch-flow.vercel.app/ready"
+    },
+    {
+      "ok": true,
+      "path": "/token/create",
+      "sample": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Token creation flow \u00b7 clarity-act.fun test launch flow</title>\n  <style>\n    :root { color-",
+      "status": 200,
+      "url": "https://test-launch-flow.vercel.app/token/create"
+    },
+    {
+      "ok": true,
+      "path": "/forms/demo/offering-statement",
+      "sample": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hosted offering statement \u00b7 clarity-act.fun test launch flow</title>\n  <style>\n    :root { ",
+      "status": 200,
+      "url": "https://test-launch-flow.vercel.app/forms/demo/offering-statement"
+    },
+    {
+      "ok": true,
+      "path": "/forms/demo/purchaser-information",
+      "sample": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hosted purchaser information \u00b7 clarity-act.fun test launch flow</title>\n  <style>\n    :root",
+      "status": 200,
+      "url": "https://test-launch-flow.vercel.app/forms/demo/purchaser-information"
+    },
+    {
+      "ok": true,
+      "path": "/reports/0xDemo/semiannual/2026-H1",
+      "sample": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hosted semiannual report \u00b7 2026-H1 \u00b7 clarity-act.fun test launch flow</title>\n  <style>\n   ",
+      "status": 200,
+      "url": "https://test-launch-flow.vercel.app/reports/0xDemo/semiannual/2026-H1"
+    },
+    {
+      "ok": true,
+      "path": "/certifications/0xDemo/maturity",
+      "sample": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Hosted maturity certification package \u00b7 clarity-act.fun test launch flow</title>\n  <style>\n",
+      "status": 200,
+      "url": "https://test-launch-flow.vercel.app/certifications/0xDemo/maturity"
+    },
+    {
+      "ok": true,
+      "path": "/token/0xDemo",
+      "sample": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Demo token \u00b7 clarity-act.fun test launch flow</title>\n  <style>\n    :root { color-scheme: d",
+      "status": 200,
+      "url": "https://test-launch-flow.vercel.app/token/0xDemo"
+    }
+  ]
+}

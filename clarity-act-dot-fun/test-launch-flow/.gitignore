@@ -1,0 +1,11 @@
+.vercel/
+.venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite
+*.sqlite3
+.DS_Store
+.vercel
